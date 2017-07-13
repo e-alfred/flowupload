@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<info>
+	<id>flowupload</id>
+	<name>Flow Upload</name>
+	<description>Provides functions to upload large files with your HTML5-Browser.</description>
+	<version>0.4</version>
+	<licence>None</licence>
+	<author>Patrick Schwarz</author>
+	<category>other</category>
+	<website>https://p-schwarz.de</website>
+	<dependencies>
+		<owncloud min-version="8.1" max-version="11"/>
+		<nextcloud min-version="9" max-version="12"/>
+		<php min-version="5.3"/>
+	</dependencies>
+	<shipped>false</shipped>
+</info>
