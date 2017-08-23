@@ -10,7 +10,7 @@ Early alpha state, not approved for security
 
 Installation
 ------------
-Clone contents of the repository [release](https://github.com/e-alfred/flowupload) in your `apps` directory and rename it to `flowupload`.
+Clone the contents of the repository into your `apps` directory and rename it to `flowupload`, if necessary.
 
 Licenses
 -------
