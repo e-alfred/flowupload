@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <info>
-	<id>flowupload</id>
-	<name>Flow Upload</name>
-	<description>Provides functions to upload large files with your HTML5-Browser.</description>
-	<version>0.5</version>
-	<licence>AGPL</licence>
-	<author>Patrick Schwarz</author>
-	<author>e-alfred</author>
-  <category>tools</category>
-  <website>https://github.com/e-alfred/flowupload</website>
-  <repository>https://github.com/e-alfred/flowupload</repository>
-  <bugs>https://github.com/e-alfred/flowupload/issues</bugs>
-  <documentation>https://github.com/e-alfred/flowupload</documentation>
-  <screenshot>https://github.com/e-alfred/flowupload/raw/master/appinfo/screenshot-flowupload.png</screenshot>
-	<dependencies>
-		<owncloud min-version="8.1" max-version="11"/>
-		<nextcloud min-version="9" max-version="12"/>
-		<php min-version="5.3"/>
-	</dependencies>
+    <id>flowupload</id>
+    <name>Flow Upload</name>
+    <description>Provides functions to upload large files with your HTML5-Browser.</description>
+    <version>0.5</version>
+    <licence>AGPL</licence>
+    <author>Patrick Schwarz</author>
+    <author>e-alfred</author>
+    <category>tools</category>
+    <website>https://github.com/e-alfred/flowupload</website>
+    <repository>https://github.com/e-alfred/flowupload</repository>
+    <bugs>https://github.com/e-alfred/flowupload/issues</bugs>
+    <documentation>https://github.com/e-alfred/flowupload</documentation>
+    <screenshot>https://github.com/e-alfred/flowupload/raw/master/appinfo/screenshot-flowupload.png</screenshot>
+    <dependencies>
+        <owncloud min-version="8.1" max-version="11"/>
+        <nextcloud min-version="9" max-version="12"/>
+        <php min-version="5.3"/>
+    </dependencies>
 </info>
