@@ -45,11 +45,20 @@ if (\OC\Files\Filesystem::isValidPath($path)) {
 
 	// Store file
 	if (\Flow\Basic::save($userhome . "/files/" . $result . $path, $config, $request)) {
-		OC_Hook::emit(
+
+                // no real copy, file comes from somewhere else, e.g. version rollback -> just update the file cache and the webdav properties without all the other post_write actions
+//                \OC\Files\Cache\Cache::checkUpdate($result . $path);
+//                \OC\Files\Filesystem::removeETagHook(array("path" => $result . $path));
+
+
+/*		OC_Hook::emit(
 			\OC\Files\Filesystem::CLASSNAME,
 			\OC\Files\Filesystem::signal_post_write,
 			array( \OC\Files\Filesystem::signal_param_path => $result . $path)
-		);
+		);*/
+
+		\OC\Files\Filesystem::touch($result . $path);
+
 	} else {
 		// This is not a final chunk or request is invalid, continue to upload.
 	}
