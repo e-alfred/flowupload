@@ -6,7 +6,7 @@ Early alpha state, not approved for security
 
 *) Folder upload only works in Chrome browser
 
-![](https://raw.githubusercontent.com/e-alfred/flowupload/master/appinfo/screenshot-flowupload.png)
+![](https://raw.githubusercontent.com/e-alfred/flowupload/master/appinfo/flowupload.gif)
 
 Installation
 ------------
