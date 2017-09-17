@@ -2,7 +2,7 @@ Description
 -----------
 Large File Uploader to upload files and folders* with unlimited size. It uses Angular File Upload (https://github.com/flowjs/ng-flow) for handling.
 
-Early alpha state, not approved for security
+Early alpha state, not approved for security. This app does not support server side encryption at the moment.
 
 *) Folder upload only works in Chrome browser
 
@@ -10,7 +10,7 @@ Early alpha state, not approved for security
 
 Installation
 ------------
-Clone the contents of the repository into your `apps` directory and rename it to `flowupload`, if necessary.
+Clone the contents of the repository into your `apps` directory and rename it to `flowupload`, if necessary. Otherwise simply download it from the Nextcloud app store within your Nextcloud instance: https://apps.nextcloud.com/apps/flowupload
 
 Licenses
 -------
