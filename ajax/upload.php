@@ -20,7 +20,7 @@ $request = new \Flow\Request();
 
 // Filter paths
 $path = preg_replace('/(\.\.\/|~|\/\/)/i', '', $request->getRelativePath());
-$path = preg_replace('/[^a-z0-9äöüß \(\)\.\-_\/]/i', '', $path);
+$path = preg_replace('/([^a-zA-Z0-9]+)/', '', $path);
 $path = trim($path, '/');
 
 // Skip existing files // ToDo: Check if file size changed?
