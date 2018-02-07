@@ -1,31 +1,31 @@
 <div ng-app="app" flow-init id="app" flow-prevent-drop ng-style="style" style="margin: 2em; width:auto">
 
-  <span class="btn" flow-btn>Select File</span>
-  <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory">Select Folder</span>
+  <span class="btn" flow-btn><?= $l->t('Select File'); ?></span>
+  <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Select Folder'); ?></span>
 
   <hr class="soften">
 
   <div class="alert" flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''"
-          ng-class="class">... or drag and drop your files here
+          ng-class="class"><?= $l->t('... or drag and drop your files here'); ?>
   </div>
 
   <hr class="soften">
 
-  <h2>Transfers</h2>
+  <h2><?= $l->t('Transfers'); ?></h2>
   <p>
-    <a class="btn btn-small btn-success" ng-click="$flow.resume()">Upload</a>
-    <a class="btn btn-small btn-danger" ng-click="$flow.pause()">Pause</a>
-    <a class="btn btn-small btn-info" ng-click="$flow.cancel()">Cancel</a>
-    <span class="label label-info">Size: {{$flow.getSize() | bytes}}</span>
-    <span class="label label-info" ng-if="$flow.isUploading()">Uploading...</span>
+    <a class="btn btn-small btn-success" ng-click="$flow.resume()"><?= $l->t('Upload'); ?></a>
+    <a class="btn btn-small btn-danger" ng-click="$flow.pause()"><?= $l->t('Pause'); ?></a>
+    <a class="btn btn-small btn-info" ng-click="$flow.cancel()"><?= $l->t('Cancel'); ?></a>
+    <span class="label label-info"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
+    <span class="label label-info" ng-if="$flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
   </p>
   <table class="table table-hover table-bordered table-striped" flow-transfers>
     <thead>
     <tr>
       <th style="width:5%">#</th>
-      <th>Name</th>
-      <th style="width:10%">Size</th>
-      <th style="width:20%">Progress</th>
+      <th><?= $l->t('Name'); ?></th>
+      <th style="width:10%"><?= $l->t('Size'); ?></th>
+      <th style="width:20%"><?= $l->t('Progress'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -37,22 +37,22 @@
         <div class="btn-group" ng-if="!file.isComplete() || file.error()">
           <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()"></progress>
           <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
-            Pause
+            <?= $l->t('Pause'); ?>
           </a>
           <a class="btn btn-mini btn-warning" ng-click="file.resume()" ng-show="file.paused">
-            Resume
+            <?= $l->t('Resume'); ?>
           </a>
           <a class="btn btn-mini btn-danger" ng-click="file.cancel()">
-            Cancel
+            <?= $l->t('Cancel'); ?>
           </a>
           <a class="btn btn-mini btn-info" ng-click="file.retry()" ng-show="file.error">
-            Retry
+            <?= $l->t('Retry'); ?>
           </a>
         </div>
-	<span ng-if="file.isComplete() && !file.error()">Completed</span>
+	<span ng-if="file.isComplete() && !file.error()"><?= $l->t('Completed'); ?></span>
       </td>
     </tr>
     </tbody>
   </table>
-  <p><a href="../files?dir=%2Fflowupload">The files will be saved in your home directory.</a></p>
+  <p><a href="../files?dir=%2Fflowupload"><?= $l->t('The files will be saved in your home directory.'); ?></a></p>
  </div>
