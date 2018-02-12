@@ -1,6 +1,6 @@
 <?php
 
-\OCP\App::addNavigationEntry(array(
+\OC::$server->getNavigationManager()->add(array(
 	'id'    => 'flowupload',
 	'order' => 74,
 	'href' => \OCP\Util::linkToRoute('flowupload_index'),
