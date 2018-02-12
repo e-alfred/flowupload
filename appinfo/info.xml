@@ -16,6 +16,5 @@
     <dependencies>
         <owncloud min-version="8.1" max-version="11"/>
         <nextcloud min-version="9" max-version="13"/>
-        <php min-version="5.3"/>
     </dependencies>
 </info>
