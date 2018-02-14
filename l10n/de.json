@@ -11,6 +11,6 @@
   "Progress" : "Fortschritt",
   "Retry" : "Wiederholen",
   "Completed" : "Fertig",
-  "The files will be saved in your home directory." : "Die Dateien werden in Ihrem Account unter /flowupload gespeichert."
+  "The files will be saved in your home directory." : "Die Dateien werden in Ihrem Account im Ordner flowupload gespeichert."
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
