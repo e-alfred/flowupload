@@ -2,6 +2,7 @@ OC.L10N.register(
   "flowupload", {
     "FlowUpload" : "Envoyer des fichiers",
     "Select File": "Sélectionnez un fichier",
+    "Select Folder": "Sélectionner le dossier",
     "... or drag and drop your files here" : "... ou déposez ici vos fichiers",
     "Transfers" : "Transfères",
     "Upload" : "Envoyer",
