@@ -10,7 +10,7 @@ OC.L10N.register(
     "Cancel" : "Zrušit",
     "Uploading" : "Nahrávání",
     "Size" : "Velikost",
- "Name" : "Jméno",
+    "Name" : "Jméno",
     "Progress" : "Průběh",
     "Retry" : "Znovu",
     "Resume" : "Pokračuj",
