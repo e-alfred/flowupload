@@ -1,6 +1,6 @@
 <?php
 // Restrict access // ToDo: Enabled for current user?
-if (!\OCP\User::isLoggedIn() || !\OCP\App::isEnabled('flowupload')) {
+if (!\OCP\User::isLoggedIn()) {
 	\OC_Response::setStatus(403);
 }
 
