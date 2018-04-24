@@ -20,6 +20,10 @@
 
   function addNewLocation($location) {
     // ToDo: Add to database
+  	$location = preg_replace('/(\.\.\/|~|\/\/)/i', '', '/'.$location.'/');
+    $location = preg_replace('/[^a-z0-9äöüß \(\)\.\-_\/]/i', '', $location);
+  	$location = trim($location);
+
     return $location;
   }
 
@@ -38,9 +42,11 @@
 
       \OC_Response::setStatus(201);
 
+      $location = addNewLocation($_POST['location']);
+
       echo json_encode(array(
-          'id' => addNewLocation($_POST['location']),
-          'location' => $_POST['location'],
+          'id' => preg_replace('#/#', '', $location),
+          'location' => $location,
           'pause' => 0,
           'uploading' => 0,
           'completed' => 0,

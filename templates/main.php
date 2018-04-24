@@ -1,16 +1,11 @@
 <div id="content" ng-app="app" class="app-files" role="main">
   <div id="app-navigation">
     <ul id="locations" class="with-icon" ng-controller="locations">
-      <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, $flow) && beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="collapsible locations">
+      <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="collapsible locations">
         <button flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" class="collapse"></button>
 
-        <a href="#" class="icon-folder" ng-click="setLocation(location.id)">{{location.location}}</a>
+        <a href="#" class="icon-folder" ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
         <ul>
-          <li ng-click="seeUploads($event, 'pause')"><a class="icon-pause" href="#"><?= $l->t('Waiting'); ?> (<span class="upload-in-pause">{{location.pause}}</span>)</a></li>
-          <li ng-click="seeUploads($event, 'uploading')"><a class="icon-upload" href="#"><?= $l->t('Uploading'); ?> (<span class="upload-uploading">{{location.uploading}}</span>)</a></li>
-          <li ng-click="seeUploads($event, 'completed')"><a class="icon-checkmark" href="#"><?= $l->t('Completed'); ?> (<span class="upload-completed">{{location.completed}}</span>)</a></li>
-          <li ng-click="seeUploads($event, 'aborted')"><a class="icon-close" href="#"><?= $l->t('Aborted'); ?> (<span class="upload-aborted">{{location.aborted}}</span>)</a></li>
-
     		  <li><a class="icon-add" href="#" flow-btn><?= $l->t('Upload a file'); ?></a></li>
     		  <li><a class="icon-add" href="#" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Upload a whole folder'); ?></a></li>
         </ul>
@@ -51,21 +46,9 @@
   	</div>
   </div>
 
-  <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="margin-left: 2%; width:auto">
-
-    <span class="btn" flow-btn><?= $l->t('Select File'); ?></span>
-    <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Select Folder'); ?></span>
-
-    <hr class="soften">
-
-    <div class="alert" flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''"
-            ng-class="class"><?= $l->t('... or drag and drop your files here'); ?>
-    </div>
-
-    <hr class="soften">
-
-    <h2><?= $l->t('Transfers'); ?></h2>
-    <p>
+  <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="padding: 2.5%; width:auto">
+    <h2 style="padding-bottom: 25px;"><?= $l->t('Transfers'); ?></h2>
+    <p style="padding-bottom: 5px;">
       <a class="btn btn-small btn-success" ng-click="$flow.resume()"><?= $l->t('Upload'); ?></a>
       <a class="btn btn-small btn-danger" ng-click="$flow.pause()"><?= $l->t('Pause'); ?></a>
       <a class="btn btn-small btn-info" ng-click="$flow.cancel()"><?= $l->t('Cancel'); ?></a>
@@ -82,7 +65,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="file in transfers">
+      <tr ng-repeat="file in $flow.files">
         <td>{{$index+1}}</td>
         <td title="UID: {{file.uniqueIdentifier}}">{{file.relativePath}}</td>
         <td title="Chunks: {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
@@ -107,5 +90,5 @@
       </tr>
       </tbody>
     </table>
-    <p><a href="../files?dir=%2Fflowupload"><?= $l->t('The files will be saved in your home directory.'); ?></a></p>
+    <p><?= $l->t('The files will be saved in your home directory.'); ?></p>
  </div>

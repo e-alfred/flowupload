@@ -14,9 +14,9 @@ var app = angular.module('app', ['flow']).config(['flowFactoryProvider', functio
 		chunkRetryInterval: 5000,
 		simultaneousUploads: 4
 	};
-	flowFactoryProvider.on('catchAll', function ($event, $scope) {
-	if (arguments[0] === 'fileAdded')
-	console.log(arguments[1].uniqueIdentifier);
+	flowFactoryProvider.on('catchAll', function ($event, file) {
+		if ($event === 'fileAdded')
+			console.log(file);
 	});
 }]);
 
@@ -33,9 +33,21 @@ app.filter('bytes', function () {
 });
 
 app.controller('location', function ($scope) {
-	$scope.init = function (id, $flow) {
-		$scope.$flow = $flow;
+	$scope.init = function (id, name) {
+		$scope.locationId = id;
+		$scope.locationName = name;
 	}
+
+	$scope.seeUploads = function ($event, type) {
+		$event.stopPropagation();
+		$event.preventDefault();
+
+		console.log($scope);
+
+		$('#locations li.active').removeClass('active');
+
+		$($event.currentTarget).addClass('active');
+	};
 
 	$scope.beforeUploading = {
 		query: function (flowFile, flowChunk) {
@@ -43,43 +55,41 @@ app.controller('location', function ($scope) {
 			console.log('File', flowFile);
 			console.log('Chunk', flowChunk);
 			return {
-				id: 'Coucou'
+				//id: $scope.locationId
+				// Temporary:
+				target: $scope.locationName
 			};
 		}
-	};
-
-	$scope.seeUploads = function ($event, type) {
-		$event.stopPropagation();
-		$event.preventDefault();
-
-		$('#locations li.active').removeClass('active');
-
-		$($event.currentTarget).addClass('active');
 	};
 });
 
 app.controller('flow', function ($scope) {
 	$scope.locationId = 0;
 
-	$scope.$on('changeLocation', function (event, id) {
+	$scope.$on('changeLocation', function (event, id, $flow) {
 		$scope.locationId = id;
+		$scope.$flow = $flow;
 
 		console.log(id);
+		console.log($flow);
 	});
 });
 
 app.controller('locations', function ($rootScope, $scope, $http) {
 	$scope.isOpen = false;
-	$scope.locationId = 0;
 
 	$scope.reloadLocations = function () {
 		setTimeout(function () {
-			$scope.setLocation($scope.locationId);
+			if ($scope.locationId === undefined)
+				$($($('.locations')[0]).find('a')).click();
+			else
+				$($('#location-' + $scope.locationId).find('a')).click();
 		}, 100);
 	}
 
-	$scope.setLocation = function (id) {
-		$rootScope.$broadcast('changeLocation', id);
+	$scope.setLocation = function (id, $flow) {
+		$rootScope.$broadcast('changeLocation', id, $flow);
+		$scope.$flow = $flow;
 		$scope.locationId = id;
 
 		$('.locations').each(function () {
