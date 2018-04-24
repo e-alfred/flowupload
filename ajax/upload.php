@@ -1,6 +1,6 @@
 <?php
 // Restrict access // ToDo: Enabled for current user?
-if (!\OCP\User::isLoggedIn() || !\OCP\App::isEnabled('flowupload')) {
+if (!\OCP\User::isLoggedIn()) {
 	\OC_Response::setStatus(403);
 }
 
@@ -21,7 +21,7 @@ $request = new \Flow\Request();
 
 // Filter paths
 $path = preg_replace('/(\.\.\/|~|\/\/)/i', '', $request->getRelativePath());
-$path = preg_replace('/[^a-z0-9äöüß \(\)\.\-_\/]/i', '', $path);
+$path = preg_replace('/[^a-z0-9äöüßáàâãéèêíìîóòõôúùûºªç&$%*#@ \(\)\.\-_\/]/i', '', $path);
 $path = trim($path, '/');
 
 // Skip existing files // ToDo: Check if file size changed?
