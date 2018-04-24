@@ -1,16 +1,18 @@
 <div id="content" ng-app="app" class="app-files" role="main">
   <div id="app-navigation">
     <ul id="locations" class="with-icon" ng-controller="locations">
-      <li ng-repeat="location in locations" id="location-{{location.id}}" class="collapsible" ng-click="isOpen = !isOpen" ng-class="{'open' : isOpen}">
-        <button class="collapse"></button>
+      <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, $flow) && beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="collapsible locations">
+        <button flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" class="collapse"></button>
 
-        <a href="#" class="icon-folder">{{location.location}}</a>
+        <a href="#" class="icon-folder" ng-click="setLocation(location.id)">{{location.location}}</a>
         <ul>
-          <li ng-click="seeUploads($event, location.id, 'pause')"><a class="icon-pause" href="#"><?= $l->t('Waiting'); ?> (<span class="upload-in-pause">{{location.pause}}</span>)</a></li>
-          <li ng-click="seeUploads($event, location.id, 'uploading')"><a class="icon-upload" href="#"><?= $l->t('Uploading'); ?> (<span class="upload-uploading">{{location.uploading}}</span>)</a></li>
-          <li ng-click="seeUploads($event, location.id, 'completed')"><a class="icon-checkmark" href="#"><?= $l->t('Completed'); ?> (<span class="upload-completed">{{location.completed}}</span>)</a></li>
-          <li ng-click="seeUploads($event, location.id, 'aborted')"><a class="icon-close" href="#"><?= $l->t('Aborted'); ?> (<span class="upload-aborted">{{location.aborted}}</span>)</a></li>
-          <li ng-click="addUpload(location.id)"><a class="icon-add" href="#"><?= $l->t('Upload in this location'); ?></a></li>
+          <li ng-click="seeUploads($event, 'pause')"><a class="icon-pause" href="#"><?= $l->t('Waiting'); ?> (<span class="upload-in-pause">{{location.pause}}</span>)</a></li>
+          <li ng-click="seeUploads($event, 'uploading')"><a class="icon-upload" href="#"><?= $l->t('Uploading'); ?> (<span class="upload-uploading">{{location.uploading}}</span>)</a></li>
+          <li ng-click="seeUploads($event, 'completed')"><a class="icon-checkmark" href="#"><?= $l->t('Completed'); ?> (<span class="upload-completed">{{location.completed}}</span>)</a></li>
+          <li ng-click="seeUploads($event, 'aborted')"><a class="icon-close" href="#"><?= $l->t('Aborted'); ?> (<span class="upload-aborted">{{location.aborted}}</span>)</a></li>
+
+    		  <li><a class="icon-add" href="#" flow-btn><?= $l->t('Upload a file'); ?></a></li>
+    		  <li><a class="icon-add" href="#" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Upload a whole folder'); ?></a></li>
         </ul>
       </li>
 
@@ -18,7 +20,6 @@
         <a href="#"><?= $l->t('New destination'); ?></a>
         <div class="app-navigation-entry-utils">
           <ul>
-            <li id="app-navigation-entry-utils-search" class="app-navigation-entry-utils-menu-button"><button class="icon-search"></button></li>
             <li id="app-navigation-entry-utils-create" class="app-navigation-entry-utils-menu-button"><button class="icon-add"></button></li>
           </ul>
         </div>
@@ -50,7 +51,7 @@
   	</div>
   </div>
 
-  <div ng-controller="flowInfo" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="margin-left: 2%; width:auto">
+  <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="margin-left: 2%; width:auto">
 
     <span class="btn" flow-btn><?= $l->t('Select File'); ?></span>
     <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Select Folder'); ?></span>

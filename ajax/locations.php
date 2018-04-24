@@ -20,7 +20,7 @@
 
   function addNewLocation($location) {
     // ToDo: Add to database
-    return 2;
+    return $location;
   }
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,15 +39,13 @@
       \OC_Response::setStatus(201);
 
       echo json_encode(array(
-        "new" => array(
           'id' => addNewLocation($_POST['location']),
           'location' => $_POST['location'],
           'pause' => 0,
           'uploading' => 0,
           'completed' => 0,
           'aborted' => 0
-        )
-      ));
+        ));
     }
     else {
       \OC_Response::setStatus(400);
