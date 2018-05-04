@@ -4,7 +4,7 @@
     <name>Flow Upload</name>
     <description>Provides functions to upload large files with your HTML5-Browser.</description>
     <version>0.0.7</version>
-    <licence>AGPL</licence>
+    <licence>agpl</licence>
     <author>Patrick Schwarz</author>
     <author>e-alfred</author>
     <category>tools</category>
