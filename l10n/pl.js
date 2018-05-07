@@ -10,6 +10,7 @@ OC.L10N.register(
     "Cancel" : "Anuluj",
     "Uploading" : "Przesyłanie",
     "Size" : "Rozmiar",
+    "Name" : "Nazwa",
     "Progress" : "Postęp",
     "Retry" : "Ponów",
     "Resume" : "Wznów",
