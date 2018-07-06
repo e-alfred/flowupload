@@ -1,7 +1,7 @@
 <?php
 // Restrict access // ToDo: Enabled for current user?
 if (!\OC::$server->getUserSession()->isLoggedIn()) {
-  http_response_code(403)
+  http_response_code(403);
 }
 
 // Load upload classes
