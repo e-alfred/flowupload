@@ -25,8 +25,15 @@ $path = trim($path, '/');
 
 // Skip existing files // ToDo: Check if file size changed?
 if (\OC\Files\Filesystem::file_exists($result . $path)) {
-	http_response_code(200);
-	die();
+	//http_response_code(200);  	//Comment if same name file upload.
+	//die();			//Comment if same name file upload.
+	
+	// Create files version
+	$source = $result . $path;
+	$list_uid_filename = OCA\Files_Versions\Storage::getUidAndFilename($source);
+	$store = OCA\Files_Versions\Storage::store($list_uid_filename[1]);
+	
+	$file_exist = true;
 }
 
 // Process upload
@@ -47,15 +54,19 @@ if (\OC\Files\Filesystem::isValidPath($path)) {
 	if (\Flow\Basic::save($userhome . "/files/" . $result . $path, $config, $request)) {
 
                 // no real copy, file comes from somewhere else, e.g. version rollback -> just update the file cache and the webdav properties without all the other post_write actions
-//                \OC\Files\Cache\Cache::checkUpdate($result . $path);
-//                \OC\Files\Filesystem::removeETagHook(array("path" => $result . $path));
+		// \OC\Files\Cache\Cache::checkUpdate($result . $path);
+		// \OC\Files\Filesystem::removeETagHook(array("path" => $result . $path));
 
-
-/*		OC_Hook::emit(
-			\OC\Files\Filesystem::CLASSNAME,
-			\OC\Files\Filesystem::signal_post_write,
-			array( \OC\Files\Filesystem::signal_param_path => $result . $path)
-		);*/
+		/*
+		Create thumb and Preview for uploaded file
+		*/
+		if($file_exist) {
+			OC_Hook::emit(
+				\OC\Files\Filesystem::CLASSNAME,
+				\OC\Files\Filesystem::signal_post_write,
+				array( \OC\Files\Filesystem::signal_param_path => $result . $path)
+			);
+		}
 
 		\OC\Files\Filesystem::touch($result . $path);
 
