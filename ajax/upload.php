@@ -23,6 +23,7 @@ $path = preg_replace('/(\.\.\/|~|\/\/)/i', '', $request->getRelativePath());
 $path = preg_replace('/[^a-z0-9äöüßáàâãéèêíìîóòõôúùûºªç&$%*#@ \(\)\.\-_\/]/i', '', $path);
 $path = trim($path, '/');
 
+$file_exist = false;
 // Skip existing files // ToDo: Check if file size changed?
 if (\OC\Files\Filesystem::file_exists($result . $path)) {
 	//http_response_code(200);  	//Comment if same name file upload.
