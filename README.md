@@ -14,6 +14,12 @@ Clone the contents of the repository into your `apps` directory and rename it to
 
 Version information
 -------------
+
+Version 0.0.8:
+- Fixed deprecated calls for compatibility with Nextcloud 14
+- Added translation for Polish, Czech, Spanish (thanks to @joebordes @CHazz @mzary)
+- Updated Angular.js to version 1.6.9
+
 Version 0.0.7:
 - Added localisation (thanks @NastuzziSamy)
 - Added folder upload support for Firefox, Chrome and Edge
