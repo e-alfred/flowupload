@@ -6,7 +6,7 @@ OC.L10N.register(
     "Select Folder": "Выбрать папку",
     "... or drag and drop your files here" : "... или перетащите сюда ваши файлы",
     "Transfers" : "Передачи",
-    "Upload" : "Загрузка",
+    "Upload" : "Загрузить",
     "Pause" : "Пауза",
     "Cancel" : "Отмена",
     "Uploading" : "Загрузка",
