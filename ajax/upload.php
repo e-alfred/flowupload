@@ -1,7 +1,7 @@
 <?php
 // Restrict access // ToDo: Enabled for current user?
-if (!\OCP\User::isLoggedIn()) {
-	\OC_Response::setStatus(403);
+if (!\OC::$server->getUserSession()->isLoggedIn()) {
+  http_response_code(403);
 }
 
 // Load upload classes
@@ -26,7 +26,7 @@ $path = trim($path, '/');
 
 // Skip existing files // ToDo: Check if file size changed?
 if (\OC\Files\Filesystem::file_exists($result . $path)) {
-	\OC_Response::setStatus(200);
+	http_response_code(200);
 	die();
 }
 

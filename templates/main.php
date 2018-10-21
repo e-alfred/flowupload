@@ -29,21 +29,6 @@
     </ul>
 
     <input id="currentLocation" type="hidden" />
-
-    <div id="app-settings">
-  		<div id="app-settings-header">
-  			<button class="settings-button" data-apps-slide-toggle="#app-settings-content">Paramètres</button>
-  		</div>
-  		<div id="app-settings-content">
-  			<div id="files-setting-showhidden">
-  				<input class="checkbox" id="showhiddenfilesToggle" checked="checked" type="checkbox">
-  				<label for="showhiddenfilesToggle"></label>
-  			</div>
-  			<label for="webdavurl">WebDAV</label>
-  			<input id="webdavurl" readonly="readonly" value="https://cloud.nastuzzi.fr/remote.php/webdav/" type="text">
-  			<em>Utilisez cette adresse pour <a href="https://docs.nextcloud.com/server/12/go.php?to=user-webdav" target="_blank" rel="noreferrer noopener">accéder à vos fichiers par WebDAV</a></em>
-  		</div>
-  	</div>
   </div>
 
   <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="padding: 2.5%; width:auto">
@@ -85,7 +70,7 @@
               <?= $l->t('Retry'); ?>
             </a>
           </div>
-  	<span ng-if="file.isComplete() && !file.error()"><?= $l->t('Completed'); ?></span>
+  	      <span ng-if="file.isComplete() && !file.error()"><?= $l->t('Completed'); ?></span>
         </td>
       </tr>
       </tbody>
