@@ -15,6 +15,11 @@ Clone the contents of the repository into your `apps` directory and rename it to
 Version information
 -------------
 
+Version 0.0.9:
+- Added Russian translation (thanks to @DmDS)
+- Added support for Nextcloud 15
+- Fix deprecated calls for compatibility with new Nextcloud releases
+
 Version 0.0.8:
 - Fixed deprecated calls for compatibility with Nextcloud 14
 - Added translation for Polish, Czech, Spanish (thanks to @joebordes @CHazz @mzary)
