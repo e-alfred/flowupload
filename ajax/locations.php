@@ -2,7 +2,7 @@
   \OCP\User::checkLoggedIn();
 
   if (!\OCP\App::isEnabled('flowupload')) {
-  	\OC_Response::setStatus(403);
+  	http_response_code(403);
   }
 
   function getAllLocations() {
@@ -36,12 +36,12 @@
 
       foreach ($locations as $location) {
         if ($location['location'] === $_POST['location']) {
-          \OC_Response::setStatus(409);
+          http_response_code(409);
           die();
         }
       }
 
-      \OC_Response::setStatus(201);
+      http_response_code(201);
 
       $location = addNewLocation($_POST['location']);
 
@@ -55,7 +55,7 @@
         ));
     }
     else {
-      \OC_Response::setStatus(400);
+      http_response_code(400);
     }
 
     die();
