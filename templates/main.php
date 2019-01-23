@@ -1,4 +1,4 @@
-<div ng-app="app" flow-init id="app" flow-prevent-drop ng-style="style" style="margin: 2em; width:auto">
+<div ng-app="app" flow-init id="app" flow-prevent-drop ng-style="style" style="margin: 2em; width:100%">
 
   <span class="btn" flow-btn><?= $l->t('Select File'); ?></span>
   <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Select Folder'); ?></span>
