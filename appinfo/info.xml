@@ -3,7 +3,7 @@
     <id>flowupload</id>
     <name>Flow Upload</name>
     <description>Provides functions to upload large files with your HTML5-Browser.</description>
-    <version>0.0.9</version>
+    <version>0.1.0</version>
     <licence>agpl</licence>
     <author>Patrick Schwarz</author>
     <author>e-alfred</author>
@@ -14,6 +14,6 @@
     <documentation>https://github.com/e-alfred/flowupload</documentation>
     <screenshot>https://github.com/e-alfred/flowupload/raw/master/appinfo/flowupload.gif</screenshot>
     <dependencies>
-        <nextcloud min-version="9" max-version="15"/>
+        <nextcloud min-version="14" max-version="16"/>
     </dependencies>
 </info>
