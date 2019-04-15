@@ -13,7 +13,7 @@
 
   <h2><?= $l->t('Transfers'); ?></h2>
   <p>
-    <a class="btn btn-small btn-success" ng-click="$flow.resume()"><?= $l->t('Upload'); ?></a>
+    <a class="btn btn-small btn-success" ng-click="$flow.resume()"><?= $l->t('Upload/Resume all'); ?></a>
     <a class="btn btn-small btn-danger" ng-click="$flow.pause()"><?= $l->t('Pause'); ?></a>
     <a class="btn btn-small btn-info" ng-click="$flow.cancel()"><?= $l->t('Cancel'); ?></a>
     <span class="label label-info"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
