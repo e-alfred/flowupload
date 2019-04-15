@@ -35,7 +35,7 @@
       <td title="Chunks: {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
       <td>
         <div class="btn-group" ng-if="!file.isComplete() || file.error">
-          <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()"></progress>
+          <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()" style="width:auto; height:auto; display:inline"></progress>
           <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
             <?= $l->t('Pause'); ?>
           </a>
