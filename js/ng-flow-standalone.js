@@ -639,6 +639,16 @@
     },
 
     /**
+     * Returns the count of all files
+     * @function
+     * @returns {number}
+     */
+    getFilesCount: function () {
+      var count = this.files.length;
+      return count;
+    },
+
+    /**
      * Returns the total size of all files in bytes.
      * @function
      * @returns {number}
