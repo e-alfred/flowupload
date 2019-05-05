@@ -639,7 +639,7 @@
     },
 
     /**
-     * Returns the count of all files
+     * Returns the count of files in the queue
      * @function
      * @returns {number}
      */
@@ -976,6 +976,22 @@
       // We don't want to lose percentages when an upload is paused
       this._prevProgress = Math.max(this._prevProgress, percent > 0.9999 ? 1 : percent);
       return this._prevProgress;
+    },
+
+    /**
+     * Get current number of complete chunks
+     * @function
+     * @returns {number} from 0 to chunks.length
+     */
+    completeChunks: function () {
+      var completeChunks = 0;
+
+      each(this.chunks, function (c) {
+        if(c.progress() === 1){
+          completeChunks++;
+        }
+      });
+      return completeChunks;
     },
 
     /**
