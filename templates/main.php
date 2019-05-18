@@ -13,10 +13,11 @@
 
   <h2><?= $l->t('Transfers'); ?></h2>
   <p>
-    <a class="btn btn-small btn-success" ng-click="$flow.resume()"><?= $l->t('Upload'); ?></a>
+    <a class="btn btn-small btn-success" ng-click="$flow.resume()"><?= $l->t('Upload/Resume all'); ?></a>
     <a class="btn btn-small btn-danger" ng-click="$flow.pause()"><?= $l->t('Pause'); ?></a>
     <a class="btn btn-small btn-info" ng-click="$flow.cancel()"><?= $l->t('Cancel'); ?></a>
     <span class="label label-info"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
+    <span class="label label-info" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
     <span class="label label-info" ng-if="$flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
   </p>
   <table class="table table-hover table-bordered table-striped" flow-transfers>
@@ -32,10 +33,10 @@
     <tr ng-repeat="file in transfers">
       <td>{{$index+1}}</td>
       <td title="UID: {{file.uniqueIdentifier}}">{{file.relativePath}}</td>
-      <td title="Chunks: {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
+      <td title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
       <td>
         <div class="btn-group" ng-if="!file.isComplete() || file.error">
-          <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()"></progress>
+          <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()" style="width:auto; height:auto; display:inline"></progress>
           <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
             <?= $l->t('Pause'); ?>
           </a>
