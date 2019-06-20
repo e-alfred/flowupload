@@ -9,7 +9,7 @@ require_once(__DIR__ . '/Flow/Autoloader.php');
 Flow\Autoloader::register();
 
 // Directory definitions
-$userhome = \OC::$server->getUserManager->getHome(\OC::$server->getUserSession()->getUser()->getUID());
+$userhome = OC_User::getHome(\OC::$server->getUserSession()->getUser()->getUID());
 $temp = $userhome.'/.flowupload_tmp/';
 $result = '/flowupload/';
 
