@@ -15,7 +15,7 @@ OC.L10N.register(
     "Uploading" : "アップロード中",
     "Name" : "名前",
     "Resume" : "再開",
-    "Retry" : "リトライ",
+    "Retry" : "再試行",
     "Completed" : "完了",
     "The files will be saved in your home directory." : "ファイルはホームディレクトリに保存されます"
 },
