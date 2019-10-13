@@ -27,17 +27,17 @@
         <span>#</span>
       </th>
       <th ng-click="tableSortClicked('relativePath')">
-        <span><?= $l->t('Name'); ?></span>
+        <span><?= htmlspecialchars($l->t('Name')); ?></span>
         <span ng-show="sortType == 'relativePath' && !sortReverse">▼</span>
         <span ng-show="sortType == 'relativePath' && sortReverse">▲</span>
       </th>
       <th ng-click="tableSortClicked('-size')" style="width:10%">
-          <span><?= $l->t('Size'); ?></span>
+          <span><?= htmlspecialchars($l->t('Size')); ?></span>
           <span ng-show="sortType == '-size' && !sortReverse">▼</span>
           <span ng-show="sortType == '-size' && sortReverse">▲</span>
       </th>
       <th ng-click="tableSortClicked('-progress()')" style="width:20%">
-        <span><?= $l->t('Progress'); ?></span>
+        <span><?= htmlspecialchars($l->t('Progress')); ?></span>
         <span ng-show="sortType == '-progress()' && !sortReverse">▼</span>
         <span ng-show="sortType == '-progress()' && sortReverse">▲</span>
       </th>
@@ -52,22 +52,22 @@
         <div class="btn-group" ng-if="!file.isComplete() || file.error">
           <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()" style="width:auto; height:auto; display:inline"></progress>
           <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
-            <?= $l->t('Pause'); ?>
+            <?= htmlspecialchars($l->t('Pause')); ?>
           </a>
           <a class="btn btn-mini btn-warning" ng-click="file.resume()" ng-show="file.paused">
-            <?= $l->t('Resume'); ?>
+            <?= htmlspecialchars($l->t('Resume')); ?>
           </a>
           <a class="btn btn-mini btn-danger" ng-click="file.cancel()">
-            <?= $l->t('Cancel'); ?>
+            <?= htmlspecialchars($l->t('Cancel')); ?>
           </a>
           <a class="btn btn-mini btn-info" ng-click="file.retry()" ng-show="file.error">
-            <?= $l->t('Retry'); ?>
+            <?= htmlspecialchars($l->t('Retry')); ?>
           </a>
         </div>
-	<span ng-if="file.isComplete() && !file.error"><?= $l->t('Completed'); ?></span>
+	<span ng-if="file.isComplete() && !file.error"><?= htmlspecialchars($l->t('Completed')); ?></span>
       </td>
     </tr>
     </tbody>
   </table>
-  <p><a href="../files?dir=%2Fflowupload"><?= $l->t('The files will be saved in your home directory.'); ?></a></p>
+  <p><a href="../files?dir=%2Fflowupload"><?= htmlspecialchars($l->t('The files will be saved in your home directory.')); ?></a></p>
  </div>
