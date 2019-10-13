@@ -36,7 +36,7 @@ app.controller('mainController', function($scope,$interval) {
   $scope.sortReverse  = false;
   
   $scope.tableSortClicked = function(newSortType){
-    if($scope.sortType == newSortType){
+    if($scope.sortType === newSortType){
       $scope.sortReverse = !$scope.sortReverse;
     }else{
        $scope.sortType = newSortType;
