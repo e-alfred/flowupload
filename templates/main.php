@@ -1,4 +1,4 @@
-<div ng-app="app" flow-init id="app" flow-prevent-drop ng-style="style" style="margin: 2em; width:100%">
+<div ng-app="app" flow-init id="app" ng-controller="mainController" flow-prevent-drop ng-style="style" style="margin: 2em; width:100%">
 
   <span class="btn" flow-btn><?= $l->t('Select File'); ?></span>
   <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Select Folder'); ?></span>
@@ -23,14 +23,28 @@
   <table class="table table-hover table-bordered table-striped" flow-transfers>
     <thead>
     <tr>
-      <th style="width:5%">#</th>
-      <th><?= $l->t('Name'); ?></th>
-      <th style="width:10%"><?= $l->t('Size'); ?></th>
-      <th style="width:20%"><?= $l->t('Progress'); ?></th>
+      <th style="width:5%">
+        <span>#</span>
+      </th>
+      <th ng-click="tableSortClicked('relativePath')">
+        <span><?= $l->t('Name'); ?></span>
+        <span ng-show="sortType == 'relativePath' && !sortReverse">▼</span>
+        <span ng-show="sortType == 'relativePath' && sortReverse">▲</span>
+      </th>
+      <th ng-click="tableSortClicked('size')" style="width:10%">
+          <span><?= $l->t('Size'); ?></span>
+          <span ng-show="sortType == 'size' && !sortReverse">▼</span>
+          <span ng-show="sortType == 'size' && sortReverse">▲</span>
+      </th>
+      <th ng-click="tableSortClicked('progress')" style="width:20%">
+        <span><?= $l->t('Progress'); ?></span>
+        <span ng-show="sortType == 'progress' && !sortReverse">▼</span>
+        <span ng-show="sortType == 'progress' && sortReverse">▲</span>
+      </th>
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="file in transfers">
+    <tr ng-repeat="file in transfers | orderBy:sortType:sortReverse">
       <td>{{$index+1}}</td>
       <td title="UID: {{file.uniqueIdentifier}}">{{file.relativePath}}</td>
       <td title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
