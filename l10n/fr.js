@@ -1,19 +1,22 @@
 OC.L10N.register(
-  "flowupload", {
-    "FlowUpload" : "Envoyer des fichiers",
-    "Select File": "Sélectionnez un fichier",
-    "Select Folder": "Sélectionner le dossier",
-    "... or drag and drop your files here" : "... ou déposez ici vos fichiers",
+    "flowupload",
+    {
+    "Flow Upload" : "Flow Upload",
+    "Provides functions to upload large files with your HTML5-Browser." : "Fournis des fonctions pour téléverser des gros fichiers avec votre navigateur HTML5.",
+    "Select File" : "Sélectionner un fichier",
+    "Select Folder" : "Sélectionner un dossier",
+    "... or drag and drop your files here" : "... ou glissez-déplacez vos fichiers ici",
     "Transfers" : "Transferts",
-    "Upload" : "Envoyer",
+    "Upload/Resume all" : "Téléverser/Reprendre tous",
     "Pause" : "Pause",
     "Cancel" : "Annuler",
-    "Uploading" : "Envoi en cours",
     "Size" : "Taille",
     "Progress" : "Progression",
+    "Uploading" : "Téléversement",
+    "Name" : "Nom",
+    "Resume" : "Reprendre",
     "Retry" : "Réessayer",
-    "Completed" : "Complété",
-    "The files will be saved in your home directory" : "Les fichiers seront sauvegardés dans votre dossier personnel"
-  },
-  "nplurals=2; plural=(n > 1);"
-);
+    "Completed" : "Terminé",
+    "The files will be saved in your home directory." : "Les fichiers seront enregistrés dans votre dossier racine."
+},
+"nplurals=2; plural=(n > 1);");

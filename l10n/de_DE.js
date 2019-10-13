@@ -17,6 +17,6 @@ OC.L10N.register(
     "Resume" : "Fortsetzen",
     "Retry" : "Wiederholen",
     "Completed" : "Fertiggestellt",
-    "The files will be saved in your home directory." : "Die Dateien werden in Deinem Home-Verzeichnis gespeichert."
+    "The files will be saved in your home directory." : "Die Dateien werden in deinem Home-Verzeichnis gespeichert."
 },
 "nplurals=2; plural=(n != 1);");

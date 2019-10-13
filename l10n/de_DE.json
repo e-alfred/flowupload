@@ -1,6 +1,4 @@
-OC.L10N.register(
-    "flowupload",
-    {
+{ "translations": {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Stellt Funktionen zum Upload großer Dateien für HTML5-Browser zur Verfügung.",
     "Select File" : "Datei auswählen",
@@ -17,6 +15,6 @@ OC.L10N.register(
     "Resume" : "Fortsetzen",
     "Retry" : "Wiederholen",
     "Completed" : "Fertiggestellt",
-    "The files will be saved in your home directory." : "Die Dateien werden in Deinem Home-Verzeichnis gespeichert."
-},
-"nplurals=2; plural=(n != 1);");
+    "The files will be saved in your home directory." : "Die Dateien werden in deinem Home-Verzeichnis gespeichert."
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

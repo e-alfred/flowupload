@@ -1,20 +1,22 @@
 OC.L10N.register(
-  "flowupload", {
-    "Name" : "Имя",
-    "FlowUpload" : "FlowUpload",
-    "Select File": "Выбрать файл",
-    "Select Folder": "Выбрать папку",
-    "... or drag and drop your files here" : "... или перетащите сюда ваши файлы",
+    "flowupload",
+    {
+    "Flow Upload" : "Flow Upload",
+    "Provides functions to upload large files with your HTML5-Browser." : "Предоставляет функции для загрузки больших файлов с помощью вашего HTML5-браузера.",
+    "Select File" : "Выбрать файл",
+    "Select Folder" : "Выбрать папку",
+    "... or drag and drop your files here" : "... или перетащите ваши файлы сюда",
     "Transfers" : "Передачи",
-    "Upload" : "Загрузить",
+    "Upload/Resume all" : "Загрузить/Возобновить все",
     "Pause" : "Пауза",
-    "Cancel" : "Отмена",
-    "Uploading" : "Загрузка",
+    "Cancel" : "Отменить",
     "Size" : "Размер",
     "Progress" : "Прогресс",
-    "Retry" : "Повтор",
-    "Completed" : "Завершено",
-    "The files will be saved in your home directory." : "Файлы будут сохранены в вашем домашнем каталоге"
-  },
-  "nplurals=2; plural=(n > 1);"
-);
+    "Uploading" : "Загрузка",
+    "Name" : "Имя",
+    "Resume" : "Возобновить",
+    "Retry" : "Повторить",
+    "Completed" : "Выполнено",
+    "The files will be saved in your home directory." : "Файлы будут сохранены в вашем домашнем каталоге."
+},
+"nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");
