@@ -31,15 +31,15 @@
         <span ng-show="sortType == 'relativePath' && !sortReverse">▼</span>
         <span ng-show="sortType == 'relativePath' && sortReverse">▲</span>
       </th>
-      <th ng-click="tableSortClicked('size')" style="width:10%">
+      <th ng-click="tableSortClicked('-size')" style="width:10%">
           <span><?= $l->t('Size'); ?></span>
-          <span ng-show="sortType == 'size' && !sortReverse">▼</span>
-          <span ng-show="sortType == 'size' && sortReverse">▲</span>
+          <span ng-show="sortType == '-size' && !sortReverse">▼</span>
+          <span ng-show="sortType == '-size' && sortReverse">▲</span>
       </th>
-      <th ng-click="tableSortClicked('progress')" style="width:20%">
+      <th ng-click="tableSortClicked('-progress()')" style="width:20%">
         <span><?= $l->t('Progress'); ?></span>
-        <span ng-show="sortType == 'progress' && !sortReverse">▼</span>
-        <span ng-show="sortType == 'progress' && sortReverse">▲</span>
+        <span ng-show="sortType == '-progress()' && !sortReverse">▼</span>
+        <span ng-show="sortType == '-progress()' && sortReverse">▲</span>
       </th>
     </tr>
     </thead>
