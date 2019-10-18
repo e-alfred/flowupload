@@ -6,8 +6,9 @@
  * @name app
  * @type {angular.Module}
  */
-var app = angular.module('app', ['flow'])
-.config(['flowFactoryProvider', function (flowFactoryProvider) {
+var app = angular.module('app', ['flow']);
+
+app.config(['flowFactoryProvider', function (flowFactoryProvider) {
   flowFactoryProvider.defaults = {
     target: 'ajax/upload.php',
     permanentErrors: [403, 404, 500, 501],
@@ -27,5 +28,18 @@ app.filter('bytes', function() {
 		var units = ['bytes', 'kB', 'MB', 'GB'],
 			number = Math.floor(Math.log(bytes) / Math.log(1024));
 		return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
-	}
+	};
+});
+
+app.controller('mainController', function($scope,$interval) {
+  $scope.sortType     = 'relativePath';
+  $scope.sortReverse  = false;
+  
+  $scope.tableSortClicked = function(newSortType){
+    if($scope.sortType === newSortType){
+      $scope.sortReverse = !$scope.sortReverse;
+    }else{
+       $scope.sortType = newSortType;
+    }
+  };
 });
