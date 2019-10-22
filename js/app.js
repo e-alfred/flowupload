@@ -35,6 +35,8 @@ app.controller('mainController', function($scope,$interval) {
   $scope.sortType     = 'relativePath';
   $scope.sortReverse  = false;
   
+  $scope.hideFinished  = false;
+  
   $scope.tableSortClicked = function(newSortType){
     if($scope.sortType === newSortType){
       $scope.sortReverse = !$scope.sortReverse;
