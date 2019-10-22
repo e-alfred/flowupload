@@ -1,4 +1,4 @@
-<div ng-app="app" flow-init id="app" ng-controller="mainController" flow-prevent-drop ng-style="style" style="margin: 2em; width:100%">
+<div ng-app="app" flow-init id="app" ng-controller="mainController" flow-prevent-drop ng-style="style">
 
   <span class="btn" flow-btn><?= $l->t('Select File'); ?></span>
   <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Select Folder'); ?></span>
@@ -54,7 +54,7 @@
       <td title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
       <td>
         <div class="btn-group" ng-if="!file.isComplete() || file.error">
-          <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()" style="width:auto; height:auto; display:inline"></progress>
+          <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" ng-if="file.isUploading()" style="width:auto; height:auto; display:inline;"></progress>
           <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
             <?= htmlspecialchars($l->t('Pause')); ?>
           </a>
