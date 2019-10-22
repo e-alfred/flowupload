@@ -1,1 +1,12 @@
-.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {background-color: var(--color-main-background); }
+.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
+  background-color: var(--color-main-background);
+}
+#hideFinishedCheckbox {
+  min-height: unset;
+  vertical-align: middle;
+  pointer-events: none;
+  margin: 0px;
+}
+#hideFinishedText{
+  vertical-align: middle;
+}
