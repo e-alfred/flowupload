@@ -53,8 +53,8 @@
       <td title="UID: {{file.uniqueIdentifier}}">{{file.relativePath}}</td>
       <td title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
       <td>
-        <div class="btn-group" ng-if="!file.isComplete() || file.error">
-          <progress max="1" value="{{file.progress()}}" title="{{file.progress()}}" style="width:auto; height:auto; display:inline;"></progress>
+        <div class="progressColumnDiv btn-group" ng-if="!file.isComplete() || file.error">
+          <progress class="progressbar" max="1" value="{{file.progress()}}" title="{{file.progress()}}"></progress>
           <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
             <?= htmlspecialchars($l->t('Pause')); ?>
           </a>
