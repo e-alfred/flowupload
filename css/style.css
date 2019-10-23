@@ -14,3 +14,15 @@
 #hideFinishedText {
   vertical-align: middle;
 }
+.progressColumnDiv {
+    display: flex;
+    align-items: center;
+}
+.progressColumnDiv * {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.progressbar {
+    height: 20px;
+    max-width: 40%;
+}
