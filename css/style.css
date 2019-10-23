@@ -26,3 +26,12 @@
     height: 20px;
     max-width: 40%;
 }
+
+/* Edge Progressbar fix:*/
+progress::-ms-fill {
+    border: none;
+}
+
+progress[value="100"]::-ms-fill {
+    background-color: #00ff00;
+}
