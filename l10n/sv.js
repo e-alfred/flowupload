@@ -10,6 +10,7 @@ OC.L10N.register(
     "Upload/Resume all" : "Ladda upp/Återuppta alla",
     "Pause" : "Pausa",
     "Cancel" : "Avbryt",
+    "Hide finished uploads" : "Dölj färdiga uppladdningar",
     "Size" : "Storlek",
     "Progress" : "Status",
     "Uploading" : "Laddar upp",
