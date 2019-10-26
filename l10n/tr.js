@@ -10,6 +10,7 @@ OC.L10N.register(
     "Upload/Resume all" : "Tümünü Yükle/Sürdür",
     "Pause" : "Duraklat",
     "Cancel" : "İptal",
+    "Hide finished uploads" : "Tamamlanmış güncellemeler gizlensin",
     "Size" : "Boyut",
     "Progress" : "İlerleme",
     "Uploading" : "Yükleniyor",

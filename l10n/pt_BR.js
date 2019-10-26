@@ -10,6 +10,7 @@ OC.L10N.register(
     "Upload/Resume all" : "Enviar/Retomar todos",
     "Pause" : "Pausar",
     "Cancel" : "Cancelar",
+    "Hide finished uploads" : "Ocultar envios finalizados",
     "Size" : "Tamanho",
     "Progress" : "Progresso",
     "Uploading" : "Enviando",

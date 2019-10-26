@@ -44,4 +44,17 @@ app.controller('mainController', function($scope,$interval) {
        $scope.sortType = newSortType;
     }
   };
+  
+  $scope.dynamicTitle = function() {
+      if($scope.$flow.getFilesCount() !== 0){
+        let progress = parseFloat(Math.round($scope.$flow.progress() * 100 * 100) / 100).toFixed(2); //round to two digits after comma 
+        document.title = "FlowUpload "+progress+"%";
+      }else{
+        document.title = "FlowUpload";
+      }
+  };
+  
+  let dynamicTitleInterval = $interval(function() {
+    $scope.dynamicTitle();
+  },500);
 });

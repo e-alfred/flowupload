@@ -10,6 +10,7 @@ OC.L10N.register(
     "Upload/Resume all" : "Alle hochladen/fortsetzen",
     "Pause" : "Anhalten",
     "Cancel" : "Abbrechen",
+    "Hide finished uploads" : "Beendete Uploads verbergen",
     "Size" : "Größe",
     "Progress" : "Fortschritt",
     "Uploading" : "Lade hoch",
@@ -17,7 +18,6 @@ OC.L10N.register(
     "Resume" : "Fortsetzen",
     "Retry" : "Wiederholen",
     "Completed" : "Fertiggestellt",
-    "The files will be saved in your home directory." : "Die Dateien werden in Deinem Home-Verzeichnis gespeichert.",
-    "Hide finished uploads": "Fertiggestelte Uploads ausblenden"
+    "The files will be saved in your home directory." : "Die Dateien werden in Deinem Home-Verzeichnis gespeichert."
 },
 "nplurals=2; plural=(n != 1);");
