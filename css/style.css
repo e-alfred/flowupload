@@ -1,10 +1,67 @@
 #app {
-  margin: 2em;
-  width:100%
+  padding: 2em;
+  width:100%;
+  transition: background-color 0.3s ease;
 }
-.table-striped tbody > tr:nth-child(odd) > td, .table-striped tbody > tr:nth-child(odd) > th {
-  background-color: var(--color-main-background);
+#title {
+    margin: 0;
+    margin-bottom: 25px;
 }
+.file-drag{
+    background-color: rgb(179, 230, 255) !important;
+}
+.label {
+    background-color: var(--color-primary);
+}
+#uploadsTable{
+    width: 100%;
+    vertical-align: middle;
+    border-collapse: separate;
+    border-spacing: 0;
+    white-space: nowrap;
+}
+#uploadsTableThead{
+    box-sizing: border-box;
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.uploadsTableTheadTh{
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+    font-weight: normal;
+    color: var(--color-text-maxcontrast);
+}
+.columntitle{
+    display: block;
+    padding: 15px;
+    height: 50px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    vertical-align: middle;
+    color: var(--color-text-maxcontrast);
+}
+table th .sort-indicator{
+    width: 10px;
+    height: 8px;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    opacity: 0.3;
+}
+.uploadsTableTbodyTr{
+    transition: background-color 0.3s ease;
+    height: 51px;
+}
+.actions {
+    z-index: 50;  
+}
+.action .icon{
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 16px 16px;
+}
+
 #hideFinishedCheckbox {
   min-height: unset;
   vertical-align: middle;
@@ -25,6 +82,17 @@
 .progressbar {
     height: 20px;
     max-width: 40%;
+    background-color: var(--color-background-darker) !important;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
 }
 
 /* Edge Progressbar fix:*/

@@ -1,77 +1,105 @@
-<div ng-app="app" flow-init id="app" ng-controller="mainController" flow-prevent-drop ng-style="style">
-
-  <span class="btn" flow-btn><?= $l->t('Select File'); ?></span>
-  <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Select Folder'); ?></span>
+<div ng-app="app" flow-init id="app" ng-controller="mainController" ng-init="init()" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class" ng-style="style">
+  <h2 id="title"><?= $l->t('Transfers'); ?></h2>
+  
+  <span class="button" flow-btn>
+      <span class="icon icon-file" style="background-image: var(--icon-file-000);"></span>
+      <span><?= $l->t('Select File'); ?></span>
+  </span>
+  <span class="button" flow-btn flow-directory ng-show="$flow.supportDirectory">
+      <span class="icon icon-files" style="background-image: var(--icon-files-000);"></span>
+      <span><?= $l->t('Select Folder'); ?></span>
+  </span>
 
   <hr class="soften">
 
-  <div class="alert" flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''"
-          ng-class="class"><?= $l->t('... or drag and drop your files here'); ?>
-  </div>
-
-  <hr class="soften">
-
-  <h2><?= $l->t('Transfers'); ?></h2>
   <p>
-    <a class="btn btn-small btn-success" ng-click="$flow.resume()"><?= $l->t('Upload/Resume all'); ?></a>
-    <a class="btn btn-small btn-danger" ng-click="$flow.pause()"><?= $l->t('Pause'); ?></a>
-    <a class="btn btn-small btn-info" ng-click="$flow.cancel()"><?= $l->t('Cancel'); ?></a>
-    <a class="btn btn-small btn-info" ng-click="hideFinished = !hideFinished">
+    <a class="button" ng-click="$flow.resume()">
+        <span class="icon icon-play"></span>
+        <span><?= $l->t('Start/Resume'); ?></span>
+    </a>
+    <a class="button" ng-click="$flow.pause()">
+        <span class="icon icon-pause"></span>
+        <span><?= $l->t('Pause'); ?></span>
+    </a>
+    <a class="button" ng-click="$flow.cancel()">
+        <span class="icon icon-close"></span>
+        <span><?= $l->t('Cancel'); ?></span>
+    </a>
+    <a class="button" ng-click="hideFinished = !hideFinished">
       <input id="hideFinishedCheckbox" type="checkbox" ng-model="hideFinished"></input>
       <span id="hideFinishedText"><?= $l->t('Hide finished uploads'); ?></span>
     </a>
-    <span class="label label-info"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
-    <span class="label label-info" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
-    <span class="label label-info" ng-if="$flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
   </p>
-  <table class="table table-hover table-bordered table-striped" flow-transfers>
-    <thead>
-    <tr>
-      <th style="width:5%">
-        <span>#</span>
+  
+  <hr class="soften">
+  
+  <p>
+    <span class="label"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
+    <span class="label" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
+    <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
+  </p>
+  
+  <hr class="soften">
+  
+  <table id="uploadsTable" flow-transfers>
+    <thead id="uploadsTableThead">
+    <tr id="uploadsTableTheadTr">
+      <th class="uploadsTableTheadTh" style="width:5%">
+        <span class="columntitle noselect">#</span>
       </th>
-      <th ng-click="tableSortClicked('relativePath')">
-        <span><?= htmlspecialchars($l->t('Name')); ?></span>
-        <span ng-show="sortType == 'relativePath' && !sortReverse">▼</span>
-        <span ng-show="sortType == 'relativePath' && sortReverse">▲</span>
+      <th class="uploadsTableTheadTh" ng-click="tableSortClicked('relativePath')">
+        <a class="columntitle noselect">
+          <span><?= htmlspecialchars($l->t('Name')); ?></span>
+          <span ng-class="{ 'icon-triangle-n':  (sortType == 'relativePath' && sortReverse), 'icon-triangle-s': (sortType == 'relativePath' && !sortReverse)}" class="sort-indicator"></span>
+        </a>
       </th>
-      <th ng-click="tableSortClicked('-size')" style="width:10%">
+      <th class="uploadsTableTheadTh"></th>
+      <th class="uploadsTableTheadTh" ng-click="tableSortClicked('-size')" style="width:10%">
+        <a class="columntitle noselect">
           <span><?= htmlspecialchars($l->t('Size')); ?></span>
-          <span ng-show="sortType == '-size' && !sortReverse">▼</span>
-          <span ng-show="sortType == '-size' && sortReverse">▲</span>
+          <span ng-class="{ 'icon-triangle-n':  (sortType == '-size' && sortReverse), 'icon-triangle-s': (sortType == '-size' && !sortReverse)}" class="sort-indicator"></span>
+        </a>
       </th>
-      <th ng-click="tableSortClicked('-progress()')" style="width:20%">
-        <span><?= htmlspecialchars($l->t('Progress')); ?></span>
-        <span ng-show="sortType == '-progress()' && !sortReverse">▼</span>
-        <span ng-show="sortType == '-progress()' && sortReverse">▲</span>
+      <th class="uploadsTableTheadTh" ng-click="tableSortClicked('-progress()')" style="width:20%">
+        <a class="columntitle noselect">
+          <span><?= htmlspecialchars($l->t('Progress')); ?></span>
+          <span ng-class="{ 'icon-triangle-n':  (sortType == '-progress()' && sortReverse), 'icon-triangle-s': (sortType == '-progress()' && !sortReverse)}" class="sort-indicator"></span>
+        </a>
       </th>
     </tr>
     </thead>
-    <tbody>
-    <tr ng-if="!(file.isComplete() && hideFinished)" ng-repeat="file in transfers | orderBy:sortType:sortReverse">
-      <td>{{$index+1}}</td>
-      <td title="UID: {{file.uniqueIdentifier}}">{{file.relativePath}}</td>
-      <td title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}"><span ng-if="file.isUploading()">{{file.size*file.progress() | bytes}}/</span>{{file.size | bytes}}</td>
-      <td>
-        <div class="progressColumnDiv btn-group" ng-if="!file.isComplete() || file.error">
-          <progress class="progressbar" max="1" value="{{file.progress()}}" title="{{file.progress()}}"></progress>
-          <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
-            <?= htmlspecialchars($l->t('Pause')); ?>
+    <tbody id="uploadsTableBody">
+    <tr class="uploadsTableTbodyTr" ng-if="!(file.isComplete() && hideFinished)" ng-repeat="file in transfers | orderBy:sortType:sortReverse">
+      <td class="uploadsTableTbodyTd">{{$index+1}}</td>
+      <td class="uploadsTableTbodyTd" title="UID: {{file.uniqueIdentifier}}">{{file.relativePath}}</td>
+      <td class="uploadsTableTbodyTd">
+        <div class="actions" ng-if="!file.isComplete() || file.error">
+          <a class="action permanent" title="<?= htmlspecialchars($l->t('Resume')); ?>" ng-click="file.resume()" ng-if="!file.isUploading() && !file.error">
+            <span class="icon icon-play"></span>
           </a>
-          <a class="btn btn-mini btn-warning" ng-click="file.resume()" ng-show="file.paused">
-            <?= htmlspecialchars($l->t('Resume')); ?>
+          <a class="action permanent" title="<?= htmlspecialchars($l->t('Pause')); ?>" ng-click="file.pause()" ng-if="file.isUploading() && !file.error">
+            <span class="icon icon-pause"></span>
           </a>
-          <a class="btn btn-mini btn-danger" ng-click="file.cancel()">
-            <?= htmlspecialchars($l->t('Cancel')); ?>
+          <a class="action permanent" title="<?= htmlspecialchars($l->t('Retry')); ?>" ng-click="file.retry()" ng-show="file.error">
+            <span class="icon icon-play"></span>
           </a>
-          <a class="btn btn-mini btn-info" ng-click="file.retry()" ng-show="file.error">
-            <?= htmlspecialchars($l->t('Retry')); ?>
+          <a class="action permanent" title="<?= htmlspecialchars($l->t('Cancel')); ?>" ng-click="file.cancel()">
+            <span class="icon icon-close"></span>
           </a>
         </div>
+      </td>
+      <td class="uploadsTableTbodyTd" title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}">
+          <span ng-if="!file.isComplete()">{{file.size*file.progress() | bytes}}/</span>
+          <span>{{file.size | bytes}}</span>
+      </td>
+      <td class="uploadsTableTbodyTd">
+        <progress ng-if="!file.isComplete() && !file.error" class="progressbar" max="1" value="{{file.progress()}}" title="{{file.progress()*100 | number:2}}%"></progress>
+        <span ng-if="!file.isComplete() && !file.error">{{file.progress()*100 | number:2}}%</span>
         <span ng-if="file.isComplete() && !file.error"><?= htmlspecialchars($l->t('Completed')); ?></span>
+        <span ng-if="file.error"><?= htmlspecialchars($l->t('Error')); ?></span>
       </td>
     </tr>
     </tbody>
   </table>
-  <p><a href="../files?dir=%2Fflowupload"><?= htmlspecialchars($l->t('The files will be saved in your home directory.')); ?></a></p>
+  <p style="margin-top: 25px;"><a href="../files?dir=%2Fflowupload"><?= htmlspecialchars($l->t('The files will be saved in your home directory.')); ?></a></p>
  </div>
