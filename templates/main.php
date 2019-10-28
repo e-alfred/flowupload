@@ -1,6 +1,6 @@
 <div ng-app="app" flow-init id="app" ng-controller="mainController" ng-init="init()" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class" ng-style="style">
   <h2 id="title"><?= $l->t('Transfers'); ?></h2>
-  
+
   <span class="button" flow-btn>
       <span class="icon icon-file" style="background-image: var(--icon-file-000);"></span>
       <span><?= $l->t('Select File'); ?></span>
@@ -10,7 +10,7 @@
       <span><?= $l->t('Select Folder'); ?></span>
   </span>
 
-  <hr class="soften">
+  <hr>
 
   <p>
     <a class="button" ng-click="$flow.resume()">
@@ -30,17 +30,17 @@
       <span id="hideFinishedText"><?= $l->t('Hide finished uploads'); ?></span>
     </a>
   </p>
-  
-  <hr class="soften">
-  
+
+  <hr>
+
   <p>
     <span class="label"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
     <span class="label" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
     <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
   </p>
-  
-  <hr class="soften">
-  
+
+  <hr>
+
   <table id="uploadsTable" flow-transfers>
     <thead id="uploadsTableThead">
     <tr id="uploadsTableTheadTr">

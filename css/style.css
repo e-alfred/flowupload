@@ -3,6 +3,14 @@
   width:100%;
   transition: background-color 0.3s ease;
 }
+hr {
+    margin: 20px 0px;
+    border-width: 1px 0px;
+    border-top-style: solid;
+    border-top-color: var(--color-background-dark);
+    border-bottom-style: solid;
+    border-bottom-color: var(--color-background-dark);
+}
 #title {
     margin: 0;
     margin-bottom: 25px;
@@ -12,6 +20,15 @@
 }
 .label {
     background-color: var(--color-primary);
+    border-radius: 3px;
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 11.844px;
+    font-weight: bold;
+    line-height: 14px;
+    color: white;
+    vertical-align: baseline;
+    white-space: nowrap;
 }
 #uploadsTable{
     width: 100%;
@@ -54,7 +71,7 @@ table th .sort-indicator{
     height: 51px;
 }
 .actions {
-    z-index: 50;  
+    z-index: 50;
 }
 .action .icon{
     display: inline-block;
