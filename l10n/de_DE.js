@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Ordner auswählen",
     "... or drag and drop your files here" : "... oder lege Dateien per Drag & Drop hier ab",
     "Transfers" : "Übertragungen",
-    "Upload/Resume all" : "Alle hochladen/fortsetzen",
+    "Start/Resume" : "Alle hochladen/fortsetzen",
     "Pause" : "Anhalten",
     "Cancel" : "Abbrechen",
     "Hide finished uploads" : "Beendete Uploads verbergen",

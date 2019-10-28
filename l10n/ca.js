@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Seleccioneu Carpeta",
     "... or drag and drop your files here" : "... o arrossegueu i deixeu anar els vostres fitxers aquí",
     "Transfers" : "Transferències",
-    "Upload/Resume all" : "Carrega/Reprèn tot",
+    "Start/Resume" : "Carrega/Reprèn tot",
     "Pause" : "Pausa",
     "Cancel" : "Cancel·la",
     "Size" : "Mida",

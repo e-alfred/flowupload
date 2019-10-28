@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Izbor mape",
     "... or drag and drop your files here" : "... ali pa primite in spustite datoteke na to mesto.",
     "Transfers" : "Prenosi",
-    "Upload/Resume all" : "Pošlji/Nadaljuj pošiljanje",
+    "Start/Resume" : "Pošlji/Nadaljuj pošiljanje",
     "Pause" : "Premor",
     "Cancel" : "Prekliči",
     "Size" : "Velikost",

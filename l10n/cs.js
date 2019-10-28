@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Vybrat složku",
     "... or drag and drop your files here" : "... a nebo přetáhni soubory sem",
     "Transfers" : "Přenosy",
-    "Upload/Resume all" : "Nahrát / pokračovat v nahrávání všeho",
+    "Start/Resume" : "Nahrát / pokračovat v nahrávání všeho",
     "Pause" : "Pozastavit",
     "Cancel" : "Storno",
     "Size" : "Velikost",

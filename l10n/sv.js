@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Välj mapp",
     "... or drag and drop your files here" : "... eller dra och släpp dina filer här",
     "Transfers" : "Överföringar",
-    "Upload/Resume all" : "Ladda upp/Återuppta alla",
+    "Start/Resume" : "Ladda upp/Återuppta alla",
     "Pause" : "Pausa",
     "Cancel" : "Avbryt",
     "Hide finished uploads" : "Dölj färdiga uppladdningar",
