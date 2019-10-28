@@ -3,6 +3,11 @@
   width:100%;
   transition: background-color 0.3s ease;
 }
+@media (pointer:none), (pointer:coarse) {
+    .progressbar {
+        display: none;
+    }
+}
 hr {
     margin: 20px 0px;
     border-width: 1px 0px;
