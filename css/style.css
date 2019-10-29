@@ -58,11 +58,11 @@ hr {
     .buttonGroup {
         flex-flow: column !important;
     }
-    th > a {
+    #uploadsTable > thead > tr > th > a {
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
-    #uploadsTable > thead > th {
+    #uploadsTable > thead > tr > th {
       width: unset !important;
     }
 }
@@ -87,13 +87,13 @@ hr {
     vertical-align: middle;
     border-color: inherit;
 }
-#uploadsTable > thead > th {
+#uploadsTable > thead > tr > th {
     border-bottom: 1px solid var(--color-border);
     text-align: left;
     font-weight: normal;
     color: var(--color-text-maxcontrast);
 }
-#uploadsTable > thead > th > a {
+#uploadsTable > thead > tr > th > a {
     display: block;
     padding: 15px;
     height: 50px;
@@ -102,7 +102,7 @@ hr {
     vertical-align: middle;
     color: var(--color-text-maxcontrast);
 }
-.#uploadsTable > tbody > tr {
+#uploadsTable > tbody > tr {
     transition: background-color 0.3s ease;
     height: 51px;
 }
