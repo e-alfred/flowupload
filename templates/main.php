@@ -1,6 +1,6 @@
-<div ng-app="app" flow-init id="app" ng-controller="mainController" ng-init="init()" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class" ng-style="style">
+<div ng-app="app" flow-init id="app" ng-controller="mainController" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class" ng-style="style">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  
+
   <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
   <div class="buttonGroup">
