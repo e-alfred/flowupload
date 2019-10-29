@@ -1,18 +1,21 @@
 <div ng-app="app" flow-init id="app" ng-controller="mainController" ng-init="init()" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class" ng-style="style">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
-  <span class="button" flow-btn>
+  <div class="buttonGroup">
+    <span class="button" flow-btn>
       <span class="icon icon-file" style="background-image: var(--icon-file-000);"></span>
       <span><?= $l->t('Select File'); ?></span>
-  </span>
-  <span class="button" flow-btn flow-directory ng-show="$flow.supportDirectory">
+    </span>
+    <span class="button" flow-btn flow-directory ng-show="$flow.supportDirectory">
       <span class="icon icon-files" style="background-image: var(--icon-files-000);"></span>
       <span><?= $l->t('Select Folder'); ?></span>
-  </span>
+    </span>
+  </div>
 
   <hr>
 
-  <p>
+  <div class="buttonGroup">
     <a class="button" ng-click="$flow.resume()">
         <span class="icon icon-play"></span>
         <span><?= $l->t('Start/Resume'); ?></span>
@@ -29,7 +32,7 @@
       <input id="hideFinishedCheckbox" type="checkbox" ng-model="hideFinished"></input>
       <span id="hideFinishedText"><?= $l->t('Hide finished uploads'); ?></span>
     </a>
-  </p>
+  </div>
 
   <hr>
 
@@ -44,7 +47,7 @@
   <table id="uploadsTable" flow-transfers>
     <thead id="uploadsTableThead">
     <tr id="uploadsTableTheadTr">
-      <th class="uploadsTableTheadTh" style="width:5%">
+      <th class="uploadsTableTheadTh hideOnMobile" style="width:5%">
         <span class="columntitle noselect">#</span>
       </th>
       <th class="uploadsTableTheadTh" ng-click="tableSortClicked('relativePath')">
@@ -70,8 +73,10 @@
     </thead>
     <tbody id="uploadsTableBody">
     <tr class="uploadsTableTbodyTr" ng-if="!(file.isComplete() && hideFinished)" ng-repeat="file in transfers | orderBy:sortType:sortReverse">
-      <td class="uploadsTableTbodyTd">{{$index+1}}</td>
-      <td class="uploadsTableTbodyTd" title="UID: {{file.uniqueIdentifier}}">{{file.relativePath}}</td>
+      <td class="uploadsTableTbodyTd hideOnMobile">{{$index+1}}</td>
+      <td class="uploadsTableTbodyTd ellipsis" title="UID: {{file.uniqueIdentifier}}">
+          <span>{{file.relativePath}}</span>
+      </td>
       <td class="uploadsTableTbodyTd">
         <div class="actions" ng-if="!file.isComplete() || file.error">
           <a class="action permanent" title="<?= htmlspecialchars($l->t('Resume')); ?>" ng-click="file.resume()" ng-if="!file.isUploading() && !file.error">
@@ -89,11 +94,11 @@
         </div>
       </td>
       <td class="uploadsTableTbodyTd" title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}">
-          <span ng-if="!file.isComplete()">{{file.size*file.progress() | bytes}}/</span>
+          <span class="hideOnMobile" ng-if="!file.isComplete()">{{file.size*file.progress() | bytes}}/</span>
           <span>{{file.size | bytes}}</span>
       </td>
       <td class="uploadsTableTbodyTd">
-        <progress ng-if="!file.isComplete() && !file.error" class="progressbar" max="1" value="{{file.progress()}}" title="{{file.progress()*100 | number:2}}%"></progress>
+        <progress ng-if="!file.isComplete() && !file.error" class="progressbar hideOnMobile" max="1" value="{{file.progress()}}" title="{{file.progress()*100 | number:2}}%"></progress>
         <span ng-if="!file.isComplete() && !file.error">{{file.progress()*100 | number:2}}%</span>
         <span ng-if="file.isComplete() && !file.error"><?= htmlspecialchars($l->t('Completed')); ?></span>
         <span ng-if="file.error"><?= htmlspecialchars($l->t('Error')); ?></span>

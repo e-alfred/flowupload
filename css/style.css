@@ -4,9 +4,38 @@
   transition: background-color 0.3s ease;
 }
 @media (pointer:none), (pointer:coarse) {
-    .progressbar {
+    .hideOnMobile {
         display: none;
     }
+    .buttonGroup {
+        flex-flow: column !important;
+    }
+    th > a{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .uploadsTableTheadTh {
+      width: unset !important;
+    }
+}
+.ellipsis {
+    position: relative;
+}
+.ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
+}
+.ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.buttonGroup {
+    display: flex;
+    flex-flow: row;
 }
 hr {
     margin: 20px 0px;
@@ -37,6 +66,7 @@ hr {
 }
 #uploadsTable{
     width: 100%;
+    max-width: 100%;
     vertical-align: middle;
     border-collapse: separate;
     border-spacing: 0;
