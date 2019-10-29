@@ -1,41 +1,24 @@
+/* GENERAL */
 #app {
   padding: 2em;
   width:100%;
   transition: background-color 0.3s ease;
 }
-@media (pointer:none), (pointer:coarse) {
-    .hideOnMobile {
-        display: none;
-    }
-    .buttonGroup {
-        flex-flow: column !important;
-    }
-    th > a{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-    }
-    .uploadsTableTheadTh {
-      width: unset !important;
-    }
+#title {
+    margin: 0;
+    margin-bottom: 25px;
 }
-.ellipsis {
-    position: relative;
+#homeDirectoryLink {
+  margin-top: 25px;
 }
-.ellipsis:before {
-    content: '&nbsp;';
-    visibility: hidden;
+#hideFinishedButton > input {
+  min-height: unset;
+  vertical-align: middle;
+  pointer-events: none;
+  margin: 0px;
 }
-.ellipsis span {
-    position: absolute;
-    left: 0;
-    right: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.buttonGroup {
-    display: flex;
-    flex-flow: row;
+#hideFinishedButton > span {
+  vertical-align: middle;
 }
 hr {
     margin: 20px 0px;
@@ -44,10 +27,6 @@ hr {
     border-top-color: var(--color-background-dark);
     border-bottom-style: solid;
     border-bottom-color: var(--color-background-dark);
-}
-#title {
-    margin: 0;
-    margin-bottom: 25px;
 }
 .file-drag{
     background-color: rgb(179, 230, 255) !important;
@@ -64,6 +43,36 @@ hr {
     vertical-align: baseline;
     white-space: nowrap;
 }
+.progressbar {
+    height: 20px;
+    max-width: 40%;
+    background-color: var(--color-background-darker) !important;
+}
+/* ======================== */
+
+/* MOBILE STYLE */
+@media (pointer:none), (pointer:coarse) {
+    .hideOnMobile {
+        display: none;
+    }
+    .buttonGroup {
+        flex-flow: column !important;
+    }
+    th > a{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .uploadsTableTheadTh {
+      width: unset !important;
+    }
+}
+.buttonGroup {
+    display: flex;
+    flex-flow: row;
+}
+/* ======================== */
+
+/* TABLE STYLE */
 #uploadsTable{
     width: 100%;
     max-width: 100%;
@@ -72,7 +81,7 @@ hr {
     border-spacing: 0;
     white-space: nowrap;
 }
-#uploadsTableThead{
+.uploadsTableThead{
     box-sizing: border-box;
     display: table-header-group;
     vertical-align: middle;
@@ -84,7 +93,7 @@ hr {
     font-weight: normal;
     color: var(--color-text-maxcontrast);
 }
-.columntitle{
+.uploadsTableTheadTh > a{
     display: block;
     padding: 15px;
     height: 50px;
@@ -93,7 +102,7 @@ hr {
     vertical-align: middle;
     color: var(--color-text-maxcontrast);
 }
-table th .sort-indicator{
+.sortIndicator{
     width: 10px;
     height: 8px;
     margin-left: 5px;
@@ -105,53 +114,40 @@ table th .sort-indicator{
     transition: background-color 0.3s ease;
     height: 51px;
 }
-.actions {
-    z-index: 50;
-}
 .action .icon{
     display: inline-block;
     vertical-align: middle;
     background-size: 16px 16px;
 }
+/* ======================== */
 
-#hideFinishedCheckbox {
-  min-height: unset;
-  vertical-align: middle;
-  pointer-events: none;
-  margin: 0px;
+/* Helpers */
+.ellipsis {
+    position: relative;
 }
-#hideFinishedText {
-  vertical-align: middle;
+.ellipsis:before {
+    content: '&nbsp;';
+    visibility: hidden;
 }
-.progressColumnDiv {
-    display: flex;
-    align-items: center;
+.ellipsis span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-.progressColumnDiv * {
-    margin-left: 7px;
-    margin-right: 7px;
-}
-.progressbar {
-    height: 20px;
-    max-width: 40%;
-    background-color: var(--color-background-darker) !important;
-}
-
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
-
-/* Edge Progressbar fix:*/
 progress::-ms-fill {
     border: none;
 }
-
 progress[value="100"]::-ms-fill {
     background-color: #00ff00;
 }

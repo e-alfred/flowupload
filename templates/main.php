@@ -28,9 +28,9 @@
         <span class="icon icon-close"></span>
         <span><?= $l->t('Cancel'); ?></span>
     </a>
-    <a class="button" ng-click="hideFinished = !hideFinished">
-      <input id="hideFinishedCheckbox" type="checkbox" ng-model="hideFinished"></input>
-      <span id="hideFinishedText"><?= $l->t('Hide finished uploads'); ?></span>
+    <a id="hideFinishedButton" class="button" ng-click="hideFinished = !hideFinished">
+      <input type="checkbox" ng-model="hideFinished"></input>
+      <span><?= $l->t('Hide finished uploads'); ?></span>
     </a>
   </div>
 
@@ -45,28 +45,28 @@
   <hr>
 
   <table id="uploadsTable" flow-transfers>
-    <thead id="uploadsTableThead">
+    <thead class="uploadsTableThead">
     <tr id="uploadsTableTheadTr">
       <th class="uploadsTableTheadTh hideOnMobile" style="width:5%">
-        <span class="columntitle noselect">#</span>
+        <span class="noselect">#</span>
       </th>
       <th class="uploadsTableTheadTh" ng-click="tableSortClicked('relativePath')">
-        <a class="columntitle noselect">
+        <a class="noselect">
           <span><?= htmlspecialchars($l->t('Name')); ?></span>
-          <span ng-class="{ 'icon-triangle-n':  (sortType == 'relativePath' && sortReverse), 'icon-triangle-s': (sortType == 'relativePath' && !sortReverse)}" class="sort-indicator"></span>
+          <span ng-class="{ 'icon-triangle-n':  (sortType == 'relativePath' && sortReverse), 'icon-triangle-s': (sortType == 'relativePath' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
       <th class="uploadsTableTheadTh"></th>
       <th class="uploadsTableTheadTh" ng-click="tableSortClicked('-size')" style="width:10%">
-        <a class="columntitle noselect">
+        <a class="noselect">
           <span><?= htmlspecialchars($l->t('Size')); ?></span>
-          <span ng-class="{ 'icon-triangle-n':  (sortType == '-size' && sortReverse), 'icon-triangle-s': (sortType == '-size' && !sortReverse)}" class="sort-indicator"></span>
+          <span ng-class="{ 'icon-triangle-n':  (sortType == '-size' && sortReverse), 'icon-triangle-s': (sortType == '-size' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
       <th class="uploadsTableTheadTh" ng-click="tableSortClicked('-progress()')" style="width:20%">
-        <a class="columntitle noselect">
+        <a class="noselect">
           <span><?= htmlspecialchars($l->t('Progress')); ?></span>
-          <span ng-class="{ 'icon-triangle-n':  (sortType == '-progress()' && sortReverse), 'icon-triangle-s': (sortType == '-progress()' && !sortReverse)}" class="sort-indicator"></span>
+          <span ng-class="{ 'icon-triangle-n':  (sortType == '-progress()' && sortReverse), 'icon-triangle-s': (sortType == '-progress()' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
     </tr>
@@ -106,5 +106,5 @@
     </tr>
     </tbody>
   </table>
-  <p style="margin-top: 25px;"><a href="../files?dir=%2Fflowupload"><?= htmlspecialchars($l->t('The files will be saved in your home directory.')); ?></a></p>
+  <p id="homeDirectoryLink"><a href="../files?dir=%2Fflowupload"><?= htmlspecialchars($l->t('The files will be saved in your home directory.')); ?></a></p>
  </div>
