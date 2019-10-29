@@ -1,5 +1,6 @@
 <div ng-app="app" flow-init id="app" ng-controller="mainController" ng-init="init()" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class" ng-style="style">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
   <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
   <div class="buttonGroup">
@@ -45,25 +46,25 @@
   <hr>
 
   <table id="uploadsTable" flow-transfers>
-    <thead class="uploadsTableThead">
-    <tr id="uploadsTableTheadTr">
-      <th class="uploadsTableTheadTh hideOnMobile" style="width:5%">
+    <thead>
+    <tr>
+      <th class="hideOnMobile" style="width:5%">
         <span class="noselect">#</span>
       </th>
-      <th class="uploadsTableTheadTh" ng-click="tableSortClicked('relativePath')">
+      <th ng-click="tableSortClicked('relativePath')">
         <a class="noselect">
           <span><?= htmlspecialchars($l->t('Name')); ?></span>
           <span ng-class="{ 'icon-triangle-n':  (sortType == 'relativePath' && sortReverse), 'icon-triangle-s': (sortType == 'relativePath' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
-      <th class="uploadsTableTheadTh"></th>
-      <th class="uploadsTableTheadTh" ng-click="tableSortClicked('-size')" style="width:10%">
+      <th></th>
+      <th ng-click="tableSortClicked('-size')" style="width:10%">
         <a class="noselect">
           <span><?= htmlspecialchars($l->t('Size')); ?></span>
           <span ng-class="{ 'icon-triangle-n':  (sortType == '-size' && sortReverse), 'icon-triangle-s': (sortType == '-size' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
-      <th class="uploadsTableTheadTh" ng-click="tableSortClicked('-progress()')" style="width:20%">
+      <th ng-click="tableSortClicked('-progress()')" style="width:20%">
         <a class="noselect">
           <span><?= htmlspecialchars($l->t('Progress')); ?></span>
           <span ng-class="{ 'icon-triangle-n':  (sortType == '-progress()' && sortReverse), 'icon-triangle-s': (sortType == '-progress()' && !sortReverse)}" class="sortIndicator"></span>
@@ -71,13 +72,13 @@
       </th>
     </tr>
     </thead>
-    <tbody id="uploadsTableBody">
-    <tr class="uploadsTableTbodyTr" ng-if="!(file.isComplete() && hideFinished)" ng-repeat="file in transfers | orderBy:sortType:sortReverse">
-      <td class="uploadsTableTbodyTd hideOnMobile">{{$index+1}}</td>
-      <td class="uploadsTableTbodyTd ellipsis" title="UID: {{file.uniqueIdentifier}}">
+    <tbody>
+    <tr ng-if="!(file.isComplete() && hideFinished)" ng-repeat="file in transfers | orderBy:sortType:sortReverse">
+      <td class="hideOnMobile">{{$index+1}}</td>
+      <td class="ellipsis" title="UID: {{file.uniqueIdentifier}}">
           <span>{{file.relativePath}}</span>
       </td>
-      <td class="uploadsTableTbodyTd">
+      <td>
         <div class="actions" ng-if="!file.isComplete() || file.error">
           <a class="action permanent" title="<?= htmlspecialchars($l->t('Resume')); ?>" ng-click="file.resume()" ng-if="!file.isUploading() && !file.error">
             <span class="icon icon-play"></span>
@@ -93,11 +94,11 @@
           </a>
         </div>
       </td>
-      <td class="uploadsTableTbodyTd" title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}">
+      <td title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}">
           <span class="hideOnMobile" ng-if="!file.isComplete()">{{file.size*file.progress() | bytes}}/</span>
           <span>{{file.size | bytes}}</span>
       </td>
-      <td class="uploadsTableTbodyTd">
+      <td>
         <progress ng-if="!file.isComplete() && !file.error" class="progressbar hideOnMobile" max="1" value="{{file.progress()}}" title="{{file.progress()*100 | number:2}}%"></progress>
         <span ng-if="!file.isComplete() && !file.error">{{file.progress()*100 | number:2}}%</span>
         <span ng-if="file.isComplete() && !file.error"><?= htmlspecialchars($l->t('Completed')); ?></span>
@@ -106,5 +107,6 @@
     </tr>
     </tbody>
   </table>
+
   <p id="homeDirectoryLink"><a href="../files?dir=%2Fflowupload"><?= htmlspecialchars($l->t('The files will be saved in your home directory.')); ?></a></p>
  </div>

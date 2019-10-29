@@ -81,19 +81,19 @@ hr {
     border-spacing: 0;
     white-space: nowrap;
 }
-.uploadsTableThead{
+#uploadsTable > thead {
     box-sizing: border-box;
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
 }
-.uploadsTableTheadTh{
+#uploadsTable > thead > th{
     border-bottom: 1px solid var(--color-border);
     text-align: left;
     font-weight: normal;
     color: var(--color-text-maxcontrast);
 }
-.uploadsTableTheadTh > a{
+#uploadsTable > thead > th > a{
     display: block;
     padding: 15px;
     height: 50px;
@@ -102,15 +102,7 @@ hr {
     vertical-align: middle;
     color: var(--color-text-maxcontrast);
 }
-.sortIndicator{
-    width: 10px;
-    height: 8px;
-    margin-left: 5px;
-    display: inline-block;
-    vertical-align: text-bottom;
-    opacity: 0.3;
-}
-.uploadsTableTbodyTr{
+.#uploadsTable > tbody > tr{
     transition: background-color 0.3s ease;
     height: 51px;
 }
@@ -118,6 +110,14 @@ hr {
     display: inline-block;
     vertical-align: middle;
     background-size: 16px 16px;
+}
+.sortIndicator{
+    width: 10px;
+    height: 8px;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    opacity: 0.3;
 }
 /* ======================== */
 
