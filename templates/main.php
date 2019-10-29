@@ -54,20 +54,20 @@
       <th ng-click="tableSortClicked('relativePath')">
         <a class="noselect">
           <span><?= htmlspecialchars($l->t('Name')); ?></span>
-          <span ng-class="{ 'icon-triangle-n':  (sortType == 'relativePath' && sortReverse), 'icon-triangle-s': (sortType == 'relativePath' && !sortReverse)}" class="sortIndicator"></span>
+          <span ng-class="{'icon-triangle-n':  (sortType == 'relativePath' && sortReverse), 'icon-triangle-s': (sortType == 'relativePath' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
       <th></th>
       <th ng-click="tableSortClicked('-size')" style="width:10%">
         <a class="noselect">
           <span><?= htmlspecialchars($l->t('Size')); ?></span>
-          <span ng-class="{ 'icon-triangle-n':  (sortType == '-size' && sortReverse), 'icon-triangle-s': (sortType == '-size' && !sortReverse)}" class="sortIndicator"></span>
+          <span ng-class="{'icon-triangle-n':  (sortType == '-size' && sortReverse), 'icon-triangle-s': (sortType == '-size' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
       <th ng-click="tableSortClicked('-progress()')" style="width:20%">
         <a class="noselect">
           <span><?= htmlspecialchars($l->t('Progress')); ?></span>
-          <span ng-class="{ 'icon-triangle-n':  (sortType == '-progress()' && sortReverse), 'icon-triangle-s': (sortType == '-progress()' && !sortReverse)}" class="sortIndicator"></span>
+          <span ng-class="{'icon-triangle-n':  (sortType == '-progress()' && sortReverse), 'icon-triangle-s': (sortType == '-progress()' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
     </tr>
@@ -99,7 +99,7 @@
           <span>{{file.size | bytes}}</span>
       </td>
       <td>
-        <progress ng-if="!file.isComplete() && !file.error" class="progressbar hideOnMobile" max="1" value="{{file.progress()}}" title="{{file.progress()*100 | number:2}}%"></progress>
+        <progress ng-if="!file.isComplete() && !file.error" class="progressbar hideOnMobile" max="1" value="{{file.progress()}}"></progress>
         <span ng-if="!file.isComplete() && !file.error">{{file.progress()*100 | number:2}}%</span>
         <span ng-if="file.isComplete() && !file.error"><?= htmlspecialchars($l->t('Completed')); ?></span>
         <span ng-if="file.error"><?= htmlspecialchars($l->t('Error')); ?></span>
