@@ -10,6 +10,7 @@ OC.L10N.register(
     "Upload/Resume all" : "Upload/Resume alles",
     "Pause" : "Pauzeer",
     "Cancel" : "Annuleer",
+    "Hide finished uploads" : "Voltooide uploads verbergen",
     "Size" : "Grootte",
     "Progress" : "Voortgang",
     "Uploading" : "Uploaden",
