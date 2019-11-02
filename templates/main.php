@@ -5,7 +5,7 @@
 
   <div class="buttonGroup">
     <span class="button" flow-btn>
-      <span class="icon icon-file" style="background-image: var(--icon-file-000);"></span>
+      <span class="icon icon-file select-file-icon" style=""></span>
       <span><?= $l->t('Select File'); ?></span>
     </span>
     <span class="button" flow-btn flow-directory ng-show="$flow.supportDirectory">
