@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Válassz mappát",
     "... or drag and drop your files here" : "... vagy húzd és ejtsd ide a fájljaidat",
     "Transfers" : "Átvitelek",
-    "Upload/Resume all" : "Feltölt/Folytat mindent",
+    "Start/Resume" : "Feltölt/Folytat mindent",
     "Pause" : "Szünet",
     "Cancel" : "Mégsem",
     "Size" : "Méret",

@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Одаберите фасциклу",
     "... or drag and drop your files here" : "...или превуците Ваше фајлове овде",
     "Transfers" : "Преноси",
-    "Upload/Resume all" : "Отпреми/настави све",
+    "Start/Resume" : "Отпреми/настави све",
     "Pause" : "Паузирај",
     "Cancel" : "Поништи",
     "Size" : "Величина",

@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Selecteer map",
     "... or drag and drop your files here" : "... of drag and drop je bestanden hier",
     "Transfers" : "Overdrachten",
-    "Upload/Resume all" : "Upload/Resume alles",
+    "Start/Resume" : "Upload/Resume alles",
     "Pause" : "Pauzeer",
     "Cancel" : "Annuleer",
     "Hide finished uploads" : "Voltooide uploads verbergen",

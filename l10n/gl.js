@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "Seleccione un cartafol",
     "... or drag and drop your files here" : "... ou arrastre os seus ficheiros cara a aquí",
     "Transfers" : "Transferencias",
-    "Upload/Resume all" : "Enviar/Continuar todo",
+    "Start/Resume" : "Enviar/Continuar todo",
     "Pause" : "Pausa",
     "Cancel" : "Cancelar",
     "Hide finished uploads" : "Agochar os envíos rematados",
