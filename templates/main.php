@@ -40,6 +40,7 @@
   <p>
     <span class="label"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
     <span class="label" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
+     <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Time remaining'); ?>: {{$flow.timeRemaining() | seconds}}</span>
     <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
   </p>
 
@@ -58,6 +59,12 @@
         </a>
       </th>
       <th></th>
+      <th class="hideOnMobile" ng-click="tableSortClicked('currentSpeed')">
+        <a class="noselect">
+          <span><?= htmlspecialchars($l->t('Uploadspeed')); ?></span>
+          <span ng-class="{'icon-triangle-n':  (sortType == 'currentSpeed' && sortReverse), 'icon-triangle-s': (sortType == 'currentSpeed' && !sortReverse)}" class="sortIndicator"></span>
+        </a>
+      </th>
       <th ng-click="tableSortClicked('-size')" style="width:10%">
         <a class="noselect">
           <span><?= htmlspecialchars($l->t('Size')); ?></span>
@@ -93,6 +100,9 @@
             <span class="icon icon-close"></span>
           </a>
         </div>
+      </td>
+      <td class="hideOnMobile">
+          <span ng-if="file.isUploading()">{{file.currentSpeed | byterate}}</span>
       </td>
       <td title="Chunks: {{file.completeChunks()}} / {{file.chunks.length}}">
           <span class="hideOnMobile" ng-if="!file.isComplete()">{{file.size*file.progress() | bytes}}/</span>
