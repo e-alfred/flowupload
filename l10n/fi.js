@@ -1,11 +1,9 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Transfers" : "Siirrot",
     "Select File" : "Valitse tiedosto",
     "Select Folder" : "Valitse kansio",
-    "... or drag and drop your files here" : "... tai vedä ja pudota tiedostot tähän",
-    "Transfers" : "Siirrot",
-    "Start/Resume" : "Lähetä/palauta kaikki",
     "Pause" : "Keskeytä",
     "Cancel" : "Peruuta",
     "Size" : "Koko",

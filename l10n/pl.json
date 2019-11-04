@@ -1,11 +1,9 @@
 { "translations": {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Udostępnia funkcje do przesyłania dużych plików za pomocą przeglądarki HTML5.",
+    "Transfers" : "Transfery",
     "Select File" : "Wybierz plik",
     "Select Folder" : "Wybierz katalog",
-    "... or drag and drop your files here" : "... lub przeciągnij i upuść pliki tutaj",
-    "Transfers" : "Transfery",
-    "Start/Resume" : "Prześlij/Wznów wszystko",
     "Pause" : "Wstrzymaj",
     "Cancel" : "Anuluj",
     "Hide finished uploads" : "Ukryj zakończone wysyłania",

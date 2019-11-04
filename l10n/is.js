@@ -3,11 +3,9 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flæði-innsending",
     "Provides functions to upload large files with your HTML5-Browser." : "Gefur kost á að senda inn stórar skrár með HTML5-vafranum þínum.",
+    "Transfers" : "Millifærslur",
     "Select File" : "Veldu skrá",
     "Select Folder" : "Veldu möppu",
-    "... or drag and drop your files here" : "... eða dragðu og slepptu hér skránum þínum",
-    "Transfers" : "Millifærslur",
-    "Start/Resume" : "Senda inn allt / Halda áfram með allt",
     "Pause" : "Í bið",
     "Cancel" : "Hætta við",
     "Size" : "Stærð",

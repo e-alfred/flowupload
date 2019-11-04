@@ -1,11 +1,9 @@
 { "translations": {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Provee funciones para subir archivos grandes en tu navegador con HTML5.",
+    "Transfers" : "Transferencias",
     "Select File" : "Selecciona archivo",
     "Select Folder" : "Selecciona carpeta",
-    "... or drag and drop your files here" : "...o arrastra y suelta tus archivos aquí",
-    "Transfers" : "Transferencias",
-    "Start/Resume" : "Subir/continuar todo",
     "Pause" : "Pausar",
     "Cancel" : "Cancelar",
     "Hide finished uploads" : "Ocultar subidas finalizadas",
