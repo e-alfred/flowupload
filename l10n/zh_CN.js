@@ -6,8 +6,10 @@ OC.L10N.register(
     "Transfers" : "传输",
     "Select File" : "选择文件",
     "Select Folder" : "选择文件夹",
+    "Start/Resume" : "启动/恢复",
     "Pause" : "暂停",
     "Cancel" : "取消",
+    "Hide finished uploads" : "隐藏已完成的上传",
     "Size" : "大小",
     "Progress" : "进度",
     "Uploading" : "上传中",
@@ -15,6 +17,7 @@ OC.L10N.register(
     "Resume" : "继续",
     "Retry" : "重试",
     "Completed" : "已完成",
+    "Error" : "错误",
     "The files will be saved in your home directory." : "这个文件将保存到你的主目录下。"
 },
 "nplurals=1; plural=0;");

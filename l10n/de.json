@@ -4,6 +4,7 @@
     "Transfers" : "Übertragungen",
     "Select File" : "Datei auswählen",
     "Select Folder" : "Ordner auswählen",
+    "Start/Resume" : "Starten/Fortsetzen",
     "Pause" : "Anhalten",
     "Cancel" : "Abbrechen",
     "Hide finished uploads" : "Beendete Uploads verbergen",
@@ -14,6 +15,7 @@
     "Resume" : "Fortsetzen",
     "Retry" : "Wiederholen",
     "Completed" : "Fertiggestellt",
+    "Error" : "Fehler",
     "The files will be saved in your home directory." : "Die Dateien werden in Deinem Home-Verzeichnis gespeichert."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

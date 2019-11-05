@@ -6,6 +6,7 @@ OC.L10N.register(
     "Transfers" : "Übertragungen",
     "Select File" : "Datei auswählen",
     "Select Folder" : "Ordner auswählen",
+    "Start/Resume" : "Starten/Fortsetzen",
     "Pause" : "Anhalten",
     "Cancel" : "Abbrechen",
     "Hide finished uploads" : "Beendete Uploads verbergen",
@@ -16,6 +17,7 @@ OC.L10N.register(
     "Resume" : "Fortsetzen",
     "Retry" : "Wiederholen",
     "Completed" : "Fertiggestellt",
+    "Error" : "Fehler",
     "The files will be saved in your home directory." : "Die Dateien werden in deinem Home-Verzeichnis gespeichert."
 },
 "nplurals=2; plural=(n != 1);");
