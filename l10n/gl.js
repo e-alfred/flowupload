@@ -6,6 +6,7 @@ OC.L10N.register(
     "Transfers" : "Transferencias",
     "Select File" : "Seleccione un ficheiro",
     "Select Folder" : "Seleccione un cartafol",
+    "Start/Resume" : "Iniciar/Continuar",
     "Pause" : "Pausa",
     "Cancel" : "Cancelar",
     "Hide finished uploads" : "Agochar os envíos rematados",
@@ -16,6 +17,7 @@ OC.L10N.register(
     "Resume" : "Continuar",
     "Retry" : "Tentar de novo",
     "Completed" : "Completado",
+    "Error" : "Erro",
     "The files will be saved in your home directory." : "Os ficheiros gardaranse no seu directorio persoal."
 },
 "nplurals=2; plural=(n != 1);");
