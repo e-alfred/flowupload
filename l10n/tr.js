@@ -6,6 +6,7 @@ OC.L10N.register(
     "Transfers" : "Aktarımlar",
     "Select File" : "Dosya Seçin",
     "Select Folder" : "Klasör Seçin",
+    "Start/Resume" : "Başlat/Sürdür",
     "Pause" : "Duraklat",
     "Cancel" : "İptal",
     "Hide finished uploads" : "Tamamlanmış güncellemeler gizlensin",
@@ -16,6 +17,7 @@ OC.L10N.register(
     "Resume" : "Sürdür",
     "Retry" : "Yeniden Dene",
     "Completed" : "Tamamlandı",
+    "Error" : "Hata",
     "The files will be saved in your home directory." : "Dosyalar kişisel klasörünüze kaydedilecek."
 },
 "nplurals=2; plural=(n > 1);");
