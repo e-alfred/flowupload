@@ -1,4 +1,4 @@
-Version information
+Changelog
 -------------
 
 Version 0.0.9:
