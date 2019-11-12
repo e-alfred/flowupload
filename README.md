@@ -1,6 +1,6 @@
 Description
 -----------
-Large File Uploader to upload files and folders* with unlimited size. It uses Angular File Upload (https://github.com/flowjs/ng-flow) for handling.
+Large File Uploader to upload files and folders* with unlimited size. It uses [Angular File Upload](https://github.com/flowjs/ng-flow) for handling.
 
 Early alpha state, not approved for security. This app does not support server side encryption at the moment.
 
