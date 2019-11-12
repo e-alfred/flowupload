@@ -3,11 +3,9 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow отпремање",
     "Provides functions to upload large files with your HTML5-Browser." : "Даје могућност отпремања великих фајлова преко Вашег HTML5 веб прегледача.",
+    "Transfers" : "Преноси",
     "Select File" : "Одаберите фајл",
     "Select Folder" : "Одаберите фасциклу",
-    "... or drag and drop your files here" : "...или превуците Ваше фајлове овде",
-    "Transfers" : "Преноси",
-    "Start/Resume" : "Отпреми/настави све",
     "Pause" : "Паузирај",
     "Cancel" : "Поништи",
     "Size" : "Величина",

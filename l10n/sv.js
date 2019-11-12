@@ -3,11 +3,10 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Ladda upp stora filer med din HTML5-webbläsare.",
+    "Transfers" : "Överföringar",
     "Select File" : "Välj fil",
     "Select Folder" : "Välj mapp",
-    "... or drag and drop your files here" : "... eller dra och släpp dina filer här",
-    "Transfers" : "Överföringar",
-    "Start/Resume" : "Ladda upp/Återuppta alla",
+    "Start/Resume" : "Starta/Återuppta",
     "Pause" : "Pausa",
     "Cancel" : "Avbryt",
     "Hide finished uploads" : "Dölj färdiga uppladdningar",
@@ -18,6 +17,7 @@ OC.L10N.register(
     "Resume" : "Återuppta",
     "Retry" : "Försök igen",
     "Completed" : "Slutförd",
+    "Error" : "Fel",
     "The files will be saved in your home directory." : "Filerna kommer att sparas i din hemkatalog."
 },
 "nplurals=2; plural=(n != 1);");

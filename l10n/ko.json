@@ -1,11 +1,9 @@
 { "translations": {
     "Flow Upload" : "플로 업로드",
     "Provides functions to upload large files with your HTML5-Browser." : "HTML5 기반 브라우저에서 대용량 파일을 업로드합니다.",
+    "Transfers" : "전송",
     "Select File" : "파일 선택",
     "Select Folder" : "폴더 선택",
-    "... or drag and drop your files here" : "... 또는 여기에 파일을 끌어다 놓으ᄉᅠᆸㅣ시오",
-    "Transfers" : "전송",
-    "Start/Resume" : "모두 업로드/다시 시작",
     "Pause" : "일시 정지",
     "Cancel" : "취소",
     "Size" : "크기",

@@ -3,13 +3,13 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Poskytuje funkce pro nahrávání velkých souborů pomocí prohlížeče s HTML5.",
+    "Transfers" : "Přenosy",
     "Select File" : "Vybrat soubor",
     "Select Folder" : "Vybrat složku",
-    "... or drag and drop your files here" : "... a nebo přetáhni soubory sem",
-    "Transfers" : "Přenosy",
-    "Start/Resume" : "Nahrát / pokračovat v nahrávání všeho",
+    "Start/Resume" : "Spustit/obnovit",
     "Pause" : "Pozastavit",
     "Cancel" : "Storno",
+    "Hide finished uploads" : "Skrýt dokončená nahrání",
     "Size" : "Velikost",
     "Progress" : "Průběh",
     "Uploading" : "Nahrávání",
@@ -17,6 +17,7 @@ OC.L10N.register(
     "Resume" : "Obnovit",
     "Retry" : "Zkusit znovu",
     "Completed" : "Dokončeno",
-    "The files will be saved in your home directory." : "Soubory budou uloženy ve vaší domovské složce."
+    "Error" : "Chyba",
+    "The files will be saved in your home directory." : "Soubory budou uloženy ve vašem domovském adresáři."
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");

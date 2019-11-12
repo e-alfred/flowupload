@@ -1,11 +1,9 @@
 { "translations": {
     "Flow Upload" : "Flow Încarcare",
     "Provides functions to upload large files with your HTML5-Browser." : "Permite modalitatea de a încărca fișiere mari din browserul tău HTML5",
+    "Transfers" : "Transferuri",
     "Select File" : "Selectează Fișier",
     "Select Folder" : "Selectează director",
-    "... or drag and drop your files here" : "... sau trage și plasează fișierele aici",
-    "Transfers" : "Transferuri",
-    "Start/Resume" : "Încarcă/Reia tot",
     "Pause" : "Pauză",
     "Cancel" : "Anulează",
     "Size" : "Mărime",

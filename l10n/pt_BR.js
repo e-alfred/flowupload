@@ -3,11 +3,10 @@ OC.L10N.register(
     {
     "Flow Upload" : "Upload do Fluxo",
     "Provides functions to upload large files with your HTML5-Browser." : "Fornece funções para enviar arquivos grandes com o seu navegador HTML5.",
+    "Transfers" : "Transferências",
     "Select File" : "Selecionar Arquivo",
     "Select Folder" : "Selecionar Pasta",
-    "... or drag and drop your files here" : "...ou arraste e solte seus arquivos aqui",
-    "Transfers" : "Transferências",
-    "Start/Resume" : "Enviar/Retomar todos",
+    "Start/Resume" : "Iniciar/Continuar",
     "Pause" : "Pausar",
     "Cancel" : "Cancelar",
     "Hide finished uploads" : "Ocultar envios finalizados",
@@ -18,6 +17,7 @@ OC.L10N.register(
     "Resume" : "Retomar",
     "Retry" : "Retentar",
     "Completed" : "Completo",
+    "Error" : "Erro",
     "The files will be saved in your home directory." : "Os arquivos serão salvos no seu diretório pessoal."
 },
 "nplurals=2; plural=(n > 1);");
