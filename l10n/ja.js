@@ -7,7 +7,7 @@ OC.L10N.register(
     "Select Folder" : "フォルダ選択",
     "... or drag and drop your files here" : "...またはファイルをここにドラッグアンドドロップ",
     "Transfers" : "転送",
-    "Upload/Resume all" : "全てアップロード/再開",
+    "Start/Resume" : "全てアップロード/再開",
     "Pause" : "一時停止",
     "Cancel" : "キャンセル",
     "Size" : "サイズ",

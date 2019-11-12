@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Transfers" : "Persiuntimai",
     "Pause" : "Pristabdyti",
     "Cancel" : "Atsisakyti",
     "Size" : "Dydis",
