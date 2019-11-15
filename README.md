@@ -19,5 +19,3 @@ Flowupload: [GNU Affero General Public License](http://www.gnu.org/licenses/agpl
 Flowjs/NG-Flow: [MIT License](https://opensource.org/licenses/MIT)
 
 Angularjs: [MIT License](https://opensource.org/licenses/MIT)
-
-Bootstrap: [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0)
