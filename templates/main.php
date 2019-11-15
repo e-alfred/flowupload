@@ -61,7 +61,7 @@
       <th></th>
       <th class="hideOnMobile" ng-click="tableSortClicked('-currentSpeed')" style="width:10%">
         <a class="noselect">
-          <span><?= htmlspecialchars($l->t('Uploadspeed')); ?></span>
+          <span><?= htmlspecialchars($l->t('Upload speed')); ?></span>
           <span ng-class="{'icon-triangle-n':  (sortType == '-currentSpeed' && sortReverse), 'icon-triangle-s': (sortType == '-currentSpeed' && !sortReverse)}" class="sortIndicator"></span>
         </a>
       </th>
