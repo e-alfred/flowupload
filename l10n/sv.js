@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "Återstående tid",
     "Uploading" : "Laddar upp",
     "Name" : "Namn",
-    "Uploadspeed" : "Uppladdningshastighet",
     "Resume" : "Återuppta",
     "Retry" : "Försök igen",
     "Completed" : "Slutförd",
