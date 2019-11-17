@@ -58,3 +58,10 @@ app.controller('mainController', function($scope,$interval) {
     $scope.dynamicTitle();
   },500);
 });
+
+window.addEventListener("beforeunload", function (e) {
+    var confirmationMessage = 'If you proceed all pending uploads will get cancelled !';
+
+    (e || window.event).returnValue = confirmationMessage;
+    return confirmationMessage;
+});
