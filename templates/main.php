@@ -1,6 +1,38 @@
 <div ng-app="app" flow-init id="app" ng-controller="mainController" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  <div id="app-navigation">
+    <ul id="locations" class="with-icon" ng-controller="locations">
+      <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="collapsible locations">
+        <button flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" class="collapse"></button>
 
+        <a href="#" class="icon-folder" ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
+        <ul>
+    		  <li><a class="icon-add" href="#" flow-btn><?= $l->t('Upload a file'); ?></a></li>
+    		  <li><a class="icon-add" href="#" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Upload a whole folder'); ?></a></li>
+        </ul>
+      </li>
+
+      <li id="app-navigation-entry-utils-add">
+        <a href="#"><?= $l->t('New destination'); ?></a>
+        <div class="app-navigation-entry-utils">
+          <ul>
+            <li id="app-navigation-entry-utils-create" class="app-navigation-entry-utils-menu-button"><button class="icon-add"></button></li>
+          </ul>
+        </div>
+        <div class="app-navigation-entry-edit">
+          <form>
+            <input id="newLocationName" type="text" placeholder="<?= $l->t('Destination name'); ?>" ng-keydown="$event.keyCode === 13 && addNewLocation()">
+            <input type="submit" value="" class="icon-close">
+            <input ng-click="addNewLocation()" type="submit" value="" class="icon-checkmark">
+          </form>
+        </div>
+      </li>
+    </ul>
+
+    <input id="currentLocation" type="hidden" />
+  </div>
+  
   <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
   <div class="buttonGroup">
