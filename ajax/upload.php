@@ -11,7 +11,8 @@ Flow\Autoloader::register();
 // Directory definitions
 $userhome = OC_User::getHome(\OC::$server->getUserSession()->getUser()->getUID());
 $temp = $userhome.'/.flowupload_tmp/';
-$result = '/flowupload/';
+$result = $_REQUEST['target'] ?? '/flowupload/';
+$result = '/'.$result.'/';
 
 // Initialize uploader
 $config = new \Flow\Config();

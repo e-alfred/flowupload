@@ -127,9 +127,9 @@ app.controller('location', function ($scope) {
 			// function will be called for every request
 			console.log('File', flowFile);
 			console.log('Chunk', flowChunk);
+			console.log("before Upload");
 			return {
-				//id: $scope.locationId
-				// Temporary:
+				id: $scope.locationId,
 				target: $scope.locationName
 			};
 		}

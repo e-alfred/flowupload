@@ -34,11 +34,27 @@
     <input id="currentLocation" type="hidden" />
   </div>
 
+  <!--<div id="app-navigation">
+      <div class="app-navigation-new">
+        <button type="button" class="icon-add">Add Destination</button>
+    </div>
+    <ul>
+        <li><a href="#">First level entry</a></li>
+        <li>
+            <a href="#">First level container</a>
+            <ul>
+                <li><a href="#">Second level entry</a></li>
+                <li><a href="#">Second level entry</a></li>
+            </ul>
+        </li>
+    </ul>
+  </div>-->
+
   <!-- MAIN -->
   <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="padding: 2.5%; width:auto">
     <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
-    <div class="buttonGroup">
+    <!--<div class="buttonGroup">
       <span class="button" flow-btn>
         <span class="icon icon-file select-file-icon" style=""></span>
         <span><?= $l->t('Select File'); ?></span>
@@ -47,7 +63,7 @@
         <span class="icon icon-files" style="background-image: var(--icon-files-000);"></span>
         <span><?= $l->t('Select Folder'); ?></span>
       </span>
-    </div>
+    </div>-->
 
     <hr>
 
@@ -73,6 +89,7 @@
     <hr>
 
     <p>
+        <span class="label">{{ locationId }}</span>
       <span class="label"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
       <span class="label" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
        <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Time remaining'); ?>: {{$flow.timeRemaining() | seconds}}</span>
@@ -115,7 +132,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-if="!(file.isComplete() && hideFinished)" ng-repeat="file in transfers | orderBy:sortType:sortReverse">
+      <tr ng-if="!(file.isComplete() && hideFinished)" ng-repeat="file in $flow.files | orderBy:sortType:sortReverse">
         <td class="hideOnMobile">{{$index+1}}</td>
         <td class="ellipsis" title="UID: {{file.uniqueIdentifier}}">
             <span>{{file.relativePath}}</span>
