@@ -9,14 +9,9 @@
         </ul>
     </div>
     <ul id="locations" class="with-icon" ng-controller="locations">
-      <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="collapsible locations">
-        <button flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" class="collapse"></button>
-
+      <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="locations">
         <a href="#" class="icon-folder" ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
-        <ul>
-    		  <li><a class="icon-add" href="#" flow-btn><?= $l->t('Upload a file'); ?></a></li>
-    		  <li><a class="icon-add" href="#" flow-btn flow-directory ng-show="$flow.supportDirectory"><?= $l->t('Upload a whole folder'); ?></a></li>
-        </ul>
+        <!--<li class="app-navigation-entry-utils-counter">{{ $flow.files.length }}</li>-->
       </li>
 
       <li id="app-navigation-entry-utils-add">
@@ -33,36 +28,22 @@
     <input id="currentLocation" type="hidden" />
   </div>
 
-  <!--<div id="app-navigation">
-      <div class="app-navigation-new">
-        <button type="button" class="icon-add">Add Destination</button>
-    </div>
-    <ul>
-        <li><a href="#">First level entry</a></li>
-        <li>
-            <a href="#">First level container</a>
-            <ul>
-                <li><a href="#">Second level entry</a></li>
-                <li><a href="#">Second level entry</a></li>
-            </ul>
-        </li>
-    </ul>
-  </div>-->
-
   <!-- MAIN -->
   <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="padding: 2.5%; width:auto">
     <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
-    <!--<div class="buttonGroup">
-      <span class="button" flow-btn>
+    <div class="buttonGroup">
+      <span class="button" ng-click="selectFileDialog($event)">
         <span class="icon icon-file select-file-icon" style=""></span>
         <span><?= $l->t('Select File'); ?></span>
       </span>
-      <span class="button" flow-btn flow-directory ng-show="$flow.supportDirectory">
+      <input id="FileSelectInput" type="file" multiple="multiple" style="visibility: hidden; position: absolute; width: 1px; height: 1px;">
+      <span class="button" ng-click="selectFolderDialog($event)" ng-show="$flow.supportDirectory">
         <span class="icon icon-files" style="background-image: var(--icon-files-000);"></span>
         <span><?= $l->t('Select Folder'); ?></span>
       </span>
-    </div>-->
+      <input id="FolderSelectInput" type="file" multiple="multiple" webkitdirectory="webkitdirectory" style="visibility: hidden; position: absolute; width: 1px; height: 1px;">
+    </div>
 
     <hr>
 
@@ -88,7 +69,6 @@
     <hr>
 
     <p>
-        <span class="label">{{ locationId }}</span>
       <span class="label"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
       <span class="label" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
        <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Time remaining'); ?>: {{$flow.timeRemaining() | seconds}}</span>

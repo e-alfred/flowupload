@@ -17,7 +17,7 @@ app.config(['flowFactoryProvider', function (flowFactoryProvider) {
     simultaneousUploads: 4
   };
   flowFactoryProvider.on('catchAll', function (event) {
-    console.log('catchAll', arguments);
+    //console.log('catchAll', arguments);
   });
 }]);
 
@@ -31,6 +31,12 @@ $('li#app-navigation-entry-utils-add .icon-close').on('click', function () {
 
 $('li#app-navigation-entry-utils-add .icon-checkmark').on('click', function () {
   $('li#app-navigation-entry-utils-add').removeClass('editing');
+});
+
+$('#FileSelectInput, #FolderSelectInput').on('change', function(event){
+    console.log("change event");
+    angular.element(this).scope().addFilesFromEvent(event);
+    $('#FileSelectInput, #FolderSelectInput').val(null); //otherwise selecting the same file twice isn't possible
 });
 
 // FILTERS
@@ -90,19 +96,33 @@ app.controller('flow', function($scope,$interval) {
       }
   };
 
+  $scope.addFilesFromEvent = function(event) {
+      console.log(event.target.files);
+      $scope.$flow.addFiles(event.target.files);
+  };
+
+  $scope.selectFileDialog = function($event) {
+      console.log("select file button clicked");
+      $("#FileSelectInput").click();
+  };
+
+  $scope.selectFolderDialog = function($event) {
+      console.log("select folder button clicked");
+      $("#FolderSelectInput").click();
+  };
+
   let dynamicTitleInterval = $interval(function() {
     $scope.dynamicTitle();
   },500);
 
   $scope.locationId = 0;
 
-	$scope.$on('changeLocation', function (event, id, $flow) {
-		$scope.locationId = id;
-		$scope.$flow = $flow;
+  $scope.$on('changeLocation', function (event, id, $flow) {
+    $scope.locationId = id;
+    $scope.$flow = $flow;
 
-		console.log(id);
-		console.log($flow);
-	});
+    console.log($flow);
+  });
 });
 
 app.controller('location', function ($scope) {
@@ -125,11 +145,7 @@ app.controller('location', function ($scope) {
 	$scope.beforeUploading = {
 		query: function (flowFile, flowChunk) {
 			// function will be called for every request
-			console.log('File', flowFile);
-			console.log('Chunk', flowChunk);
-			console.log("before Upload");
 			return {
-				id: $scope.locationId,
 				target: $scope.locationName
 			};
 		}
