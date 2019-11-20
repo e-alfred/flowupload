@@ -3,6 +3,11 @@
 
   <!-- APP NAVIAGTION -->
   <div id="app-navigation">
+    <div class="app-navigation-new">
+        <ul>
+            <li id="app-navigation-entry-utils-create" class="app-navigation-entry-utils-menu-button"><button class="icon-add"><?= $l->t('New destination'); ?></button></li>
+        </ul>
+    </div>
     <ul id="locations" class="with-icon" ng-controller="locations">
       <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="collapsible locations">
         <button flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" class="collapse"></button>
@@ -15,12 +20,6 @@
       </li>
 
       <li id="app-navigation-entry-utils-add">
-        <a href="#"><?= $l->t('New destination'); ?></a>
-        <div class="app-navigation-entry-utils">
-          <ul>
-            <li id="app-navigation-entry-utils-create" class="app-navigation-entry-utils-menu-button"><button class="icon-add"></button></li>
-          </ul>
-        </div>
         <div class="app-navigation-entry-edit">
           <form>
             <input id="newLocationName" type="text" placeholder="<?= $l->t('Destination name'); ?>" ng-keydown="$event.keyCode === 13 && addNewLocation()">
