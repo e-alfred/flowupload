@@ -1,4 +1,4 @@
-<div ng-app="app" flow-init id="app" flow-drop flow-drag-enter="class='file-drag'" flow-drag-leave="class=''" ng-class="class">
+<div id="app" ng-app="app" role="main">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
   <!-- APP NAVIAGTION -->
@@ -35,7 +35,7 @@
   </div>
 
   <!-- MAIN -->
-  <div id="main" ng-controller="flow">
+  <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="padding: 2.5%; width:auto">
     <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
     <div class="buttonGroup">
