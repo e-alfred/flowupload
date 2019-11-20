@@ -33,22 +33,6 @@
     <input id="currentLocation" type="hidden" />
   </div>
 
-  <!--<div id="app-navigation">
-      <div class="app-navigation-new">
-        <button type="button" class="icon-add">Add Destination</button>
-    </div>
-    <ul>
-        <li><a href="#">First level entry</a></li>
-        <li>
-            <a href="#">First level container</a>
-            <ul>
-                <li><a href="#">Second level entry</a></li>
-                <li><a href="#">Second level entry</a></li>
-            </ul>
-        </li>
-    </ul>
-  </div>-->
-
   <!-- MAIN -->
   <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="padding: 2.5%; width:auto">
     <h2 id="title"><?= $l->t('Transfers'); ?></h2>
