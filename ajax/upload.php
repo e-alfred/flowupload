@@ -1,5 +1,5 @@
 <?php
-// Restrict access // ToDo: Enabled for current user?
+// Restrict access
 if (!\OC::$server->getUserSession()->isLoggedIn()) {
   http_response_code(403);
 }
@@ -11,8 +11,8 @@ Flow\Autoloader::register();
 // Directory definitions
 $userhome = OC_User::getHome(\OC::$server->getUserSession()->getUser()->getUID());
 $temp = $userhome.'/.flowupload_tmp/';
-$result = $_REQUEST['target'] ?? '/flowupload/';
-$result = '/'.$result.'/';
+$uploadTarget = $_REQUEST['target'] ?? '/flowupload/';
+$uploadTarget = '/'.$uploadTarget.'/';
 
 // Initialize uploader
 $config = new \Flow\Config();
@@ -25,7 +25,7 @@ $path = html_entity_decode(htmlentities($path, ENT_QUOTES, 'UTF-8'));
 $path = trim($path, '/');
 
 // Skip existing files // ToDo: Check if file size changed?
-if (\OC\Files\Filesystem::file_exists($result . $path)) {
+if (\OC\Files\Filesystem::file_exists($uploadTarget . $path)) {
 	http_response_code(200);
 	die();
 }
@@ -39,26 +39,26 @@ if (\OC\Files\Filesystem::isValidPath($path)) {
 	}
 
 	// Create destination directory
-	$dir = dirname($result . $path);
+	$dir = dirname($uploadTarget . $path);
 	if(!\OC\Files\Filesystem::file_exists($dir)) {
 		\OC\Files\Filesystem::mkdir($dir);
 	}
 
 	// Store file
-	if (\Flow\Basic::save($userhome . "/files/" . $result . $path, $config, $request)) {
+	if (\Flow\Basic::save($userhome . "/files/" . $uploadTarget . $path, $config, $request)) {
 
                 // no real copy, file comes from somewhere else, e.g. version rollback -> just update the file cache and the webdav properties without all the other post_write actions
-//                \OC\Files\Cache\Cache::checkUpdate($result . $path);
-//                \OC\Files\Filesystem::removeETagHook(array("path" => $result . $path));
+//                \OC\Files\Cache\Cache::checkUpdate($uploadTarget . $path);
+//                \OC\Files\Filesystem::removeETagHook(array("path" => $uploadTarget . $path));
 
 
 		OC_Hook::emit(
 			\OC\Files\Filesystem::CLASSNAME,
 			\OC\Files\Filesystem::signal_post_write,
-			array( \OC\Files\Filesystem::signal_param_path => $result . $path)
+			array( \OC\Files\Filesystem::signal_param_path => $uploadTarget . $path)
 		);
 
-		\OC\Files\Filesystem::touch($result . $path);
+		\OC\Files\Filesystem::touch($uploadTarget . $path);
 
 	} else {
 		// This is not a final chunk or request is invalid, continue to upload.
