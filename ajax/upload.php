@@ -1,7 +1,7 @@
 <?php
-// Restrict access
+// check if logged in
 if (!\OC::$server->getUserSession()->isLoggedIn()) {
-    echo("not logged in \n");
+    \OCP\Util::writeLog('flowupload', "Flowupload rejected request, because client is not logged in", \OCP\ILogger::ERROR);
     http_response_code(403);
     die();
 }
@@ -36,6 +36,7 @@ if (\OC\Files\Filesystem::file_exists($uploadTarget . $fileRelativePath)) {
 
 // check if path is valid
 if (!\OC\Files\Filesystem::isValidPath($uploadTarget . $fileRelativePath)) {
+    \OCP\Util::writeLog('flowupload', "Upload to a invalid Path failed", \OCP\ILogger::ERROR);
     http_response_code(403);
     die();
 }
@@ -67,5 +68,4 @@ if (\Flow\Basic::save($userhome . "/files/" . $uploadTarget . $fileRelativePath,
 	
 // ToDo: error handling
 //OCP\JSON::error(array("data" => array("message" => $msg)));
-//OCP\Util::writeLog('flowupload', "Failed to create file: " . $fileRelativePath, OC_Log::ERROR);
 ?>
