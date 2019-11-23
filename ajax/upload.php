@@ -20,6 +20,7 @@ $uploadTarget = $_REQUEST['target'] ?? '/flowupload/';
 $config = new \Flow\Config();
 $config->setTempDir($temp);
 $request = new \Flow\Request();
+
 $fileRelativePath = $request->getRelativePath();
 
 // Filter paths
@@ -27,15 +28,17 @@ $fileRelativePath = preg_replace('/(\.\.\/|~|\/\/)/i', '', $fileRelativePath);
 $fileRelativePath = html_entity_decode(htmlentities($fileRelativePath, ENT_QUOTES, 'UTF-8'));
 $fileRelativePath = trim($fileRelativePath, '/');
 
+$path = $uploadTarget . $fileRelativePath;
+
 // Skip existing files // ToDo: Check if file size changed?
-if (\OC\Files\Filesystem::file_exists($uploadTarget . $fileRelativePath)) {
+if (\OC\Files\Filesystem::file_exists($path)) {
     echo("file already exists \n");
 	http_response_code(200);
 	die();
 }
 
 // check if path is valid
-if (!\OC\Files\Filesystem::isValidPath($uploadTarget . $fileRelativePath)) {
+if (!\OC\Files\Filesystem::isValidPath($path)) {
     \OCP\Util::writeLog('flowupload', "Upload to a invalid Path failed", \OCP\ILogger::ERROR);
     http_response_code(403);
     die();
@@ -47,22 +50,23 @@ if(!file_exists($temp)) {
 }
 
 // Create destination directory
-$dir = dirname($uploadTarget . $fileRelativePath);
+$dir = dirname($path);
 if(!\OC\Files\Filesystem::file_exists($dir)) {
 	\OC\Files\Filesystem::mkdir($dir);
 }
 
 // Store file
-if (\Flow\Basic::save($userhome . "/files/" . $uploadTarget . $fileRelativePath, $config, $request)) {
+if (\Flow\Basic::save($userhome . "/files/" . $path, $config, $request)) {
 	OC_Hook::emit(
 		\OC\Files\Filesystem::CLASSNAME,
 		\OC\Files\Filesystem::signal_post_write,
-		array( \OC\Files\Filesystem::signal_param_path => $uploadTarget . $fileRelativePath)
+		array( \OC\Files\Filesystem::signal_param_path => $path)
 	);
-	\OC\Files\Filesystem::touch($uploadTarget . $fileRelativePath);
+	\OC\Files\Filesystem::touch($path);
 } else {
 	// This is not a final chunk or request is invalid, continue to upload.
 }
+
 // Remove old chunks
 \Flow\Uploader::pruneChunks($temp);
 	
