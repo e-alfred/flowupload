@@ -122,6 +122,9 @@ app.controller('flow', function($scope,$interval) {
     $scope.$flow = $flow;
 
     console.log($flow);
+
+	$('#locations .locations').removeClass('active');
+	$("#location-"+id).addClass('active');
   });
 });
 
@@ -136,10 +139,6 @@ app.controller('location', function ($scope) {
 		$event.preventDefault();
 
 		console.log($scope);
-
-		$('#locations li.active').removeClass('active');
-
-		$($event.currentTarget).addClass('active');
 	};
 
 	$scope.beforeUploading = {
