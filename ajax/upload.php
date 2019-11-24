@@ -19,6 +19,7 @@ $uploadTarget = $_REQUEST['target'] ?? '/flowupload/';
 // Initialize uploader
 $config = new \Flow\Config();
 $config->setTempDir($temp);
+$config->setDeleteChunksOnSave(TRUE);
 $request = new \Flow\Request();
 
 $fileRelativePath = $request->getRelativePath();
@@ -57,19 +58,18 @@ if(!\OC\Files\Filesystem::file_exists($dir)) {
 
 // Store file
 if (\Flow\Basic::save($userhome . "/files/" . $path, $config, $request)) {
-	OC_Hook::emit(
-		\OC\Files\Filesystem::CLASSNAME,
-		\OC\Files\Filesystem::signal_post_write,
-		array( \OC\Files\Filesystem::signal_param_path => $path)
-	);
-	\OC\Files\Filesystem::touch($path);
+    \OC_Hook::emit(
+	    \OC\Files\Filesystem::CLASSNAME,
+	    \OC\Files\Filesystem::signal_post_update,
+	    array(\OC\Files\Filesystem::signal_param_path => $path)
+    );
+
+    \OC\Files\Filesystem::touch(dirname($path) . "/.flowupload_force_cache_update");
+    \OC\Files\Filesystem::unlink(dirname($path) . "/.flowupload_force_cache_update");
 } else {
 	// This is not a final chunk or request is invalid, continue to upload.
 }
 
-// Remove old chunks
-\Flow\Uploader::pruneChunks($temp);
-	
 // ToDo: error handling
 //OCP\JSON::error(array("data" => array("message" => $msg)));
 ?>
