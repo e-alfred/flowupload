@@ -13,7 +13,28 @@
     <ul id="locations" class="with-icon">
       <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="locations">
         <a ng-href="" class="icon-folder"ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
-        <!--<li class="app-navigation-entry-utils-counter">{{ $flow.files.length }}</li>-->
+        <div class="app-navigation-entry-utils">
+            <ul>
+                <li class="app-navigation-entry-utils-counter" title="{{ $flow.files.length }} Files">{{ $flow.files.length }}</li>
+                <li class="app-navigation-entry-utils-menu-button"><button></button></li>
+            </ul>
+        </div>
+        <div class="app-navigation-entry-menu">
+            <ul>
+                <li>
+                    <a href="">
+                        <span class="icon-settings"></span>
+                        <span>set Permanent</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="icon-delete"></span>
+                        <span>Remove</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
       </li>
     </ul>
 
