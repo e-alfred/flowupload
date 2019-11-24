@@ -11,10 +11,6 @@
       array(
         'id' => 0,
         'location' => '/flowupload/',
-        'pause' => 0,
-        'uploading' => 0,
-        'completed' => 0,
-        'aborted' => 0
       )
     );
   }
@@ -47,11 +43,7 @@
 
       echo json_encode(array(
           'id' => preg_replace('#/#', '', $location),
-          'location' => $location,
-          'pause' => 0,
-          'uploading' => 0,
-          'completed' => 0,
-          'aborted' => 0
+          'location' => $location
         ));
     }
     else {
