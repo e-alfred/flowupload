@@ -10,18 +10,8 @@
     </div>
     <ul id="locations" class="with-icon" ng-controller="locations">
       <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="locations">
-        <a ng-href="#{{ location.location }}" class="icon-folder"ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
+        <a ng-href="" class="icon-folder"ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
         <!--<li class="app-navigation-entry-utils-counter">{{ $flow.files.length }}</li>-->
-      </li>
-
-      <li id="app-navigation-entry-utils-add">
-        <div class="app-navigation-entry-edit">
-          <form>
-            <input id="newLocationName" type="text" placeholder="<?= $l->t('Destination name'); ?>" ng-keydown="$event.keyCode === 13 && addNewLocation()">
-            <input type="submit" value="" class="icon-close">
-            <input ng-click="addNewLocation()" type="submit" value="" class="icon-checkmark">
-          </form>
-        </div>
       </li>
     </ul>
 

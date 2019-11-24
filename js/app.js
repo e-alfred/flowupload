@@ -22,15 +22,10 @@ app.config(['flowFactoryProvider', function (flowFactoryProvider) {
 }]);
 
 $('li#app-navigation-entry-utils-create').on('click', function() {
-  $('li#app-navigation-entry-utils-add').addClass('editing');
-});
-
-$('li#app-navigation-entry-utils-add .icon-close').on('click', function () {
-  $('li#app-navigation-entry-utils-add').removeClass('editing');
-});
-
-$('li#app-navigation-entry-utils-add .icon-checkmark').on('click', function () {
-  $('li#app-navigation-entry-utils-add').removeClass('editing');
+  OC.dialogs.filepicker("Select a new Upload Folder", function(datapath, returntype) {
+      console.log(datapath);
+      angular.element($("#locations")).scope().addNewLocation("/"+datapath);
+  }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
 });
 
 $('#FileSelectInput, #FolderSelectInput').on('change', function(event){
@@ -191,12 +186,12 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 		);
 	};
 
-	$scope.addNewLocation = function () {
+	$scope.addNewLocation = function (location) {
 		$http({
 			method : "POST",
 			url : "ajax/locations.php",
 			data : {
-				location: $('#newLocationName').val()
+				location: location
 			}
 		}).then(function mySuccess(response) {
 			$('#newLocationName').val('');
