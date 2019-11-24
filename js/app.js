@@ -21,15 +21,7 @@ app.config(['flowFactoryProvider', function (flowFactoryProvider) {
   });
 }]);
 
-$('li#app-navigation-entry-utils-create').on('click', function() {
-  OC.dialogs.filepicker("Select a new Upload Folder", function(datapath, returntype) {
-      console.log(datapath);
-      angular.element($("#locations")).scope().addNewLocation("/"+datapath);
-  }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
-});
-
 $('#FileSelectInput, #FolderSelectInput').on('change', function(event){
-    console.log("change event");
     angular.element(this).scope().addFilesFromEvent(event);
     $('#FileSelectInput, #FolderSelectInput').val(null); //otherwise selecting the same file twice isn't possible
 });
@@ -186,21 +178,19 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 		);
 	};
 
-	$scope.addNewLocation = function (location) {
-		$http({
-			method : "POST",
-			url : "ajax/locations.php",
-			data : {
-				location: location
-			}
-		}).then(function mySuccess(response) {
-			$('#newLocationName').val('');
-
-			$scope.locationId = response.data.id;
-			$scope.locations.push(response.data);
-		}, function myError(response) {
-			$scope.locations = {};
-		});
+	$scope.addNewLocation = function () {
+	    OC.dialogs.filepicker("Select a new Upload Folder", function(datapath, returntype) {
+    		$http({
+    			method : "POST",
+    			url : "ajax/locations.php",
+    			data : {
+    				location: "/"+datapath
+    			}
+    		}).then(function mySuccess(response) {
+    			$scope.locationId = response.data.id;
+    			$scope.locations.push(response.data);
+    		});
+        }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
 	};
 
 	$scope.getLocations();

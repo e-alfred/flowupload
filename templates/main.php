@@ -2,13 +2,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
   <!-- APP NAVIAGTION -->
-  <div id="app-navigation">
+  <div id="app-navigation" ng-controller="locations">
     <div class="app-navigation-new">
         <ul>
-            <li id="app-navigation-entry-utils-create" class="app-navigation-entry-utils-menu-button"><button class="icon-add"><?= $l->t('New destination'); ?></button></li>
+            <li id="app-navigation-entry-utils-create" ng-click="addNewLocation()" class="app-navigation-entry-utils-menu-button">
+              <button class="icon-add"><?= $l->t('New destination'); ?></button>
+            </li>
         </ul>
     </div>
-    <ul id="locations" class="with-icon" ng-controller="locations">
+    <ul id="locations" class="with-icon">
       <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="locations">
         <a ng-href="" class="icon-folder"ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
         <!--<li class="app-navigation-entry-utils-counter">{{ $flow.files.length }}</li>-->
