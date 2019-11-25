@@ -28,7 +28,10 @@ hr {
     border-bottom-style: solid;
     border-bottom-color: var(--color-background-dark);
 }
-.file-drag {
+.fileDropZone {
+    transition: background 0.5s;
+}
+.fileDrag {
     background-color: rgb(179, 230, 255) !important;
 }
 .label {
@@ -48,7 +51,7 @@ hr {
     max-width: 40%;
     background-color: var(--color-background-darker) !important;
 }
-.select-file-icon{
+.select-file-icon {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiB2ZXJzaW9uPSIxLjEiPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Im0yLjUgMWMtMC4yOCAwLTAuNSAwLjIyLTAuNSAwLjV2MTNjMCAwLjI4IDAuMjIgMC41IDAuNSAwLjVoMTFjMC4yOCAwIDAuNS0wLjIyIDAuNS0wLjV2LTEwLjVsLTMtM3oiLz48L3N2Zz4K) !important;
 }
 /* ======================== */

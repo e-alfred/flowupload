@@ -82,12 +82,51 @@ app.directive('appNavigationEntryUtils', function () {
     };
 });
 
+app.directive('fileDropZone', function() {
+    'use strict';
+    return {
+        restrict: 'C',
+        link: function (scope, elm){
+            elm[0].addEventListener('drop', function (event) {
+                scope.$flow.addFiles(event.dataTransfer.files);
+            });
+            elm.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            elm.on('dragover dragenter', function() {
+                elm.addClass('fileDrag');
+            });
+            elm.on('dragleave dragend drop', function() {
+                elm.removeClass('fileDrag');
+            });
+        }
+    };
+});
+
+app.directive('uploadSelectButton', function() {
+    'use strict';
+    return {
+        restrict: 'C',
+        link: function (scope, elm, attr){
+            if(attr.uploadtype == "file"){
+                elm.on('click', function() {
+                    $("#FileSelectInput").click();
+                });
+            }else if(attr.uploadtype == "folder"){
+                elm.on('click', function() {
+                    $("#FolderSelectInput").click();
+                });
+            }
+        }
+    };
+});
+
 // CONTROLLERS
 
 app.controller('flow', function($scope,$interval) {
   $scope.sortType     = 'relativePath';
   $scope.sortReverse  = false;
-
   $scope.hideFinished  = false;
 
   $scope.tableSortClicked = function(newSortType){
@@ -110,16 +149,6 @@ app.controller('flow', function($scope,$interval) {
   $scope.addFilesFromEvent = function(event) {
       console.log(event.target.files);
       $scope.$flow.addFiles(event.target.files);
-  };
-
-  $scope.selectFileDialog = function($event) {
-      console.log("select file button clicked");
-      $("#FileSelectInput").click();
-  };
-
-  $scope.selectFolderDialog = function($event) {
-      console.log("select folder button clicked");
-      $("#FolderSelectInput").click();
   };
 
   let dynamicTitleInterval = $interval(function() {
@@ -148,8 +177,6 @@ app.controller('location', function ($scope) {
 	$scope.seeUploads = function ($event, type) {
 		$event.stopPropagation();
 		$event.preventDefault();
-
-		console.log($scope);
 	};
 
 	$scope.beforeUploading = {

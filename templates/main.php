@@ -11,7 +11,7 @@
         </ul>
     </div>
     <ul id="locations" class="with-icon">
-      <li flow-prevent-drop flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''" ng-class="class" ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-style="style" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}" class="locations">
+      <li class="fileDropZone locations"  ng-controller="location" flow-init="init(location.id, location.location); beforeUploading" ng-repeat="location in locations" ng-init="$last && reloadLocations()" id="location-{{location.id}}">
         <a ng-href="" class="icon-folder"ng-click="setLocation(location.id, $flow)">{{location.location}}</a>
         <div class="app-navigation-entry-utils">
             <ul>
@@ -42,16 +42,16 @@
   </div>
 
   <!-- MAIN -->
-  <div ng-controller="flow" flow-init="beforeUploading" id="app-content" flow-prevent-drop ng-style="style" style="padding: 2.5%; width:auto">
+  <div class="fileDropZone" ng-controller="flow" flow-init="beforeUploading" id="app-content" style="padding: 2.5%; width:auto">
     <h2 id="title"><?= $l->t('Transfers'); ?></h2>
 
     <div class="buttonGroup">
-      <span class="button" ng-click="selectFileDialog($event)">
+      <span class="uploadSelectButton button" uploadtype="file">
         <span class="icon icon-file select-file-icon" style=""></span>
         <span><?= $l->t('Select File'); ?></span>
       </span>
       <input id="FileSelectInput" type="file" multiple="multiple" style="visibility: hidden; position: absolute; width: 1px; height: 1px;">
-      <span class="button" ng-click="selectFolderDialog($event)" ng-show="$flow.supportDirectory">
+      <span class="uploadSelectButton button" uploadtype="folder" ng-show="$flow.supportDirectory">
         <span class="icon icon-files" style="background-image: var(--icon-files-000);"></span>
         <span><?= $l->t('Select Folder'); ?></span>
       </span>
@@ -84,13 +84,13 @@
     <p>
       <span class="label"><?= $l->t('Size'); ?>: {{$flow.getSize() | bytes}}</span>
       <span class="label" ng-if="$flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{$flow.progress()*100 | number:2}}%</span>
-       <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Time remaining'); ?>: {{$flow.timeRemaining() | seconds}}</span>
+      <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Time remaining'); ?>: {{$flow.timeRemaining() | seconds}}</span>
       <span class="label" ng-if="$flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
     </p>
 
     <hr>
 
-    <table id="uploadsTable" flow-transfers>
+    <table id="uploadsTable">
       <thead>
       <tr>
         <th class="hideOnMobile" style="width:5%">
