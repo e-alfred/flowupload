@@ -3,7 +3,7 @@
 \OCP\User::checkLoggedIn();
 
 \OCP\Util::addScript('flowupload', 'angular');
-\OCP\Util::addScript('flowupload', 'ng-flow-standalone');
+\OCP\Util::addScript('flowupload', 'flow.min');
 \OCP\Util::addScript('flowupload', 'app');
 \OCP\Util::addStyle('flowupload', 'style');
 

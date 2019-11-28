@@ -7,21 +7,16 @@
 
   function getAllLocations() {
     // ToDo: Return locations from database
-    return array(
-      array(
-        'id' => 0,
-        'location' => '/flowupload/',
-      )
-    );
+    return array('/flowupload/');
+    //return array();
   }
 
   function addNewLocation($location) {
-    // ToDo: Add to database
   	$location = preg_replace('/(\.\.\/|~|\/\/)/i', '', '/'.$location.'/');
     $location = preg_replace('/[^a-z0-9äöüß \(\)\.\-_\/]/i', '', $location);
   	$location = trim($location);
 
-    return $location;
+    //Add to database
   }
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -40,11 +35,6 @@
       http_response_code(201);
 
       $location = addNewLocation($_POST['location']);
-
-      echo json_encode(array(
-          'id' => preg_replace('#/#', '', $location),
-          'location' => $location
-        ));
     }
     else {
       http_response_code(400);
@@ -53,7 +43,5 @@
     die();
   }
 
-  echo json_encode(array(
-    "locations" => getAllLocations()
-  ));
+  echo json_encode(getAllLocations());
 ?>

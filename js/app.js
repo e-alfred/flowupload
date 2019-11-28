@@ -6,23 +6,10 @@
  * @name app
  * @type {angular.Module}
  */
-var app = angular.module('app', ['flow']);
-
-app.config(['flowFactoryProvider', function (flowFactoryProvider) {
-  flowFactoryProvider.defaults = {
-    target: 'ajax/upload.php',
-    permanentErrors: [403, 404, 500, 501],
-    maxChunkRetries: 2,
-    chunkRetryInterval: 5000,
-    simultaneousUploads: 4
-  };
-  flowFactoryProvider.on('catchAll', function (event) {
-    //console.log('catchAll', arguments);
-  });
-}]);
+var app = angular.module('app',[]);
 
 $('#FileSelectInput, #FolderSelectInput').on('change', function(event){
-    angular.element(this).scope().addFilesFromEvent(event);
+    angular.element(this).scope().location.flow.addFiles(event.originalEvent.target.files);
     $('#FileSelectInput, #FolderSelectInput').val(null); //otherwise selecting the same file twice isn't possible
 });
 
@@ -39,7 +26,6 @@ app.filter('bytes', function() {
 });
 app.filter('byterate', function() {
 	return function(bytes, precision) {
-	    console.log(bytes);
 		if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return '0 KB/s';
 		if (typeof precision === 'undefined') precision = 1;
 		var units = ['B/s', 'KB/s', 'MB/s', 'GB/s'];
@@ -55,6 +41,18 @@ app.filter('seconds', function() {
 		var units = ['s', 'm', 'h'];
 		var	number = Math.min(Math.floor(Math.log(seconds) / Math.log(60)),units.length-1);
 		return (seconds / Math.pow(60, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
+	};
+});
+app.filter('completedChunks', function() {
+	return function(file) {
+        let completeChunks = 0;
+
+        file.chunks.forEach(function (c) {
+            if(c.progress() === 1){
+                completeChunks++;
+            }
+        });
+        return completeChunks;
 	};
 });
 
@@ -88,7 +86,13 @@ app.directive('fileDropZone', function() {
         restrict: 'C',
         link: function (scope, elm){
             elm[0].addEventListener('drop', function (event) {
-                scope.$flow.addFiles(event.dataTransfer.files);
+                var dataTransfer = event.dataTransfer;
+                if (dataTransfer.items && dataTransfer.items[0] &&
+                    dataTransfer.items[0].webkitGetAsEntry) {
+                    scope.location.flow.webkitReadDataTransfer(event);
+                } else {
+                    scope.location.flow.addFiles(dataTransfer.files, event);
+                }
             });
             elm.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
                 e.preventDefault();
@@ -124,7 +128,7 @@ app.directive('uploadSelectButton', function() {
 
 // CONTROLLERS
 
-app.controller('flow', function($scope,$interval) {
+app.controller('flow', function($rootScope,$scope,$interval) {
   $scope.sortType     = 'relativePath';
   $scope.sortReverse  = false;
   $scope.hideFinished  = false;
@@ -138,111 +142,112 @@ app.controller('flow', function($scope,$interval) {
   };
 
   $scope.dynamicTitle = function() {
-      if($scope.$flow.getFilesCount() !== 0){
-        let progress = parseFloat(Math.round($scope.$flow.progress() * 100 * 100) / 100).toFixed(2); //round to two digits after comma
+      if($scope.location.flow.files.length !== 0){
+        let progress = parseFloat(Math.round($scope.location.flow.progress() * 100 * 100) / 100).toFixed(2); //round to two digits after comma
         document.title = "FlowUpload "+progress+"%";
       }else{
         document.title = "FlowUpload";
       }
   };
 
-  $scope.addFilesFromEvent = function(event) {
-      console.log(event.target.files);
-      $scope.$flow.addFiles(event.target.files);
-  };
-
   let dynamicTitleInterval = $interval(function() {
-    $scope.dynamicTitle();
+    if($rootScope.loaded && $scope.location){
+        $scope.dynamicTitle();
+    }
   },500);
 
-  $scope.locationId = 0;
-
-  $scope.$on('changeLocation', function (event, id, $flow) {
-    $scope.locationId = id;
-    $scope.$flow = $flow;
-
-    console.log($flow);
-
-	$('#locations .locations').removeClass('active');
-	$("#location-"+id).addClass('active');
+  $scope.$on('changeLocation', function (event, newLocation) {
+    $scope.location = newLocation;
   });
 });
 
 app.controller('location', function ($scope) {
-	$scope.init = function (id, name) {
-		$scope.locationId = id;
-		$scope.locationName = name;
-	}
-
 	$scope.seeUploads = function ($event, type) {
 		$event.stopPropagation();
 		$event.preventDefault();
 	};
-
-	$scope.beforeUploading = {
-		query: function (flowFile, flowChunk) {
-			// function will be called for every request
-			return {
-				target: $scope.locationName
-			};
-		}
-	};
 });
 
 app.controller('locations', function ($rootScope, $scope, $http) {
-	$scope.isOpen = false;
+    $scope.locations = [];
 
-	$scope.reloadLocations = function () {
-		setTimeout(function () {
-			if ($scope.locationId === undefined)
-				$($($('.locations')[0]).find('a')).click();
-			else
-				$($('#location-' + $scope.locationId).find('a')).click();
-		}, 100);
-	}
+    $scope.init = function (){
+        $scope.loadFavoriteLocations().then(function(){
+            if($scope.locations.length > 0){
+                $('.locations:first').find("a").click();
+            }else{
+                console.log("no favorite locations available");
+            }
 
-	$scope.setLocation = function (id, $flow) {
-		$rootScope.$broadcast('changeLocation', id, $flow);
-		$scope.$flow = $flow;
-		$scope.locationId = id;
+            $rootScope.loaded = true;
+        });
+    }
+
+    $scope.getLocationByPath = function(path){
+        for(let i=0; i < $scope.locations.length; i++){
+            if($scope.locations[i].path == path){
+                return $scope.locations[i];
+            }
+        }
+    }
+
+	$scope.setLocation = function (path) {
+	    let newLocation = $scope.getLocationByPath(path);
+	    console.log(newLocation);
+
+		$rootScope.$broadcast('changeLocation', newLocation);
+		$scope.currentLocation = newLocation;
 
 		$('.locations').each(function () {
-			if ($(this).attr('id') === 'location-' + id)
-				$(this).addClass('open');
-			else
-				$(this).removeClass('open');
+			if ($(this).attr('id') === 'location-' + newLocation.path){
+				$(this).addClass('active');
+			} else{
+			    $(this).removeClass('active');
 			}
-		);
+		});
 	}
 
-	$scope.getLocations = function () {
-		$http({
-			method: "GET",
-			url: "ajax/locations.php"
-		}).then(function mySuccess(response) {
-				$scope.locations = response.data.locations;
-
-				$scope.locationId = $scope.locations[0].id;
-			}, function myError(response) {
-				$scope.locations = {};
-			}
-		);
-	};
-
-	$scope.addNewLocation = function () {
-	    OC.dialogs.filepicker("Select a new Upload Folder", function(datapath, returntype) {
+	$scope.loadFavoriteLocations = function () {
+	    return new Promise(function (resolve, reject){
     		$http({
-    			method : "POST",
-    			url : "ajax/locations.php",
-    			data : {
-    				location: "/"+datapath
-    			}
+    			method: "GET",
+    			url: "ajax/locations.php"
     		}).then(function mySuccess(response) {
-    			$scope.locationId = response.data.id;
-    			$scope.locations.push(response.data);
+    		    for(let i=0; i < response.data.length; i++){
+    			    $scope.addNewLocation(response.data[i],true);
+    			}
+    			resolve();
     		});
-        }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
+	    });
 	};
 
-	$scope.getLocations();
+	$scope.addNewLocation = function (path, favorite) {
+	    let newFlow = new Flow(
+	        {query: function (flowFile, flowChunk) {
+    			return {
+    				target: $scope.currentLocation.path
+    			};
+		    },
+		    "target": 'ajax/upload.php',
+            "permanentErrors": [403, 404, 500, 501],
+            "maxChunkRetries": 2,
+            "chunkRetryInterval": 5000,
+            "simultaneousUploads": 4
+	        }
+        );
+
+        $scope.locations.push({"path": path, "favorite": favorite, "flow": newFlow});
+        console.log($scope.locations);
+	};
+
+	$scope.pickNewLocation = function () {
+	    OC.dialogs.filepicker("Select a new Upload Folder", function(path) {
+            $scope.addNewLocation(path+"/",false);
+            setTimeout(function(){
+                $scope.setLocation(path+"/");
+            }, 500);
+        }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
+	}
+
+	$scope.init();
 });
