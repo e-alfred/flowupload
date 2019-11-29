@@ -21,13 +21,14 @@
         </div>
         <div class="app-navigation-entry-menu">
             <ul>
-                <li>
+                <li ng-click="toggleStarredLocation(location.path)">
                     <a href="">
-                        <span class="icon-settings"></span>
-                        <span>set Permanent</span>
+                        <span class="icon-starred"></span>
+                        <span ng-if="!location.starred">Star</span>
+                        <span ng-if="location.starred">Unstar</span>
                     </a>
                 </li>
-                <li>
+                <li ng-click="removeLocation(location.path)">
                     <a href="">
                         <span class="icon-delete"></span>
                         <span>Remove</span>

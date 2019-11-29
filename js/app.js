@@ -172,11 +172,11 @@ app.controller('locations', function ($rootScope, $scope, $http) {
     $scope.locations = [];
 
     $scope.init = function (){
-        $scope.loadFavoriteLocations().then(function(){
+        $scope.loadStarredLocations().then(function(){
             if($scope.locations.length > 0){
-                $('.locations:first').find("a").click();
+                $scope.setLocation($scope.locations[0].path);
             }else{
-                console.log("no favorite locations available");
+                console.log("no starred locations available");
             }
 
             $rootScope.loaded = true;
@@ -207,11 +207,11 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 		});
 	}
 
-	$scope.loadFavoriteLocations = function () {
+	$scope.loadStarredLocations = function () {
 	    return new Promise(function (resolve, reject){
     		$http({
     			method: "GET",
-    			url: "ajax/locations.php"
+    			url: "ajax/getStarredLocations.php"
     		}).then(function mySuccess(response) {
     		    for(let i=0; i < response.data.length; i++){
     			    $scope.addNewLocation(response.data[i],true);
@@ -221,7 +221,7 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 	    });
 	};
 
-	$scope.addNewLocation = function (path, favorite) {
+	$scope.addNewLocation = function (path, starred) {
 	    let newFlow = new Flow(
 	        {query: function (flowFile, flowChunk) {
     			return {
@@ -236,9 +236,43 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 	        }
         );
 
-        $scope.locations.push({"path": path, "favorite": favorite, "flow": newFlow});
+        $scope.locations.push({"path": path, "starred": starred, "flow": newFlow});
         console.log($scope.locations);
 	};
+
+	$scope.toggleStarredLocation = function(path){
+	    if($scope.getLocationByPath(path).starred){
+	        $scope.unstarLocation(path);
+	    }else{
+	        $scope.starLocation(path);
+	    }
+	}
+
+	$scope.starLocation = function(path){
+	    $scope.getLocationByPath(path).starred = true;
+	    //TODO: send to server
+	}
+
+	$scope.unstarLocation = function(path){
+	    $scope.getLocationByPath(path).starred = false;
+	    //TODO: send to server
+	}
+
+	$scope.removeLocation = function(path) {
+	    for(let i=0; i < $scope.locations.length; i++){
+	        if($scope.locations[i].path == path){
+	            if($scope.locations[i].starred){
+	                $scope.unstarLocation(path);
+	            }
+	            $scope.locations.splice(i,1);
+	        }
+	    }
+
+	    if($scope.currentLocation.path == path) {
+	        $scope.currentLocation = undefined;
+	        $rootScope.$broadcast('changeLocation', undefined);
+	    }
+	}
 
 	$scope.pickNewLocation = function () {
 	    OC.dialogs.filepicker("Select a new Upload Folder", function(path) {
