@@ -15,7 +15,7 @@
         <a ng-href="" class="icon-folder" ng-click="setLocation(location.path)" title="{{ location.path }}">{{location.path}}</a>
         <div class="app-navigation-entry-utils">
             <ul>
-                <li class="app-navigation-entry-utils-counter" title="{{ location.flow.files.length }} Files">{{ location.flow.files.length }}</li>
+                <li class="app-navigation-entry-utils-counter" title="{{ location.flow.files.length }} <?= htmlspecialchars($l->t('Files')); ?>">{{ location.flow.files.length }}</li>
                 <li class="app-navigation-entry-utils-menu-button"><button></button></li>
             </ul>
         </div>
@@ -24,14 +24,14 @@
                 <li ng-click="toggleStarredLocation(location.path)">
                     <a href="">
                         <span class="icon-starred"></span>
-                        <span ng-if="!location.starred">Star</span>
-                        <span ng-if="location.starred">Unstar</span>
+                        <span ng-if="!location.starred"><?= htmlspecialchars($l->t('Star')); ?></span>
+                        <span ng-if="location.starred"><?= htmlspecialchars($l->t('Unstar')); ?></span>
                     </a>
                 </li>
                 <li ng-click="removeLocation(location.path)">
                     <a href="">
                         <span class="icon-delete"></span>
-                        <span>Remove</span>
+                        <span><?= htmlspecialchars($l->t('Remove')); ?></span>
                     </a>
                 </li>
             </ul>
@@ -43,7 +43,7 @@
         <div id="app-settings-header">
             <button class="settings-button"
                     data-apps-slide-toggle="#app-settings-content">
-                Settings
+                <?= htmlspecialchars($l->t('Settings')); ?>
             </button>
         </div>
         <div id="app-settings-content">
