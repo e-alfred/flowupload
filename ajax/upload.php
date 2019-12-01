@@ -13,8 +13,8 @@ Flow\Autoloader::register();
 // Directory definitions
 $userhome = OC_User::getHome(\OC::$server->getUserSession()->getUser()->getUID());
 $temp = $userhome.'/.flowupload_tmp/';
+
 $uploadTarget = $_REQUEST['target'] ?? '/flowupload/';
-//$uploadTarget = '/'.$uploadTarget.'/';
 
 // Initialize uploader
 $config = new \Flow\Config();
@@ -51,9 +51,8 @@ if(!file_exists($temp)) {
 }
 
 // Create destination directory
-$dir = dirname($path);
-if(!\OC\Files\Filesystem::file_exists($dir)) {
-	\OC\Files\Filesystem::mkdir($dir);
+if(!\OC\Files\Filesystem::file_exists(dirname($path))) {
+	\OC\Files\Filesystem::mkdir(dirname($path));
 }
 
 // Store file
