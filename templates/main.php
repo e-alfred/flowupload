@@ -21,6 +21,12 @@
         </div>
         <div class="app-navigation-entry-menu">
             <ul>
+                <li>
+                    <a href="/index.php/apps/files/?dir={{ location.path }}" target="_blank" rel="noopener noreferrer">
+                        <span class="icon-files"></span>
+                        <span><?= htmlspecialchars($l->t('Open')); ?></span>
+                    </a>
+                </li>
                 <li ng-click="toggleStarredLocation(location.path)">
                     <a href="">
                         <span class="icon-starred"></span>
