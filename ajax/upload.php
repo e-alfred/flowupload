@@ -57,7 +57,7 @@ if(!\OC\Files\Filesystem::file_exists($dir)) {
 }
 
 // Store file
-if (\Flow\Basic::save($userhome . "/files/" . $path, $config, $request)) {
+if (\Flow\Basic::save($path, $config, $request)) {
     \OC_Hook::emit(
 	    \OC\Files\Filesystem::CLASSNAME,
 	    \OC\Files\Filesystem::signal_post_update,

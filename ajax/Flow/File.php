@@ -146,7 +146,8 @@ class File
      */
     public function save($destination)
     {
-        $fh = fopen($destination, 'wb');
+        $fh = \OC\Files\Filesystem::fopen($destination, 'wb');
+
         if (!$fh) {
             throw new FileOpenException('failed to open destination file: '.$destination);
         }
