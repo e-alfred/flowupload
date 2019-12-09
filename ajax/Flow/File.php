@@ -152,19 +152,6 @@ class File
             throw new FileOpenException('failed to open destination file: '.$destination);
         }
 
-        if (!flock($fh, LOCK_EX | LOCK_NB, $blocked)) {
-            // @codeCoverageIgnoreStart
-            if ($blocked) {
-                // Concurrent request has requested a lock.
-                // File is being processed at the moment.
-                // Warning: lock is not checked in windows.
-                return false;
-            }
-            // @codeCoverageIgnoreEnd
-
-            throw new FileLockException('failed to lock file: '.$destination);
-        }
-
         $totalChunks = $this->request->getTotalChunks();
 
         try {
@@ -186,7 +173,6 @@ class File
                 fclose($chunk);
             }
         } catch (\Exception $e) {
-            flock($fh, LOCK_UN);
             fclose($fh);
             throw $e;
         }
@@ -195,7 +181,6 @@ class File
             $this->deleteChunks();
         }
 
-        flock($fh, LOCK_UN);
         fclose($fh);
 
         return true;
