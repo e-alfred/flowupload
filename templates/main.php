@@ -6,7 +6,7 @@
     <div class="app-navigation-new">
         <ul>
             <li id="app-navigation-entry-utils-create" ng-click="pickNewLocation()" class="app-navigation-entry-utils-menu-button">
-              <button class="icon-add"><?= $l->t('New destination'); ?></button>
+              <button class="icon-add"><?= htmlspecialchars($l->t('New destination')); ?></button>
             </li>
         </ul>
     </div>
@@ -62,17 +62,17 @@
   <div class="fileDropZone" ng-controller="flow" id="app-content" style="padding: 2.5%; width:auto">
     <div id="noLocationSelected"ng-cloak ng-show="location === undefined && loaded"><?= $l->t('Please select a location'); ?></div>
     <div id="locationSelected" ng-cloak ng-hide="location === undefined">
-        <h2 id="title"><?= $l->t('Transfers'); ?></h2>
+        <h2 id="title"><?= htmlspecialchars($l->t('Transfers')); ?></h2>
 
         <div class="buttonGroup">
           <span class="uploadSelectButton button" uploadtype="file">
             <span class="icon icon-file select-file-icon" style=""></span>
-            <span><?= $l->t('Select File'); ?></span>
+            <span><?= htmlspecialchars($l->t('Select File')); ?></span>
           </span>
           <input id="FileSelectInput" type="file" multiple="multiple">
           <span class="uploadSelectButton button" uploadtype="folder" ng-show="location.flow.supportDirectory">
             <span class="icon icon-files" style="background-image: var(--icon-files-000);"></span>
-            <span><?= $l->t('Select Folder'); ?></span>
+            <span><?= htmlspecialchars($l->t('Select Folder')); ?></span>
           </span>
           <input id="FolderSelectInput" type="file" multiple="multiple" webkitdirectory="webkitdirectory">
         </div>
@@ -82,19 +82,19 @@
         <div class="buttonGroup">
           <a class="button" ng-click="location.flow.resume()">
               <span class="icon icon-play"></span>
-              <span><?= $l->t('Start/Resume'); ?></span>
+              <span><?= htmlspecialchars($l->t('Start/Resume')); ?></span>
           </a>
           <a class="button" ng-click="location.flow.pause()">
               <span class="icon icon-pause"></span>
-              <span><?= $l->t('Pause'); ?></span>
+              <span><?= htmlspecialchars($l->t('Pause')); ?></span>
           </a>
           <a class="button" ng-click="location.flow.cancel()">
               <span class="icon icon-close"></span>
-              <span><?= $l->t('Cancel'); ?></span>
+              <span><?= htmlspecialchars($l->t('Cancel')); ?></span>
           </a>
           <a id="hideFinishedButton" class="button" ng-click="hideFinished = !hideFinished">
             <input type="checkbox" ng-model="hideFinished"></input>
-            <span><?= $l->t('Hide finished uploads'); ?></span>
+            <span><?= htmlspecialchars($l->t('Hide finished uploads')); ?></span>
           </a>
         </div>
 
@@ -102,9 +102,9 @@
 
         <p>
           <span class="label"><?= $l->t('Size'); ?>: {{location.flow.getSize() | bytes}}</span>
-          <span class="label" ng-if="location.flow.getFilesCount() != 0"><?= $l->t('Progress'); ?>: {{location.flow.progress()*100 | number:2}}%</span>
-          <span class="label" ng-if="location.flow.isUploading()"><?= $l->t('Time remaining'); ?>: {{location.flow.timeRemaining() | seconds}}</span>
-          <span class="label" ng-if="location.flow.isUploading()"><?= $l->t('Uploading'); ?>...</span>
+          <span class="label" ng-if="location.flow.getFilesCount() != 0"><?= htmlspecialchars($l->t('Progress')); ?>: {{location.flow.progress()*100 | number:2}}%</span>
+          <span class="label" ng-if="location.flow.isUploading()"><?= htmlspecialchars($l->t('Time remaining')); ?>: {{location.flow.timeRemaining() | seconds}}</span>
+          <span class="label" ng-if="location.flow.isUploading()"><?= htmlspecialchars($l->t('Uploading')); ?>...</span>
         </p>
 
         <hr>
