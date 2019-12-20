@@ -46,7 +46,7 @@ app.filter('seconds', function() {
 app.filter('completedChunks', function() {
 	return function(file) {
         let completeChunks = 0;
-
+        
         file.chunks.forEach(function (c) {
             if(c.progress() === 1){
                 completeChunks++;
@@ -132,7 +132,7 @@ app.controller('flow', function($rootScope,$scope,$interval) {
   $scope.sortType     = 'relativePath';
   $scope.sortReverse  = false;
   $scope.hideFinished  = false;
-
+  
   $scope.tableSortClicked = function(newSortType){
     if($scope.sortType === newSortType){
       $scope.sortReverse = !$scope.sortReverse;
@@ -170,7 +170,7 @@ app.controller('location', function ($scope) {
 
 app.controller('locations', function ($rootScope, $scope, $http) {
     $scope.locations = [];
-
+    
     $scope.init = function (){
         $scope.loadStarredLocations().then(function(){
             if($scope.locations.length > 0){
@@ -178,11 +178,11 @@ app.controller('locations', function ($rootScope, $scope, $http) {
             }else{
                 console.log("no starred locations available");
             }
-
+            
             $rootScope.loaded = true;
         });
     }
-
+    
     $scope.getLocationByPath = function(path){
         for(let i=0; i < $scope.locations.length; i++){
             if($scope.locations[i].path == path){
@@ -190,11 +190,11 @@ app.controller('locations', function ($rootScope, $scope, $http) {
             }
         }
     }
-
+    
 	$scope.setLocation = function (path) {
 	    let newLocation = $scope.getLocationByPath(path);
 	    console.log(newLocation);
-
+	    
 		$rootScope.$broadcast('changeLocation', newLocation);
 		$scope.currentLocation = newLocation;
 
@@ -225,7 +225,7 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 	    let newFlow = new Flow(
 	        {query: function (flowFile, flowChunk) {
     			return {
-    				target: $scope.currentLocation.path
+    				target: path
     			};
 		    },
 		    "target": 'ajax/upload.php',
@@ -235,11 +235,11 @@ app.controller('locations', function ($rootScope, $scope, $http) {
             "simultaneousUploads": 4
 	        }
         );
-
+        
         $scope.locations.push({"path": path, "starred": starred, "flow": newFlow});
         console.log($scope.locations);
 	};
-
+	
 	$scope.toggleStarredLocation = function(path){
 	    if($scope.getLocationByPath(path).starred){
 	        $scope.unstarLocation(path);
@@ -247,17 +247,17 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 	        $scope.starLocation(path);
 	    }
 	}
-
+	
 	$scope.starLocation = function(path){
 	    $scope.getLocationByPath(path).starred = true;
 	    //TODO: send to server
 	}
-
+	
 	$scope.unstarLocation = function(path){
 	    $scope.getLocationByPath(path).starred = false;
 	    //TODO: send to server
 	}
-
+	
 	$scope.removeLocation = function(path) {
 	    for(let i=0; i < $scope.locations.length; i++){
 	        if($scope.locations[i].path == path){
@@ -267,13 +267,13 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 	            $scope.locations.splice(i,1);
 	        }
 	    }
-
+	    
 	    if($scope.currentLocation.path == path) {
 	        $scope.currentLocation = undefined;
 	        $rootScope.$broadcast('changeLocation', undefined);
 	    }
 	}
-
+	
 	$scope.pickNewLocation = function () {
 	    OC.dialogs.filepicker("Select a new Upload Folder", function(path) {
             $scope.addNewLocation(path+"/",false);
@@ -282,6 +282,6 @@ app.controller('locations', function ($rootScope, $scope, $http) {
             }, 500);
         }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
 	}
-
+	
 	$scope.init();
 });
