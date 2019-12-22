@@ -1,0 +1,9 @@
+{ "translations": {
+    "Cancel" : "Kanselleer",
+    "Size" : "Grootte",
+    "Name" : "Naam",
+    "Retry" : "Herprobeer",
+    "Completed" : "Voltooid",
+    "Error" : "Fout"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

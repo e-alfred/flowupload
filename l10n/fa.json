@@ -1,0 +1,10 @@
+{ "translations": {
+    "Pause" : "توقف کردن",
+    "Cancel" : "لغو",
+    "Size" : "اندازه",
+    "Uploading" : "در حال آپلود",
+    "Name" : "نام",
+    "Completed" : "نکمیل شده",
+    "Error" : "خطا"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
+}

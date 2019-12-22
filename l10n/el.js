@@ -10,6 +10,9 @@ OC.L10N.register(
     "Progress" : "Πρόοδος",
     "Uploading" : "Μεταφόρτωση",
     "Name" : "Όνομα",
-    "Resume" : "Συνέχιση"
+    "Resume" : "Συνέχιση",
+    "Retry" : "Δοκιμή ξανά",
+    "Completed" : "Ολοκληρωμένες",
+    "Error" : "Σφάλμα"
 },
 "nplurals=2; plural=(n != 1);");

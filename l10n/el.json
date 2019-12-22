@@ -8,6 +8,9 @@
     "Progress" : "Πρόοδος",
     "Uploading" : "Μεταφόρτωση",
     "Name" : "Όνομα",
-    "Resume" : "Συνέχιση"
+    "Resume" : "Συνέχιση",
+    "Retry" : "Δοκιμή ξανά",
+    "Completed" : "Ολοκληρωμένες",
+    "Error" : "Σφάλμα"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

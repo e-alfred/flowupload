@@ -1,0 +1,10 @@
+{ "translations": {
+    "Pause" : "Jeda",
+    "Cancel" : "Membatalkan",
+    "Size" : "Ukuran",
+    "Uploading" : "Menunggah",
+    "Name" : "Nama",
+    "Completed" : "Selesai",
+    "Error" : "Kesalahan"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

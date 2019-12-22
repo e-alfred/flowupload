@@ -15,6 +15,7 @@ OC.L10N.register(
     "Resume" : "Halda áfram",
     "Retry" : "Reyna aftur",
     "Completed" : "Lokið",
+    "Error" : "Villa",
     "The files will be saved in your home directory." : "Skrárnar verða vistaðar í heimamöppuna þína."
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

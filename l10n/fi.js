@@ -13,6 +13,7 @@ OC.L10N.register(
     "Resume" : "Palauta",
     "Retry" : "Yritä uudelleen",
     "Completed" : "Valmistui",
+    "Error" : "Virhe",
     "The files will be saved in your home directory." : "Tiedostot tallennetaan kotikansioosi."
 },
 "nplurals=2; plural=(n != 1);");

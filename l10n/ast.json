@@ -1,0 +1,12 @@
+{ "translations": {
+    "Transfers" : "Tresferencies",
+    "Pause" : "Posar",
+    "Cancel" : "Encaboxar",
+    "Size" : "Tamañu",
+    "Uploading" : "Xubiendo",
+    "Name" : "Nome",
+    "Retry" : "Retentar",
+    "Completed" : "Completáu",
+    "Error" : "Fallu"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

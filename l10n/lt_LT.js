@@ -6,6 +6,7 @@ OC.L10N.register(
     "Cancel" : "Atsisakyti",
     "Size" : "Dydis",
     "Progress" : "Eiga",
+    "Uploading" : "Įkeliama",
     "Name" : "Pavadinimas",
     "Resume" : "Pratęsti",
     "Retry" : "Bandyti dar kartą",

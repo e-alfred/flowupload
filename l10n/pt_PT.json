@@ -1,0 +1,12 @@
+{ "translations": {
+    "Transfers" : "Transferências",
+    "Pause" : "Pausar",
+    "Cancel" : "Cancelar",
+    "Size" : "Tamanho",
+    "Uploading" : "A carregar",
+    "Name" : "Nome",
+    "Retry" : "Repetir",
+    "Completed" : "Concluída",
+    "Error" : "Erro"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

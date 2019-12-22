@@ -16,6 +16,7 @@ OC.L10N.register(
     "Resume" : "Hervat",
     "Retry" : "Opnieuw proberen",
     "Completed" : "Voltooid",
+    "Error" : "Fout",
     "The files will be saved in your home directory." : "Deze bestanden zullen in jouw home directory worden opgeslagen."
 },
 "nplurals=2; plural=(n != 1);");

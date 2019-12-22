@@ -1,0 +1,11 @@
+{ "translations": {
+    "Pause" : "Пауза",
+    "Cancel" : "Откажи",
+    "Size" : "Големина",
+    "Uploading" : "Uploading",
+    "Name" : "Име",
+    "Retry" : "Обидете се повторно",
+    "Completed" : "Завршено",
+    "Error" : "Грешка"
+},"pluralForm" :"nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;"
+}
