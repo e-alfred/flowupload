@@ -12,6 +12,7 @@ OC.L10N.register(
     "Hide finished uploads" : "Voltooide uploads verbergen",
     "Size" : "Grootte",
     "Progress" : "Voortgang",
+    "Time remaining" : "Tijd resterend",
     "Uploading" : "Uploaden",
     "Name" : "Naam",
     "Upload speed" : "Uploadsnelheid",
