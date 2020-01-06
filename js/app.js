@@ -142,7 +142,7 @@ app.controller('flow', function($rootScope,$scope,$interval) {
   };
 
   $scope.dynamicTitle = function() {
-      if($scope.location.flow.files.length !== 0){
+      if($scope.location != undefined && $scope.location.flow.files.length !== 0){
         let progress = parseFloat(Math.round($scope.location.flow.progress() * 100 * 100) / 100).toFixed(2); //round to two digits after comma
         document.title = "FlowUpload "+progress+"%";
       }else{
@@ -151,7 +151,7 @@ app.controller('flow', function($rootScope,$scope,$interval) {
   };
 
   let dynamicTitleInterval = $interval(function() {
-    if($rootScope.loaded && $scope.location){
+    if($rootScope.loaded){
         $scope.dynamicTitle();
     }
   },500);
