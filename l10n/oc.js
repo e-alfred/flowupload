@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Pause" : "Pausa",
     "Cancel" : "Anullar",
+    "Size" : "Talha",
     "Uploading" : "Uploading",
     "Name" : "Nom",
     "Completed" : "Acabat",
