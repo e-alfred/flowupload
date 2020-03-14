@@ -5,6 +5,7 @@ OC.L10N.register(
     "Pause" : "Pauza",
     "Cancel" : "Zrušiť",
     "Size" : "Veľkosť",
+    "Progress" : "Pokrok",
     "Uploading" : "Nahrávanie",
     "Name" : "Názov",
     "Retry" : "Skúsiť znova",
