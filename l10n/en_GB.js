@@ -5,6 +5,7 @@ OC.L10N.register(
     "Pause" : "Pause",
     "Cancel" : "Cancel",
     "Size" : "Size",
+    "Progress" : "Progress",
     "Uploading" : "Uploading",
     "Name" : "Name",
     "Retry" : "Retry",
