@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Transfers" : "Трансвери",
     "Pause" : "Пауза",
     "Cancel" : "Откажи",
     "Size" : "Големина",
