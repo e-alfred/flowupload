@@ -5,6 +5,7 @@ OC.L10N.register(
     "Pause" : "Pause",
     "Cancel" : "Annullér",
     "Size" : "Størrelse",
+    "Progress" : "Progress",
     "Uploading" : "Uploader",
     "Name" : "Navn",
     "Retry" : "Prøv igen",
