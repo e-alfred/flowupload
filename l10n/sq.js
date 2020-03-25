@@ -5,6 +5,7 @@ OC.L10N.register(
     "Pause" : "Pauzë",
     "Cancel" : "Anullo",
     "Size" : "Madhësi",
+    "Progress" : "Progresi",
     "Uploading" : "Po ngarkohet",
     "Name" : "Emri",
     "Retry" : "Riprovoni",
