@@ -4,6 +4,7 @@ OC.L10N.register(
     "Pause" : "השהה",
     "Cancel" : "ביטול",
     "Size" : "גודל",
+    "Progress" : "תהליך",
     "Uploading" : "מתבצעת העלאה",
     "Name" : "שם",
     "Retry" : "ניסיון חוזר",
