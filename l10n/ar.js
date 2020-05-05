@@ -5,6 +5,7 @@ OC.L10N.register(
     "Pause" : "إيقاف",
     "Cancel" : "إلغاء",
     "Size" : "الحجم",
+    "Progress" : "التقدم",
     "Uploading" : "جاري الرفع...",
     "Name" : "الإسم",
     "Retry" : "أعد المحاولة",
