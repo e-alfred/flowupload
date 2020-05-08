@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\flowupload\Service;
+namespace OCA\flowupload\Service\Flow;
 
 class FlowAutoloader
 {

@@ -9,7 +9,7 @@ namespace OCA\flowupload\Service\Flow;
  *
  * @package Flow
  */
-class FustyRequest extends OCA\flowupload\Service\Flow\Request
+class FustyRequest extends Request
 {
     private $isFusty = false;
 

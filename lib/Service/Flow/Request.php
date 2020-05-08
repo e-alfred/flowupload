@@ -2,7 +2,7 @@
 
 namespace OCA\flowupload\Service\Flow;
 
-class Request implements OCA\flowupload\Service\Flow\RequestInterface
+class Request implements RequestInterface
 {
     /**
      * Request parameters

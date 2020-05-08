@@ -36,7 +36,7 @@ class File
         }
 
         $this->request = $request;
-        $this->identifier = call_user_func($this->config->getHashNameCallback(), $request);
+        $this->identifier = $this->config->getHashNameCallback($request);
     }
 
     /**

@@ -227,13 +227,15 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 	};
 
 	$scope.addNewLocation = function (path, starred) {
+	    var baseUrl = OC.generateUrl('/apps/flowupload');
+	    
 	    let newFlow = new Flow(
 	        {query: function (flowFile, flowChunk) {
     			return {
     				target: path
     			};
 		    },
-		    "target": 'ajax/upload.php',
+		    "target": baseUrl+'/upload',
             "permanentErrors": [403, 404, 500, 501],
             "maxChunkRetries": 2,
             "chunkRetryInterval": 5000,

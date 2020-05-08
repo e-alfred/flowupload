@@ -21,17 +21,13 @@
       */
      public function upload() {
          $config = new Config();
-        /*
+        
         // check if logged in
         if (!\OC::$server->getUserSession()->isLoggedIn()) {
             \OCP\Util::writeLog('flowupload', "Flowupload rejected request, because client is not logged in", \OCP\ILogger::ERROR);
             http_response_code(403);
             die();
         }
-        
-        // Load upload classes
-        //require_once(__DIR__ . '/Flow/Autoloader.php');
-        //Flow\Autoloader::register();
         
         // Directory definitions
         $userhome = \OC_User::getHome(\OC::$server->getUserSession()->getUser()->getUID());
@@ -94,6 +90,6 @@
         
         // ToDo: error handling
         //OCP\JSON::error(array("data" => array("message" => $msg)));
-        */
+        
      }
  }
