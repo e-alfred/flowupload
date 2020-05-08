@@ -10,7 +10,7 @@ use OCP\IDBConnection;
 class DirectoryMapper extends QBMapper {
 
     public function __construct(IDBConnection $db) {
-        parent::__construct($db, 'flowupload', Directory::class);
+        parent::__construct($db, 'flowupload_directories', Directory::class);
     }
 
 	/**

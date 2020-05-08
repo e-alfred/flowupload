@@ -45,30 +45,21 @@ class DirectoryService {
         }
     }
 
-    public function create($title, $content, $userId) {
-        $note = new Directory();
-        $note->setTitle($title);
-        $note->setContent($content);
-        $note->setUserId($userId);
-        return $this->mapper->insert($note);
+    public function create($userId, $path) {
+        $directory = new Directory();
+        $directory->setDirectory($path);
+        $directory->setUserId($userId);
+        return $this->mapper->insert($directory);
     }
 
-    public function update($id, $title, $content, $userId) {
-        try {
-            $note = $this->mapper->find($id, $userId);
-            $note->setTitle($title);
-            $note->setContent($content);
-            return $this->mapper->update($note);
-        } catch(Exception $e) {
-            $this->handleException($e);
-        }
+    public function update($id) {
     }
 
     public function delete($id, $userId) {
         try {
-            $note = $this->mapper->find($id, $userId);
-            $this->mapper->delete($note);
-            return $note;
+            $directory = $this->mapper->find($id, $userId);
+            $this->mapper->delete($directory);
+            return $directory;
         } catch(Exception $e) {
             $this->handleException($e);
         }

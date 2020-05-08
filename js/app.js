@@ -209,15 +209,20 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 
 	$scope.loadStarredLocations = function () {
 	    return new Promise(function (resolve, reject){
-    		$http({
-    			method: "GET",
-    			url: "ajax/getStarredLocations.php"
-    		}).then(function mySuccess(response) {
-    		    for(let i=0; i < response.data.length; i++){
-    			    //$scope.addNewLocation(response.data[i],true);
+    		var baseUrl = OC.generateUrl('/apps/flowupload');
+    		
+        	$.ajax({
+                url: baseUrl + '/directories',
+                type: 'GET',
+                contentType: 'application/json',
+            }).done(function (response) {
+                console.log(response);
+                
+                for(let i=0; i < response.length; i++){
+    			    $scope.addNewLocation(response[i].directory,true);
     			}
-    			resolve();
-    		});
+            }).fail(function (response, code) {
+            });
 	    });
 	};
 
@@ -250,7 +255,17 @@ app.controller('locations', function ($rootScope, $scope, $http) {
 	
 	$scope.starLocation = function(path){
 	    $scope.getLocationByPath(path).starred = true;
-	    //TODO: send to server
+	    
+	    var baseUrl = OC.generateUrl('/apps/flowupload');
+	    
+	    $.ajax({
+            url: baseUrl + '/directories',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({path})
+        }).done(function (response) {
+        }).fail(function (response, code) {
+        });
 	}
 	
 	$scope.unstarLocation = function(path){

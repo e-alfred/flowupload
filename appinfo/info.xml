@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <info>
     <id>flowupload</id>
+    <namespace>flowupload</namespace>
     <name>Flow Upload</name>
     <description>Provides functions to upload large files with your HTML5-Browser.</description>
     <version>0.1.8</version>

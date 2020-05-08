@@ -6,6 +6,7 @@ use OCP\IRequest;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\Controller;
 
+use OCA\flowupload\Service\DirectoryNotFound;
 use OCA\flowupload\Service\DirectoryService;
 
 class DirectoryController extends Controller {
@@ -45,19 +46,14 @@ class DirectoryController extends Controller {
     /**
      * @NoAdminRequired
      */
-    public function create(string $title, string $content): DataResponse {
-        return new DataResponse($this->service->create($title, $content,
-            $this->userId));
+    public function create(string $path): DataResponse {
+        return new DataResponse($this->service->create($this->userId, $path));
     }
 
     /**
      * @NoAdminRequired
      */
-    public function update(int $id, string $title,
-                           string $content): DataResponse {
-        return $this->handleNotFound(function () use ($id, $title, $content) {
-            return $this->service->update($id, $title, $content, $this->userId);
-        });
+    public function update(int $id, string $path): DataResponse {
     }
 
     /**
