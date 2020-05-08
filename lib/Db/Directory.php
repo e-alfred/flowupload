@@ -7,15 +7,14 @@ use OCP\AppFramework\Db\Entity;
 
 class Directory extends Entity implements JsonSerializable {
 
-    protected $title;
-    protected $content;
+    protected $directory;
     protected $userId;
 
     public function jsonSerialize(): array {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'content' => $this->content
+            'user_id' => $this->userId,
+            'directory' => $this->directory
         ];
     }
 }

@@ -214,7 +214,7 @@ app.controller('locations', function ($rootScope, $scope, $http) {
     			url: "ajax/getStarredLocations.php"
     		}).then(function mySuccess(response) {
     		    for(let i=0; i < response.data.length; i++){
-    			    $scope.addNewLocation(response.data[i],true);
+    			    //$scope.addNewLocation(response.data[i],true);
     			}
     			resolve();
     		});
