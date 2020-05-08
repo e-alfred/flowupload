@@ -1,6 +1,6 @@
 <?php
 
-namespace Flow;
+namespace OCA\flowupload\Service\Flow;
 
 /**
  * Class FustyRequest
@@ -9,7 +9,7 @@ namespace Flow;
  *
  * @package Flow
  */
-class FustyRequest extends Request
+class FustyRequest extends OCA\flowupload\Service\Flow\Request
 {
     private $isFusty = false;
 

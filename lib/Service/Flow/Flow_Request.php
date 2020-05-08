@@ -1,8 +1,8 @@
 <?php
 
-namespace Flow;
+namespace OCA\flowupload\Service\Flow;
 
-class Request implements RequestInterface
+class Request implements OCA\flowupload\Service\Flow\RequestInterface
 {
     /**
      * Request parameters

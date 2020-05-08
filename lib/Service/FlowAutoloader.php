@@ -1,8 +1,8 @@
 <?php
 
-namespace Flow;
+namespace OCA\flowupload\Service;
 
-class Autoloader
+class FlowAutoloader
 {
     /**
      * Directory path
@@ -60,7 +60,7 @@ class Autoloader
             return;
         }
 
-        if (file_exists($file = $this->dir.'/'.str_replace('\\', '/', $class).'.php')) {
+        if (file_exists($file = $this->dir.'/Flow/'.str_replace('\\', '/', $class).'.php')) {
             require $file;
         }
     }

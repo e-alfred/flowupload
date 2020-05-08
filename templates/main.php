@@ -1,3 +1,11 @@
+<?php
+    \OCP\User::checkLoggedIn();
+    
+    /*\OCP\Util::addScript('flowupload', 'angular');
+    \OCP\Util::addScript('flowupload', 'flow.min');
+    \OCP\Util::addScript('flowupload', 'app');*/
+    \OCP\Util::addStyle('flowupload', 'style');
+?>
 <div id="app" ng-app="app" role="main">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
