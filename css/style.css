@@ -60,9 +60,7 @@ hr {
     width: 1px;
     height: 1px;
 }
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
+
 /* ======================== */
 
 /* MOBILE STYLE */

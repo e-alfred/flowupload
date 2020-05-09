@@ -1,304 +1,163 @@
-/*global angular */
-'use strict';
-
-/**
- * The main app module
- * @name app
- * @type {angular.Module}
- */
-var app = angular.module('app',[]);
-
-$('#FileSelectInput, #FolderSelectInput').on('change', function(event){
-    angular.element(this).scope().location.flow.addFiles(event.originalEvent.target.files);
-    $('#FileSelectInput, #FolderSelectInput').val(null); //otherwise selecting the same file twice isn't possible
-});
-
-// FILTERS
-
-app.filter('bytes', function() {
-	return function(bytes, precision) {
-		if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return '-';
-		if (typeof precision === 'undefined') precision = 1;
-		var units = ['bytes', 'kB', 'MB', 'GB'];
-		var	number = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)),units.length-1);
-		return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
-	};
-});
-app.filter('byterate', function() {
-	return function(bytes, precision) {
-		if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return '0 KB/s';
-		if (typeof precision === 'undefined') precision = 1;
-		var units = ['B/s', 'KB/s', 'MB/s', 'GB/s'];
-		var	number = Math.min(Math.floor(Math.log(bytes) / Math.log(1000)),units.length-1);
-		return (bytes / Math.pow(1000, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
-	};
-});
-
-app.filter('seconds', function() {
-	return function(seconds, precision) {
-		if (isNaN(parseFloat(seconds)) || seconds == 0 || !isFinite(seconds)) return '-';
-		if (typeof precision === 'undefined') precision = 1;
-		var units = ['s', 'm', 'h'];
-		var	number = Math.min(Math.floor(Math.log(seconds) / Math.log(60)),units.length-1);
-		return (seconds / Math.pow(60, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
-	};
-});
-app.filter('completedChunks', function() {
-	return function(file) {
-        let completeChunks = 0;
-        
-        file.chunks.forEach(function (c) {
-            if(c.progress() === 1){
-                completeChunks++;
-            }
-        });
-        return completeChunks;
-	};
-});
-
-// DIRECTIVES
-
-app.directive('appNavigationEntryUtils', function () {
-    'use strict';
-    return {
-        restrict: 'C',
-        link: function (scope, elm) {
-            var menu = elm.siblings('.app-navigation-entry-menu');
-            var button = $(elm)
-                .find('.app-navigation-entry-utils-menu-button button');
-
-            button.click(function () {
-                menu.toggleClass('open');
-            });
-
-            $(menu).on('click', function (event) {
-                if (event.target !== button[0]) {
-                    menu.removeClass('open');
-                }
-            });
-        }
-    };
-});
-
-app.directive('fileDropZone', function() {
-    'use strict';
-    return {
-        restrict: 'C',
-        link: function (scope, elm){
-            elm[0].addEventListener('drop', function (event) {
-                var dataTransfer = event.dataTransfer;
-                if (dataTransfer.items && dataTransfer.items[0] &&
-                    dataTransfer.items[0].webkitGetAsEntry) {
-                    scope.location.flow.webkitReadDataTransfer(event);
-                } else {
-                    scope.location.flow.addFiles(dataTransfer.files, event);
-                }
-            });
-            elm.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-            });
-            elm.on('dragover dragenter', function() {
-                elm.addClass('fileDrag');
-            });
-            elm.on('dragleave dragend drop', function() {
-                elm.removeClass('fileDrag');
-            });
-        }
-    };
-});
-
-app.directive('uploadSelectButton', function() {
-    'use strict';
-    return {
-        restrict: 'C',
-        link: function (scope, elm, attr){
-            if(attr.uploadtype == "file"){
-                elm.on('click', function() {
-                    $("#FileSelectInput").click();
-                });
-            }else if(attr.uploadtype == "folder"){
-                elm.on('click', function() {
-                    $("#FolderSelectInput").click();
-                });
-            }
-        }
-    };
-});
-
-// CONTROLLERS
-
-app.controller('flow', function($rootScope,$scope,$interval) {
-  $scope.sortType     = 'relativePath';
-  $scope.sortReverse  = false;
-  $scope.hideFinished  = false;
-  
-  $scope.tableSortClicked = function(newSortType){
-    if($scope.sortType === newSortType){
-      $scope.sortReverse = !$scope.sortReverse;
-    }else{
-       $scope.sortType = newSortType;
-    }
-  };
-
-  $scope.dynamicTitle = function() {
-      if($scope.location != undefined && $scope.location.flow.files.length !== 0){
-        let progress = parseFloat(Math.round($scope.location.flow.progress() * 100 * 100) / 100).toFixed(2); //round to two digits after comma
-        document.title = "FlowUpload "+progress+"%";
-      }else{
-        document.title = "FlowUpload";
-      }
-  };
-
-  let dynamicTitleInterval = $interval(function() {
-    if($rootScope.loaded){
-        $scope.dynamicTitle();
-    }
-  },500);
-
-  $scope.$on('changeLocation', function (event, newLocation) {
-    $scope.location = newLocation;
-  });
-});
-
-app.controller('location', function ($scope) {
-	$scope.seeUploads = function ($event, type) {
-		$event.stopPropagation();
-		$event.preventDefault();
-	};
-});
-
-app.controller('locations', function ($rootScope, $scope, $http) {
-    $scope.locations = [];
-    
-    $scope.init = function (){
-        $scope.loadStarredLocations().then(function(){
-            if($scope.locations.length > 0){
-                $scope.setLocation($scope.locations[0].path);
+var app = new Vue({
+    el: '#app',
+    data: {
+        locations: [],
+        baseUrl: OC.generateUrl('/apps/flowupload'),
+        currentLocation: undefined,
+        hideFinished: false
+    },
+    mounted: function (){
+        var self = this;
+        self.loadLocations().then(function(){
+            console.log(self.locations);
+            if(self.locations.length > 0){
+                self.switchActiveLocationById(self.locations[0].id);
             }else{
                 console.log("no starred locations available");
             }
-            
-            $rootScope.loaded = true;
         });
-    }
-    
-    $scope.getLocationByPath = function(path){
-        for(let i=0; i < $scope.locations.length; i++){
-            if($scope.locations[i].path == path){
-                return $scope.locations[i];
+    },
+    methods: {
+        switchActiveLocationByPath: function (path) {
+    	    let location = this.getLocationByPath(path);
+    	    console.log(location);
+    	    
+    		this.activeLocationId = location.id;
+    	},
+    	switchActiveLocationById: function (id) {
+    		this.activeLocationId = id;
+    	},
+        getStarredLocations: function() {
+            let url = this.baseUrl + '/directories';
+            return new Promise(function (resolve, reject){
+            	$.ajax({
+                    url: url,
+                    type: 'GET',
+                    contentType: 'application/json',
+                }).done(function (response) {
+                    console.log(response);
+                    resolve(response);
+                });
+            });
+        },
+        loadLocations: function() {
+            var self = this;
+            return new Promise(function (resolve, reject){
+                self.getStarredLocations().then(function(locations) {
+                    self.locations = [];
+                    
+                    for(let i=0; i < locations.length; i++){
+            			    self.addLocation(locations[i].id, locations[i].directory, true);
+            		}
+            		
+            		resolve();
+                });
+            });
+        },
+        pickNewLocation: function () {
+    	    OC.dialogs.filepicker("Select a new Upload Folder", function(path) {
+                $scope.addNewLocation(path+"/",false);
+                setTimeout(function(){
+                    $scope.setLocation(path+"/");
+                }, 500);
+            }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
+    	},
+        getLocationByPath: function(path) {
+            for(let i=0; i < this.locations.length; i++){
+                if(this.locations[i].path == path){
+                    return this.locations[i];
+                }
+            }
+        },
+        addLocation: function(id, path, starred) {
+    	    let newFlow = new Flow(
+    	        {query: function (flowFile, flowChunk) {
+        			return {
+        				target: path
+        			};
+    		    },
+    		    "target": this.baseUrl+'/upload',
+                "permanentErrors": [403, 404, 500, 501],
+                "maxChunkRetries": 2,
+                "chunkRetryInterval": 5000,
+                "simultaneousUploads": 4
+    	        }
+            );
+            
+            this.locations.push({"id": id, "path": path, "starred": starred, "flow": newFlow});
+            console.log(this.locations);
+        },
+        starLocation: function(path){
+    	    this.getLocationByPath(path).starred = true;
+    	    
+    	    $.ajax({
+                url: this.baseUrl + '/directories',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({path})
+            }).done(function (response) {
+            });
+	    },
+	    unstarLocation: function(path){
+    	    this.getLocationByPath(path).starred = false;
+    	    //TODO: send to server
+    	},
+    	trimDecimals: function(number, decimals = 2) {
+    	    return number.toFixed(decimals);
+    	}
+    },
+    computed: {
+        activeLocation: function() {
+            if(this.activeLocationId) {
+                return this.locations.find(location => location.id == this.activeLocationId);
+            }else {
+                return false;
+            }
+        },
+        filteredFiles: function() {
+            if(this.activeLocationId) {
+                return this.activeLocation.flow.files;
+            }else {
+                return [];
             }
         }
-    }
-    
-	$scope.setLocation = function (path) {
-	    let newLocation = $scope.getLocationByPath(path);
-	    console.log(newLocation);
-	    
-		$rootScope.$broadcast('changeLocation', newLocation);
-		$scope.currentLocation = newLocation;
-
-		$('.locations').each(function () {
-			if ($(this).attr('id') === 'location-' + newLocation.path){
-				$(this).addClass('active');
-			} else{
-			    $(this).removeClass('active');
-			}
-		});
-	}
-
-	$scope.loadStarredLocations = function () {
-	    return new Promise(function (resolve, reject){
-    		var baseUrl = OC.generateUrl('/apps/flowupload');
-    		
-        	$.ajax({
-                url: baseUrl + '/directories',
-                type: 'GET',
-                contentType: 'application/json',
-            }).done(function (response) {
-                console.log(response);
-                
-                for(let i=0; i < response.length; i++){
-    			    $scope.addNewLocation(response[i].directory,true);
-    			}
-            }).fail(function (response, code) {
+    },
+    filters: {
+        bytes: function(bytes, precision) {
+        	if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return '-';
+        	if (typeof precision === 'undefined') precision = 1;
+        	    var units = ['bytes', 'kB', 'MB', 'GB'];
+        	    var	number = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)),units.length-1);
+        	    return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
+        },
+        byterate: function(bytes, precision) {
+    		if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return '0 KB/s';
+    		if (typeof precision === 'undefined') precision = 1;
+    		var units = ['B/s', 'KB/s', 'MB/s', 'GB/s'];
+    		var	number = Math.min(Math.floor(Math.log(bytes) / Math.log(1000)),units.length-1);
+    		return (bytes / Math.pow(1000, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
+	    },
+	    seconds: function(seconds, precision) {
+    		if (isNaN(parseFloat(seconds)) || seconds == 0 || !isFinite(seconds)) return '-';
+    		if (typeof precision === 'undefined') precision = 1;
+    		var units = ['s', 'm', 'h'];
+    		var	number = Math.min(Math.floor(Math.log(seconds) / Math.log(60)),units.length-1);
+    		return (seconds / Math.pow(60, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
+	    },
+	    completedChunks: function(file) {
+            let completeChunks = 0;
+            
+            file.chunks.forEach(function (c) {
+                if(c.progress() === 1){
+                    completeChunks++;
+                }
             });
-	    });
-	};
+            
+            return completeChunks;
+    	}
+    }
+});
 
-	$scope.addNewLocation = function (path, starred) {
-	    var baseUrl = OC.generateUrl('/apps/flowupload');
-	    
-	    let newFlow = new Flow(
-	        {query: function (flowFile, flowChunk) {
-    			return {
-    				target: path
-    			};
-		    },
-		    "target": baseUrl+'/upload',
-            "permanentErrors": [403, 404, 500, 501],
-            "maxChunkRetries": 2,
-            "chunkRetryInterval": 5000,
-            "simultaneousUploads": 4
-	        }
-        );
-        
-        $scope.locations.push({"path": path, "starred": starred, "flow": newFlow});
-        console.log($scope.locations);
-	};
-	
-	$scope.toggleStarredLocation = function(path){
-	    if($scope.getLocationByPath(path).starred){
-	        $scope.unstarLocation(path);
-	    }else{
-	        $scope.starLocation(path);
-	    }
-	}
-	
-	$scope.starLocation = function(path){
-	    $scope.getLocationByPath(path).starred = true;
-	    
-	    var baseUrl = OC.generateUrl('/apps/flowupload');
-	    
-	    $.ajax({
-            url: baseUrl + '/directories',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({path})
-        }).done(function (response) {
-        }).fail(function (response, code) {
-        });
-	}
-	
-	$scope.unstarLocation = function(path){
-	    $scope.getLocationByPath(path).starred = false;
-	    //TODO: send to server
-	}
-	
-	$scope.removeLocation = function(path) {
-	    for(let i=0; i < $scope.locations.length; i++){
-	        if($scope.locations[i].path == path){
-	            if($scope.locations[i].starred){
-	                $scope.unstarLocation(path);
-	            }
-	            $scope.locations.splice(i,1);
-	        }
-	    }
-	    
-	    if($scope.currentLocation.path == path) {
-	        $scope.currentLocation = undefined;
-	        $rootScope.$broadcast('changeLocation', undefined);
-	    }
-	}
-	
-	$scope.pickNewLocation = function () {
-	    OC.dialogs.filepicker("Select a new Upload Folder", function(path) {
-            $scope.addNewLocation(path+"/",false);
-            setTimeout(function(){
-                $scope.setLocation(path+"/");
-            }, 500);
-        }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
-	}
-	
-	$scope.init();
+Vue.component("app-navigation-entry-menu", function() {
+    
 });
