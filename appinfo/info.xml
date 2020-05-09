@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <info>
     <id>flowupload</id>
+    <namespace>flowupload</namespace>
     <name>Flow Upload</name>
     <description>Provides functions to upload large files with your HTML5-Browser.</description>
     <version>0.1.8</version>
@@ -14,6 +15,13 @@
     <documentation>https://github.com/e-alfred/flowupload</documentation>
     <screenshot>https://github.com/e-alfred/flowupload/raw/master/appinfo/flowupload.gif</screenshot>
     <dependencies>
-        <nextcloud min-version="15" max-version="17"/>
+        <nextcloud min-version="15" max-version="18"/>
     </dependencies>
+    <navigations>
+        <navigation>
+            <name>Flowupload</name>
+            <route>flowupload.page.index</route>
+            <icon>flowupload.svg</icon>
+        </navigation>
+    </navigations>
 </info>
