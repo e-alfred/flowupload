@@ -17,6 +17,10 @@
       * @NoCSRFRequired
       */
      public function index() {
+        \OCP\Util::addScript('flowupload', 'flow.min');
+        \OCP\Util::addScript('flowupload', 'flowupload');
+        \OCP\Util::addStyle('flowupload', 'style');
+        
         $response = new TemplateResponse('flowupload', 'main');
          
         $csp = new ContentSecurityPolicy();
