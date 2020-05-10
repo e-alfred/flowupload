@@ -58,7 +58,7 @@
     	</div>
     	
     	<!-- CONTENT -->
-    	<div class="fileDropZone" id="app-content" style="padding: 2.5%; width:auto">
+    	<div class="fileDropZone" id="app-content" style="padding: 2.5%; width:auto" v-if="activeLocation.id != false">
     		<div id="noLocationSelected" v-show="activeLocation === undefined && loaded">{{ t('flowupload', 'Please select a location') }}</div>
     		<div id="locationSelected" ng-cloak v-show="activeLocation != undefined">
     			<h2 id="title">{{ t('flowupload', 'Transfers') }}</h2>
@@ -95,7 +95,7 @@
     			</div>
     			<hr>
     			<p>
-    				<span class="label">{{ t('flowupload', 'Size') + ' : ' + activeLocation.flow.getSize() | bytes }}</span>
+    				<span class="label">{{ t('flowupload', 'Size') + ' : ' /*+ activeLocation.flow.getSize() | bytes*/ }}</span>
     				<span class="label" v-if="activeLocation.flow.getFilesCount() != 0">{{ t('flowupload', 'Progress') + ' : ' + trimDecimals(activeLocation.flow.progress()*100, 2) + '%'}}</span>
     				<span class="label" v-if="activeLocation.flow.isUploading()">{{ t('flowupload', 'Time remaining') + ' : ' + activeLocation.flow.timeRemaining() | seconds }}</span>
     				<span class="label" v-if="activeLocation.flow.isUploading()">{{ t('flowupload', 'Uploading') + '...' }}</span>
@@ -196,6 +196,8 @@ import ActionInput from '@nextcloud/vue/dist/Components/ActionInput'
 import ActionRouter from '@nextcloud/vue/dist/Components/ActionRouter'
 import ActionText from '@nextcloud/vue/dist/Components/ActionText'
 import ActionTextEditable from '@nextcloud/vue/dist/Components/ActionTextEditable'
+import Flow from '@flowjs/flow.js'
+
 
 export default {
 	name: 'App',
@@ -332,7 +334,7 @@ export default {
             if(this.activeLocationId) {
                 return this.locations.find(location => location.id == this.activeLocationId);
             }else {
-                return false;
+                return {id: false, path: false, starred: false, flow: false};
             }
         },
         filteredFiles: function() {
