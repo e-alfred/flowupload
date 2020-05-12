@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import { translate, translatePlural } from 'nextcloud-l10n'
+import Vue from "vue";
+import { translate, translatePlural } from "nextcloud-l10n";
 
-import App from './App'
+import App from "./App";
 
-Vue.prototype.t = translate
-Vue.prototype.n = translatePlural
+Vue.prototype.t = translate;
+Vue.prototype.n = translatePlural;
 
 export default new Vue({
-	el: '#content',
+	el: "#content",
 	render: h => h(App),
-})
+});
