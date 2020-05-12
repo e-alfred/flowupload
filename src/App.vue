@@ -1,15 +1,9 @@
 <template>
     <Content :class="{'icon-loading': loading}" app-name="flowupload">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    	
     	<!-- APP NAVIAGTION -->
     	<AppNavigation>
-    		<!--<div class="app-navigation-new">
-    			<ul>
-    				<li id="app-navigation-entry-utils-create" v-on:click="pickNewLocation()" class="app-navigation-entry-utils-menu-button">
-    					<button class="icon-add">{{ t('flowupload', 'New destination') }}></button>
-    				</li>
-    			</ul>
-    		</div>-->
     		<AppNavigationNew
 				:text="t('flowupload', 'New destination')"
 				:disabled="false"
@@ -17,64 +11,34 @@
 				button-class="icon-add"
 				v-on:click="pickNewLocation()" />
     		<ul id="locations" class="with-icon">
-    		    <AppNavigationItem icon="icon-folder" v-bind:title="location.path" class="fileDropZone" v-for="location in locations" v-bind:key="location.id" v-bind:id="'location-' + location.path">
-					<AppNavigationCounter slot="counter" :highlighted="true">{{ location.flow.files.length }}</AppNavigationCounter>
+    		    <AppNavigationItem active="true"
+    		        v-bind:class="{'active': activeLocation && location.path == activeLocation.path}"
+    		        v-bind:title="location.path"
+    		        v-fileDropZone
+    		        v-for="location in locations"
+    		        v-bind:key="location.id"
+    		        v-bind:id="'location-' + location.path"
+    		        v-if="!loading"
+    		        v-on:click="switchActiveLocationByPath(location.path)">
+					<AppNavigationCounter slot="counter" :highlighted="true">
+					    {{ location.flow.files.length }}
+				    </AppNavigationCounter>
 					<template slot="actions">
 						<ActionButton icon="icon-edit" v-bind:href="'/index.php/apps/files/?dir=' + location.path">
 							{{ t('flowupload', 'Open') }}
 						</ActionButton>
-						<ActionButton icon="icon-starred" @click="toggleStarredLocation(location.path)">
+						<ActionButton icon="icon-starred" v-if="!location.starred" @click="starLocation(location.path)">
 							{{ t('flowupload', 'Star') }}
+						</ActionButton>
+						<ActionButton icon="icon-starred" v-if="location.starred" @click="unstarLocationByPath(location.path)">
+							{{ t('flowupload', 'Unstar') }}
 						</ActionButton>
 						<ActionButton icon="icon-delete" @click="removeLocation(location.path)">
 							{{ t('flowupload', 'Remove') }}
 						</ActionButton>
 					</template>
 				</AppNavigationItem>
-    			<!--<li>
-    				<a ng-href="" class="icon-folder" v-on:click="switchActiveLocationById(location.id)" v-bind:title="location.path">{{location.path}}</a>
-    				<div class="app-navigation-entry-utils">
-    					<ul>
-    						<li class="app-navigation-entry-utils-counter" v-bind:title="location.flow.files.length + ' ' + t('flowupload', 'Files')"></li>
-    						<li class="app-navigation-entry-utils-menu-button"><button></button></li>
-    					</ul>
-    				</div>
-    				<div appNavigationEntryMenu>
-    					<ul>
-    						<li>
-    							<a v-bind:href="" target="_blank" rel="noopener noreferrer">
-    							<span class="icon-files"></span>
-    							<span>{{  }}</span>
-    							</a>
-    						</li>
-    						<li v-on:click="">
-    							<a href="">
-    							<span class="icon-starred"></span>
-    							<span v-if="!location.starred">{{  }}</span>
-    							<span v-if="location.starred">{{ t('flowupload', 'Unstar') }}</span>
-    							</a>
-    						</li>
-    						<li v-on:click="removeLocation(location.path)">
-    							<a href="">
-    							<span class="icon-delete"></span>
-    							<span>{{ t('flowupload', 'Remove') }}</span>
-    							</a>
-    						</li>
-    					</ul>
-    				</div>
-    			</li>-->
-    		</ul>
-    		<!--<div id="app-settings">
-    			<div id="app-settings-header">
-    				<button class="settings-button"
-    					data-apps-slide-toggle="#app-settings-content">
-    				{{ t('flowupload', 'Settings') }}
-    				</button>
-    			</div>
-    			<div id="app-settings-content">
-    				<!-- Your settings content here -->
-    			<!--</div>
-    		</div>-->
+			</ul>
     		<AppNavigationSettings>
     		    test
     		</AppNavigationSettings>
@@ -82,21 +46,21 @@
     	
     	<!-- CONTENT -->
     	<AppContent>
-        	<div class="fileDropZone" style="padding: 2.5%; width:auto" v-if="!loading">
-        		<div id="noLocationSelected" v-show="activeLocation === undefined && loaded">{{ t('flowupload', 'Please select a location') }}</div>
-        		<div id="locationSelected" ng-cloak v-show="activeLocation != undefined">
+        	<div v-fileDropZone style="padding: 2.5%; width:auto" v-if="!loading">
+        		<div id="noLocationSelected" v-if="activeLocation === undefined">{{ t('flowupload', 'Please select a location') }}</div>
+        		<div id="locationSelected" ng-cloak v-if="activeLocation != undefined">
         			<h2 id="title">{{ t('flowupload', 'Transfers') }}</h2>
         			<div class="buttonGroup">
-        				<span class="uploadSelectButton button" uploadtype="file">
+        				<span v-uploadSelectButton class="button" uploadtype="file">
         				<span class="icon icon-file select-file-icon" style=""></span>
         				<span>{{ t('flowupload', 'Select File') }}</span>
         				</span>
-        				<input id="FileSelectInput" type="file" multiple="multiple">
-        				<span class="uploadSelectButton button" uploadtype="folder" v-show="activeLocation.flow.supportDirectory">
+        				<input id="FileSelectInput" type="file" multiple="multiple" @change="filesSelected">
+        				<span v-uploadSelectButton class="button" uploadtype="folder" v-show="activeLocation.flow.supportDirectory">
         				<span class="icon icon-files" style="background-image: var(--icon-files-000);"></span>
         				<span>{{ t('flowupload', 'Select Folder') }}</span>
         				</span>
-        				<input id="FolderSelectInput" type="file" multiple="multiple" webkitdirectory="webkitdirectory">
+        				<input id="FolderSelectInput" type="file" multiple="multiple" webkitdirectory="webkitdirectory" @change="filesSelected">
         			</div>
         			<hr>
         			<div class="buttonGroup">
@@ -119,8 +83,8 @@
         			</div>
         			<hr>
         			<p>
-        				<span class="label">{{ t('flowupload', 'Size') + ' : ' /*+ activeLocation.flow.getSize() | bytes*/ }}</span>
-        				<span class="label" v-if="activeLocation.flow.getFilesCount() != 0">{{ t('flowupload', 'Progress') + ' : ' + trimDecimals(activeLocation.flow.progress()*100, 2) + '%'}}</span>
+        				<span class="label">{{ t('flowupload', 'Size') + ' : ' + activeLocation.flow.getSize() | bytes }}</span>
+        				<span class="label" v-if="activeLocationFilesCount != 0">{{ t('flowupload', 'Progress') + ' : ' + trimDecimals(activeLocation.flow.progress()*100, 2) + '%'}}</span>
         				<span class="label" v-if="activeLocation.flow.isUploading()">{{ t('flowupload', 'Time remaining') + ' : ' + activeLocation.flow.timeRemaining() | seconds }}</span>
         				<span class="label" v-if="activeLocation.flow.isUploading()">{{ t('flowupload', 'Uploading') + '...' }}</span>
         			</p>
@@ -159,8 +123,8 @@
         					</tr>
         				</thead>
         				<tbody>
-        					<tr v-if="!(file.isComplete() && hideFinished)" v-for="file in filteredFiles">
-        						<td class="hideOnMobile">{{$index+1}}</td>
+        					<tr v-if="!(file.isComplete() && hideFinished)" v-for="(file, index) in filteredFiles">
+        						<td class="hideOnMobile">{{index+1}}</td>
         						<td class="ellipsis" v-bind:title="'UID: ' + file.uniqueIdentifier">
         							<span>{{file.relativePath}}</span>
         						</td>
@@ -252,31 +216,51 @@ export default {
             baseUrl: OC.generateUrl('/apps/flowupload'),
             currentLocation: undefined,
             hideFinished: false,
-            activeLocationId: false,
+            activeLocationPath: false,
 		}
 	},
     mounted: function (){
         var self = this;
         self.loadLocations().then(function(){
             console.log(self.locations);
+            
             if(self.locations.length > 0){
                 self.switchActiveLocationById(self.locations[0].id);
-            }else{
-                console.log("no starred locations available");
             }
+            
+            self.setupDynamicTitleInterval();
             
             self.loading = false;
         });
     },
     methods: {
-        switchActiveLocationByPath: function (path) {
-    	    let location = this.getLocationByPath(path);
+        filesSelected: function(event) {
+            console.log(event.target.files[0]);
+            this.activeLocation.flow.addFiles(event.target.files);
+            $('#FileSelectInput, #FolderSelectInput').val(null);
+        },
+        setupDynamicTitleInterval: function() {
+            var self = this;
+            setInterval(function() {
+                self.updateTitle();
+            },500);
+        },
+        updateTitle: function() {
+            if(this.activeLocation != undefined && this.activeLocation.flow.files.length !== 0){
+                let progress = parseFloat(Math.round(this.activeLocation.flow.progress() * 100 * 100) / 100).toFixed(2); //round to two digits after comma
+                document.title = "FlowUpload "+progress+"%";
+            }else{
+                document.title = "FlowUpload";
+            }
+        },
+        switchActiveLocationById: function (id) {
+    	    let location = this.getLocationById(id);
     	    console.log(location);
     	    
-    		this.activeLocationId = location.id;
+    		this.activeLocationPath = location.path;
     	},
-    	switchActiveLocationById: function (id) {
-    		this.activeLocationId = id;
+    	switchActiveLocationByPath: function (path) {
+    		this.activeLocationPath = path;
     	},
         getStarredLocations: function() {
             let url = this.baseUrl + '/directories';
@@ -306,16 +290,24 @@ export default {
             });
         },
         pickNewLocation: function () {
+            var self = this;
     	    OC.dialogs.filepicker("Select a new Upload Folder", function(path) {
-                $scope.addNewLocation(path+"/",false);
+                self.addLocation(false, path+"/",false);
                 setTimeout(function(){
-                    $scope.setLocation(path+"/");
+                    self.switchActiveLocationByPath(path+"/");
                 }, 500);
             }, false, 'httpd/unix-directory', true, OC.dialogs.FILEPICKER_TYPE_CHOOSE);
     	},
         getLocationByPath: function(path) {
             for(let i=0; i < this.locations.length; i++){
                 if(this.locations[i].path == path){
+                    return this.locations[i];
+                }
+            }
+        },
+        getLocationById: function(id) {
+            for(let i=0; i < this.locations.length; i++){
+                if(this.locations[i].id == id){
                     return this.locations[i];
                 }
             }
@@ -339,7 +331,8 @@ export default {
             console.log(this.locations);
         },
         starLocation: function(path){
-    	    this.getLocationByPath(path).starred = true;
+            let location = this.getLocationByPath(path)
+    	    
     	    
     	    $.ajax({
                 url: this.baseUrl + '/directories',
@@ -347,11 +340,46 @@ export default {
                 contentType: 'application/json',
                 data: JSON.stringify({path})
             }).done(function (response) {
+                location.starred = true;
+                location.id = response.id;
             });
 	    },
-	    unstarLocation: function(path){
-    	    this.getLocationByPath(path).starred = false;
-    	    //TODO: send to server
+	    unstarLocationById: function(id){
+	        let location = this.getLocationById(id);
+    	    
+    	    $.ajax({
+                url: this.baseUrl + '/directories/'+id,
+                type: 'DELETE',
+            }).done(function (response) {
+                location.starred = false;
+    	        location.id = false;
+            });
+    	},
+    	unstarLocationByPath: function(path) {
+    	    let location = this.getLocationByPath(path);
+    	    this.unstarLocationById(location.id);
+    	},
+    	toggleLocationStar: function(path) {
+    	    let location = this.getLocationByPath(path);
+    	    
+    	    if(location.starred) {
+    	        this.unstarLocationByPath(path);
+    	    }else {
+    	        this.starLocation(path);
+    	    }
+    	},
+    	removeLocation: function(path) {
+    	    var location = this.getLocationByPath(path);
+    	    
+    	    if(location.starred) {
+    	        this.unstarLocationByPath(path);
+    	    }
+    	    
+    	    if(this.activeLocation.path == path) {
+    	        this.activeLocationPath = false;
+    	    }
+    	    
+    	    this.locations = this.locations.filter(function(value, index, arr){ return value.path != path;});
     	},
     	trimDecimals: function(number, decimals = 2) {
     	    return number.toFixed(decimals);
@@ -359,17 +387,25 @@ export default {
     },
     computed: {
         activeLocation: function() {
-            if(this.activeLocationId) {
-                return this.locations.find(location => location.id == this.activeLocationId);
+            if(this.activeLocationPath) {
+                return this.getLocationByPath(this.activeLocationPath);
             }else {
-                return {id: false, path: false, starred: false, flow: false};
+                return undefined;
             }
         },
         filteredFiles: function() {
-            if(this.activeLocationId) {
+            if(this.activeLocation.flow) {
+                console.log(this.activeLocation.flow);
                 return this.activeLocation.flow.files;
             }else {
                 return [];
+            }
+        },
+        activeLocationFilesCount : function() {
+            if(this.activeLocation.flow.getFilesCount) {
+                return this.activeLocation.flow.getFilesCount();
+            }else {
+                return 0;
             }
         }
     },
@@ -407,5 +443,45 @@ export default {
             return completeChunks;
     	}
     },
+    directives: {
+        fileDropZone: {
+            inserted: function (elm, binding, vnode) {
+                elm.addEventListener('drop', function (event) {
+                    var dataTransfer = event.dataTransfer;
+                    
+                    if (dataTransfer.items && dataTransfer.items[0] &&
+                        dataTransfer.items[0].webkitGetAsEntry) {
+                        vnode.context.activeLocation.flow.webkitReadDataTransfer(event);
+                    } else {
+                        vnode.context.activeLocation.flow.addFiles(dataTransfer.files, event);
+                    }
+                });
+                $(elm).on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                $(elm).on('dragover dragenter', function() {
+                    $(elm).addClass('fileDrag');
+                });
+                $(elm).on('dragleave dragend drop', function() {
+                    $(elm).removeClass('fileDrag');
+                });
+            }
+        },
+        uploadSelectButton: {
+            inserted: function (elm, binding, vnode) {
+                let uploadType = $(elm).attr("uploadType");
+                if(uploadType == "file"){
+                    $(elm).on('click', function() {
+                        $("#FileSelectInput").click();
+                    });
+                }else if(uploadType == "folder"){
+                    $(elm).on('click', function() {
+                        $("#FolderSelectInput").click();
+                    });
+                }
+            }
+        }
+    }
 }
 </script>
