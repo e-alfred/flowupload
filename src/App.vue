@@ -14,7 +14,7 @@
     			<AppNavigationItem active="true"
     			v-bind:class="{'active': activeLocation && location.path == activeLocation.path}"
     			v-bind:title="location.path"
-    			v-fileDropZone
+    			v-customLocationFileDropZone:[location]
     			v-for="location in locations"
     			v-bind:key="location.id"
     			v-bind:id="'location-' + location.path"
@@ -45,7 +45,7 @@
     	
     	<!-- CONTENT -->
     	<AppContent>
-        	<div v-fileDropZone style="padding: 2.5%; width:auto" v-if="!loading">
+        	<div v-activeLocationFileDropZone style="padding: 2.5%; width:auto" v-if="!loading">
         		<div id="noLocationSelected" v-if="activeLocation === undefined">{{ t('flowupload', 'Please select a location') }}</div>
         		<div id="locationSelected" ng-cloak v-if="activeLocation != undefined">
         			<h2 id="title">{{ t('flowupload', 'Transfers') }}</h2>
@@ -76,15 +76,15 @@
         				<span>{{ t('flowupload', 'Cancel') }}</span>
         				</a>
         				<a id="hideFinishedButton" class="button" v-on:click="hideFinished = !hideFinished">
-        					<input type="checkbox" ng-model="hideFinished"></input>
+        					<input type="checkbox" v-model="hideFinished">
         					<span>{{ t('flowupload', 'Hide finished uploads') }}</span>
         				</a>
         			</div>
         			<hr>
         			<p>
-        				<span class="label">{{ t('flowupload', 'Size') + ' : ' + activeLocation.flow.getSize() | bytes }}</span>
+        				<span class="label">{{ t('flowupload', 'Size') + ' : ' + bytes(activeLocation.flow.getSize()) }}</span>
         				<span class="label" v-if="activeLocationFilesCount != 0">{{ t('flowupload', 'Progress') + ' : ' + trimDecimals(activeLocation.flow.progress()*100, 2) + '%'}}</span>
-        				<span class="label" v-if="activeLocation.flow.isUploading()">{{ t('flowupload', 'Time remaining') + ' : ' + activeLocation.flow.timeRemaining() | seconds }}</span>
+        				<span class="label" v-if="activeLocation.flow.isUploading()">{{ t('flowupload', 'Time remaining') + ' : ' + seconds(activeLocation.flow.timeRemaining()) }}</span>
         				<span class="label" v-if="activeLocation.flow.isUploading()">{{ t('flowupload', 'Uploading') + '...' }}</span>
         			</p>
         			<hr>
@@ -122,33 +122,33 @@
         					</tr>
         				</thead>
         				<tbody>
-        					<tr v-if="!(file.isComplete() && hideFinished)" v-for="(file, index) in filteredFiles">
+        					<tr v-if="!(file.isComplete() && hideFinished)" v-for="(file, index) in activeLocation.flow.files">
         						<td class="hideOnMobile">{{index+1}}</td>
         						<td class="ellipsis" v-bind:title="'UID: ' + file.uniqueIdentifier">
         							<span>{{file.relativePath}}</span>
         						</td>
         						<td>
         							<div class="actions" v-if="!file.isComplete() || file.error">
-        								<a class="action permanent" v-bind:title="t('flowupload', 'Resume')" v-click="file.resume()" v-if="!file.isUploading() && !file.error">
+        								<a class="action permanent" v-bind:title="t('flowupload', 'Resume')" v-on:click="file.resume()" v-if="!file.isUploading() && !file.error">
         								<span class="icon icon-play"></span>
         								</a>
-        								<a class="action permanent" v-bind:title="t('flowupload', 'Pause')" v-click="file.pause()" v-if="file.isUploading() && !file.error">
+        								<a class="action permanent" v-bind:title="t('flowupload', 'Pause')" v-on:click="file.pause()" v-if="file.isUploading() && !file.error">
         								<span class="icon icon-pause"></span>
         								</a>
-        								<a class="action permanent" v-bind:title="t('flowupload', 'Retry')" v-click="file.retry()" v-show="file.error">
+        								<a class="action permanent" v-bind:title="t('flowupload', 'Retry')" v-on:click="file.retry()" v-show="file.error">
         								<span class="icon icon-play"></span>
         								</a>
-        								<a class="action permanent" v-bind:title="t('flowupload', 'Cancel')" v-click="file.cancel()">
+        								<a class="action permanent" v-bind:title="t('flowupload', 'Cancel')" v-on:click="file.cancel()">
         								<span class="icon icon-close"></span>
         								</a>
         							</div>
         						</td>
         						<td class="hideOnMobile">
-        							<span v-if="file.isUploading()">{{file.currentSpeed | byterate}}</span>
+        							<span v-if="file.isUploading()">{{ byterate(file.currentSpeed) }}</span>
         						</td>
-        						<td title="'Chunks: ' + file | completedChunks + ' / ' + file.chunks.length">
-        							<span class="hideOnMobile" v-if="!file.isComplete()">{{file.size*file.progress() | bytes}}/</span>
-        							<span>{{file.size | bytes}}</span>
+        						<td v-bind:title="'Chunks: ' + completedChunks(file) + ' / ' + file.chunks.length">
+        							<span class="hideOnMobile" v-if="!file.isComplete()">{{ bytes(file.size*file.progress()) }}/</span>
+        							<span>{{ bytes(file.size) }}</span>
         						</td>
         						<td>
         							<progress v-if="!file.isComplete() && !file.error" class="progressbar hideOnMobile" max="1" v-bind:value="file.progress()"></progress>
@@ -233,7 +233,6 @@ export default {
 	},
 	methods: {
 		filesSelected: function(event) {
-			console.log(event.target.files[0]);
 			this.activeLocation.flow.addFiles(event.target.files);
 			$("#FileSelectInput, #FolderSelectInput").val(null);
 		},
@@ -268,7 +267,6 @@ export default {
 					type: "GET",
 					contentType: "application/json",
 				}).done(function (response) {
-					console.log(response);
 					resolve(response);
 				});
 			});
@@ -326,7 +324,6 @@ export default {
 			);
             
 			this.locations.push({"id": id, "path": path, "starred": starred, "flow": newFlow});
-			console.log(this.locations);
 		},
 		starLocation: function(path){
 			let location = this.getLocationByPath(path);
@@ -381,41 +378,15 @@ export default {
     	},
     	trimDecimals: function(number, decimals = 2) {
     	    return number.toFixed(decimals);
-    	}
-	},
-	computed: {
-		activeLocation: function() {
-			if(this.activeLocationPath) {
-				return this.getLocationByPath(this.activeLocationPath);
-			}else {
-				return undefined;
-			}
-		},
-		filteredFiles: function() {
-			if(this.activeLocation.flow) {
-				console.log(this.activeLocation.flow);
-				return this.activeLocation.flow.files;
-			}else {
-				return [];
-			}
-		},
-		activeLocationFilesCount : function() {
-			if(this.activeLocation.flow.getFilesCount) {
-				return this.activeLocation.flow.getFilesCount();
-			}else {
-				return 0;
-			}
-		}
-	},
-	filters: {
-		bytes: function(bytes, precision) {
+    	},
+    	bytes: function(bytes, precision) {
         	if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return "-";
         	if (typeof precision === "undefined") precision = 1;
         	    var units = ["bytes", "kB", "MB", "GB"];
         	    var	number = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)),units.length-1);
         	    return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  " " + units[number];
 		},
-		byterate: function(bytes, precision) {
+    	byterate: function(bytes, precision) {
     		if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return "0 KB/s";
     		if (typeof precision === "undefined") precision = 1;
     		var units = ["B/s", "KB/s", "MB/s", "GB/s"];
@@ -439,19 +410,72 @@ export default {
 			});
             
 			return completeChunks;
-    	}
+    	},
+	},
+	computed: {
+		activeLocation: function() {
+			if(this.activeLocationPath) {
+				return this.getLocationByPath(this.activeLocationPath);
+			}else {
+				return undefined;
+			}
+		},
+		filteredFiles: function() {
+			if(this.activeLocation.flow) {
+				return this.activeLocation.flow.files;
+			}else {
+				return [];
+			}
+		},
+		activeLocationFilesCount : function() {
+			if(this.activeLocation.flow.getFilesCount) {
+				return this.activeLocation.flow.getFilesCount();
+			}else {
+				return 0;
+			}
+		},
+	},
+	filters: {
 	},
 	directives: {
-		fileDropZone: {
+		customLocationFileDropZone: {
 			inserted: function (elm, binding, vnode) {
+			    let flow = binding.arg.flow;
+			    
 				elm.addEventListener("drop", function (event) {
 					var dataTransfer = event.dataTransfer;
                     
 					if (dataTransfer.items && dataTransfer.items[0] &&
                         dataTransfer.items[0].webkitGetAsEntry) {
-						vnode.context.activeLocation.flow.webkitReadDataTransfer(event);
+						flow.webkitReadDataTransfer(event);
 					} else {
-						vnode.context.activeLocation.flow.addFiles(dataTransfer.files, event);
+						flow.addFiles(dataTransfer.files, event);
+					}
+				});
+				$(elm).on("drag dragstart dragend dragover dragenter dragleave drop", function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+				});
+				$(elm).on("dragover dragenter", function() {
+					$(elm).addClass("fileDrag");
+				});
+				$(elm).on("dragleave dragend drop", function() {
+					$(elm).removeClass("fileDrag");
+				});
+			}
+		},
+		activeLocationFileDropZone: {
+			inserted: function (elm, binding, vnode) {
+                var self = vnode.context;
+                
+				elm.addEventListener("drop", function (event) {
+					var dataTransfer = event.dataTransfer;
+                    
+					if (dataTransfer.items && dataTransfer.items[0] &&
+                        dataTransfer.items[0].webkitGetAsEntry) {
+						self.activeLocation.flow.webkitReadDataTransfer(event);
+					} else {
+						self.activeLocation.flow.addFiles(dataTransfer.files, event);
 					}
 				});
 				$(elm).on("drag dragstart dragend dragover dragenter dragleave drop", function(e) {
