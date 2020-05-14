@@ -47,7 +47,7 @@
 		<AppContent>
 			<div v-activeLocationFileDropZone style="margin-left: 4%; margin-right: 4%; margin-top: 7px; width:auto" v-if="!loading">
 				<div id="noLocationSelected" v-if="activeLocation === undefined">{{ t('flowupload', 'Please select a location') }}</div>
-				<div id="locationSelected" ng-cloak v-if="activeLocation != undefined">
+				<div id="locationSelected" v-if="activeLocation != undefined">
 					<h2 id="title">{{ t('flowupload', 'Transfers') }}</h2>
 					<div class="buttonGroup">
 						<span v-uploadSelectButton class="button" uploadtype="file">
