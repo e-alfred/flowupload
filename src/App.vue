@@ -310,6 +310,7 @@ export default {
 					return this.locations[i];
 				}
 			}
+			return false;
 		},
 		getLocationById: function(id) {
 			for (let i = 0; i < this.locations.length; i++) {
@@ -317,27 +318,32 @@ export default {
 					return this.locations[i];
 				}
 			}
+			return false;
 		},
 		addLocation: function(id, path, starred) {
-			let newFlow = new Flow({
-				query: function(flowFile, flowChunk) {
-					return {
-						target: path
-					};
-				},
-				"target": this.baseUrl + "/upload",
-				"permanentErrors": [403, 404, 500, 501],
-				"maxChunkRetries": 2,
-				"chunkRetryInterval": 5000,
-				"simultaneousUploads": 4
-			});
-
-			this.locations.push({
-				"id": id,
-				"path": path,
-				"starred": starred,
-				"flow": newFlow
-			});
+		    if(!this.getLocationByPath(path)) {
+    			let newFlow = new Flow({
+    				query: function(flowFile, flowChunk) {
+    					return {
+    						target: path
+    					};
+    				},
+    				"target": this.baseUrl + "/upload",
+    				"permanentErrors": [403, 404, 500, 501],
+    				"maxChunkRetries": 2,
+    				"chunkRetryInterval": 5000,
+    				"simultaneousUploads": 4
+    			});
+    
+    			this.locations.push({
+    				"id": id,
+    				"path": path,
+    				"starred": starred,
+    				"flow": newFlow
+    			});
+		    }else {
+		        OC.Notification.showTemporary(t('flowupload', 'This location already exists'));
+		    }
 		},
 		starLocation: function(path) {
 			let location = this.getLocationByPath(path);
