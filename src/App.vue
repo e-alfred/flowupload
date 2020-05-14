@@ -24,7 +24,7 @@
 					{{ location.flow.files.length }}
 				</AppNavigationCounter>
 				<template slot="actions">
-					<ActionButton icon="icon-edit" v-bind:href="'/index.php/apps/files/?dir=' + location.path">
+					<ActionButton icon="icon-edit" @click="openLocationInFiles(location.path)">
 						{{ t('flowupload', 'Open') }}
 					</ActionButton>
 					<ActionButton icon="icon-starred" v-if="!location.starred" @click="starLocation(location.path)">
@@ -410,6 +410,9 @@ export default {
 			});
             
 			return completeChunks;
+    	},
+    	openLocationInFiles: function(path) {
+    	    window.open('/index.php/apps/files/?dir=' + path, "_blank"); 
     	},
 	},
 	computed: {
