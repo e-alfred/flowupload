@@ -215,6 +215,7 @@ export default {
 			activeLocationPath: false,
 			sort: "name",
 			sortReverse: false,
+			search: "",
 		};
 	},
 	mounted: function() {
@@ -227,6 +228,7 @@ export default {
 			}
 
 			self.setupDynamicTitleInterval();
+			self.setupSearch();
 
 			self.loading = false;
 		});
@@ -241,6 +243,14 @@ export default {
 			setInterval(function() {
 				self.updateTitle();
 			}, 500);
+		},
+		setupSearch: function() {
+		    var self = this;
+		    new OCA.Search(function(value) {
+                self.search = value;
+		    },function(){
+		        self.search = "";
+		    });
 		},
 		updateTitle: function() {
 			if (this.activeLocation != undefined && this.activeLocation.flow.files.length !== 0) {
@@ -443,6 +453,8 @@ export default {
 			}
 		},
 		filteredFiles: function() {
+		    var self = this;
+		    
 			if (this.activeLocation.flow) {
 				let sorted;
 
@@ -474,7 +486,13 @@ export default {
 				if (this.sortReverse) {
 					sorted.reverse();
 				}
-
+				
+				if(this.search != "") {
+				    sorted = sorted.filter(function(file) {
+				        return file.relativePath.toLowerCase().includes(self.search.toLowerCase());
+				    });
+				}
+                
 				return sorted;
 			} else {
 				return [];
