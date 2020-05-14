@@ -8,9 +8,10 @@
 				:disabled="false"
 				button-id="new-location-button"
 				button-class="icon-add"
-				v-on:click="pickNewLocation()" />
+				v-on:click="pickNewLocation()"/>
 			<ul id="locations" class="with-icon">
-				<AppNavigationItem active="true"
+				<AppNavigationItem
+				    active="true"
 					v-bind:class="{'active': activeLocation && location.path == activeLocation.path}"
 					v-bind:title="location.path"
 					v-customLocationFileDropZone:[location]
@@ -18,6 +19,7 @@
 					v-bind:key="location.id"
 					v-bind:id="'location-' + location.path"
 					v-if="!loading"
+					icon="icon-folder"
 					v-on:click="switchActiveLocationByPath(location.path)">
 					<AppNavigationCounter slot="counter" :highlighted="true">
 						{{ location.flow.files.length }}
@@ -43,7 +45,7 @@
 		</AppNavigation>
 		<!-- CONTENT -->
 		<AppContent>
-			<div v-activeLocationFileDropZone style="padding: 2.5%; width:auto" v-if="!loading">
+			<div v-activeLocationFileDropZone style="margin-left: 4%; margin-right: 4%; margin-top: 7px; width:auto" v-if="!loading">
 				<div id="noLocationSelected" v-if="activeLocation === undefined">{{ t('flowupload', 'Please select a location') }}</div>
 				<div id="locationSelected" ng-cloak v-if="activeLocation != undefined">
 					<h2 id="title">{{ t('flowupload', 'Transfers') }}</h2>
