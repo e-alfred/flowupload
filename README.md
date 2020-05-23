@@ -14,8 +14,8 @@ Clone the contents of the repository into your `apps` directory and rename it to
 
 Known Bugs
 ------------
-- External Storage is generally supported, but problems can still appear.
-- This app does not support server side encryption at the moment.
+- __External Storages are generally supported, but problems can still appear__ (Please don't create new issues we know what the problem is. For updates on External Storage Support see #46 )
+- This app does not support server side encryption.
 
 Licenses
 -------
