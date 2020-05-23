@@ -1,6 +1,6 @@
 <?php
 
-namespace Flow;
+namespace OCA\flowupload\Service\Flow;
 
 class File
 {
@@ -36,7 +36,7 @@ class File
         }
 
         $this->request = $request;
-        $this->identifier = call_user_func($this->config->getHashNameCallback(), $request);
+        $this->identifier = $this->config->hashNameCallback($request);
     }
 
     /**
@@ -146,22 +146,10 @@ class File
      */
     public function save($destination)
     {
-        $fh = fopen($destination, 'wb');
+        $fh = \OC\Files\Filesystem::fopen($destination, 'wb');
+
         if (!$fh) {
             throw new FileOpenException('failed to open destination file: '.$destination);
-        }
-
-        if (!flock($fh, LOCK_EX | LOCK_NB, $blocked)) {
-            // @codeCoverageIgnoreStart
-            if ($blocked) {
-                // Concurrent request has requested a lock.
-                // File is being processed at the moment.
-                // Warning: lock is not checked in windows.
-                return false;
-            }
-            // @codeCoverageIgnoreEnd
-
-            throw new FileLockException('failed to lock file: '.$destination);
         }
 
         $totalChunks = $this->request->getTotalChunks();
@@ -185,7 +173,6 @@ class File
                 fclose($chunk);
             }
         } catch (\Exception $e) {
-            flock($fh, LOCK_UN);
             fclose($fh);
             throw $e;
         }
@@ -194,7 +181,6 @@ class File
             $this->deleteChunks();
         }
 
-        flock($fh, LOCK_UN);
         fclose($fh);
 
         return true;
