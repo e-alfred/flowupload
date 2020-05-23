@@ -4,15 +4,20 @@
     "Transfers" : "Transferències",
     "Select File" : "Seleccioneu Fitxer",
     "Select Folder" : "Seleccioneu Carpeta",
+    "Start/Resume" : "Comença/Reprèn",
     "Pause" : "Pausa",
     "Cancel" : "Cancel·la",
+    "Hide finished uploads" : "Amaga les pujades acabades",
     "Size" : "Mida",
     "Progress" : "Progrés",
+    "Time remaining" : "Temps restant",
     "Uploading" : "S'està carregant",
     "Name" : "Nom",
+    "Upload speed" : "Velocitat de pujada",
     "Resume" : "Reprèn",
     "Retry" : "Reintenta",
     "Completed" : "Completat",
+    "Error" : "Error",
     "The files will be saved in your home directory." : "Els fitxers es desaran en el vostre directori personal."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

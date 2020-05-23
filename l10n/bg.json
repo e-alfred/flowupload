@@ -1,0 +1,12 @@
+{ "translations": {
+    "Pause" : "Пауза",
+    "Cancel" : "Отказ",
+    "Size" : "Размер",
+    "Progress" : "Прогрес",
+    "Uploading" : "Качване",
+    "Name" : "Име",
+    "Retry" : "Опитай отново",
+    "Completed" : "Завършено",
+    "Error" : "Грешка"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

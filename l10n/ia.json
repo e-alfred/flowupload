@@ -1,0 +1,10 @@
+{ "translations": {
+    "Pause" : "Pausar",
+    "Cancel" : "Cancellar",
+    "Size" : "Dimension",
+    "Uploading" : "Uploading",
+    "Name" : "Nomine",
+    "Completed" : "Completate",
+    "Error" : "Error"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,0 +1,10 @@
+{ "translations": {
+    "Pause" : "Paus",
+    "Cancel" : "Ofbriechen",
+    "Size" : "Gréisst",
+    "Uploading" : "Uploading",
+    "Name" : "Numm",
+    "Completed" : "Erfëllt",
+    "Error" : "Fehler"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

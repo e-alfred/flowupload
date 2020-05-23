@@ -1,0 +1,9 @@
+{ "translations": {
+    "Pause" : "இடைநிறுத்துக",
+    "Cancel" : "இரத்து செய்க",
+    "Size" : "அளவு",
+    "Uploading" : "Uploading",
+    "Name" : "பெயர்",
+    "Error" : "வழு"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

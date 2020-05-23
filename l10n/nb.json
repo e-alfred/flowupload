@@ -1,0 +1,13 @@
+{ "translations": {
+    "Transfers" : "Overføringer",
+    "Pause" : "Pause",
+    "Cancel" : "Avbryt",
+    "Size" : "Størrelse",
+    "Progress" : "Fremgang",
+    "Uploading" : "Laster opp",
+    "Name" : "Navn",
+    "Retry" : "Prøv igjen",
+    "Completed" : "Ferdig",
+    "Error" : "Feil"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

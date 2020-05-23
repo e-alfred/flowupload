@@ -1,0 +1,10 @@
+{ "translations": {
+    "Pause" : "Ara ver",
+    "Cancel" : "Dayandır",
+    "Size" : "Həcm",
+    "Uploading" : "Uploading",
+    "Name" : "Ad",
+    "Completed" : "Bitmişdir",
+    "Error" : "Səhv"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

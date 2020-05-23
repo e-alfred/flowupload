@@ -1,0 +1,11 @@
+{ "translations": {
+    "Pause" : "Paŭzigi",
+    "Cancel" : "Nuligi",
+    "Size" : "Grando",
+    "Uploading" : "Uploading",
+    "Name" : "Nomo",
+    "Retry" : "Reprovi",
+    "Completed" : "Plenumita",
+    "Error" : "Eraro"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

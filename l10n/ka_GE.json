@@ -1,0 +1,12 @@
+{ "translations": {
+    "Transfers" : "ტრანსფერები",
+    "Pause" : "პაუზა",
+    "Cancel" : "უარყოფა",
+    "Size" : "ზომა",
+    "Uploading" : "ატვირთვა",
+    "Name" : "სახელი",
+    "Retry" : "ვცადოთ ახლიდან",
+    "Completed" : "დასრულებული",
+    "Error" : "შეცდომა"
+},"pluralForm" :"nplurals=2; plural=(n!=1);"
+}

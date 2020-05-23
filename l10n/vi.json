@@ -1,0 +1,10 @@
+{ "translations": {
+    "Pause" : "Tạm dừng",
+    "Cancel" : "Hủy bỏ",
+    "Size" : "Kích cỡ",
+    "Uploading" : "Uploading",
+    "Name" : "Tên",
+    "Completed" : "Hoàn thành",
+    "Error" : "Lỗi"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

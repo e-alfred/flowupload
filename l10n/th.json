@@ -1,0 +1,10 @@
+{ "translations": {
+    "Pause" : "หยุดชั่วคราว",
+    "Cancel" : "ยกเลิก",
+    "Size" : "ขนาด",
+    "Uploading" : "Uploading",
+    "Name" : "ชื่อ",
+    "Completed" : "เสร็จสมบูรณ์",
+    "Error" : "ข้อผิดพลาด"
+},"pluralForm" :"nplurals=1; plural=0;"
+}
