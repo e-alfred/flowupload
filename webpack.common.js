@@ -1,36 +1,36 @@
-const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
-const StyleLintPlugin = require('stylelint-webpack-plugin')
-const BundleAnalyzerPlugin = require('@bundle-analyzer/webpack-plugin')
+const path = require("path")
+const { VueLoaderPlugin } = require("vue-loader")
+const StyleLintPlugin = require("stylelint-webpack-plugin")
+const BundleAnalyzerPlugin = require("@bundle-analyzer/webpack-plugin")
 
 const config = {
-	entry: path.join(__dirname, 'src', 'main.js'),
+	entry: path.join(__dirname, "src", "main.js"),
 	output: {
-		path: path.resolve(__dirname, './js'),
-		publicPath: '/js/',
+		path: path.resolve(__dirname, "./js"),
+		publicPath: "/js/",
 		filename: `flowupload.js`,
-		chunkFilename: 'chunks/[name]-[hash].js',
+		chunkFilename: "chunks/[name]-[hash].js",
 	},
 	module: {
 		rules: [
 			{
 				test: /\.css$/,
-				use: ['vue-style-loader', 'css-loader'],
+				use: ["vue-style-loader", "css-loader"],
 			},
 			{
 				test: /\.(js|vue)$/,
-				use: 'eslint-loader',
+				use: "eslint-loader",
 				exclude: /node_modules/,
-				enforce: 'pre',
+				enforce: "pre",
 			},
 			{
 				test: /\.vue$/,
-				loader: 'vue-loader',
+				loader: "vue-loader",
 				exclude: /node_modules/,
 			},
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
+				loader: "babel-loader",
 				exclude: /node_modules/,
 			},
 		],
@@ -40,7 +40,7 @@ const config = {
 		new StyleLintPlugin(),
 	],
 	resolve: {
-		extensions: ['*', '.js', '.vue'],
+		extensions: ["*", ".js", ".vue"],
 		symlinks: false,
 	},
 }
