@@ -438,7 +438,7 @@ export default {
 			return completeChunks;
 		},
 		openLocationInFiles: function(path) {
-			window.open('/index.php/apps/files/?dir=' + path, "_blank");
+			window.open("/index.php/apps/files/?dir=" + path, "_blank");
 		},
 		selectSortingMethod: function(sortMethod) {
 			if (this.sort == sortMethod) {
