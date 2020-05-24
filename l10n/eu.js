@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Fluxuen kargatzea",
     "Provides functions to upload large files with your HTML5-Browser." : "Zure HTML5 nabigatzailearekin fitxategi handiak kargatzeko funtzioak eskaintzen ditu.",
+    "Open" : "Ireki",
+    "Remove" : "Ezabatu",
     "Transfers" : "Transferentziak",
     "Select File" : "Hautatu fitxategia",
     "Select Folder" : "Hautatu karpeta",
@@ -15,7 +17,6 @@ OC.L10N.register(
     "Time remaining" : "Geratzen den denbora",
     "Uploading" : "Kargatzen",
     "Name" : "Izena",
-    "Upload speed" : "Kargatze-abiadura",
     "Resume" : "Jarraitu",
     "Retry" : "Saiatu berriz",
     "Completed" : "Osatua",

@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Folyam feltöltése",
     "Provides functions to upload large files with your HTML5-Browser." : "Funkciót biztosít nagy fájlok feltöltéséhez a HTML5 alapú böngésződdel.",
+    "Open" : "Megnyitás",
+    "Remove" : "Eltávolítás",
     "Transfers" : "Átvitelek",
     "Select File" : "Válassz fájlt",
     "Select Folder" : "Válassz mappát",

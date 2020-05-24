@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Open" : "پرانيستل",
     "Cancel" : "پرېښول",
     "Size" : "کچه",
     "Name" : "نوم",

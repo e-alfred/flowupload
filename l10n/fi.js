@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "Aikaa jäljellä",
     "Uploading" : "Lähetys",
     "Name" : "Nimi",
-    "Upload speed" : "Lähetysnopeus",
     "Resume" : "Palauta",
     "Retry" : "Yritä uudelleen",
     "Completed" : "Valmistui",

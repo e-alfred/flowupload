@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Stellt Funktionen zum Upload großer Dateien für HTML5-Browser zur Verfügung.",
+    "Open" : "Benötigt keine Übersetzung. Für Android wird nur die formelle Übersetzung verwendet (de_DE)",
+    "Remove" : "Benötigt keine Übersetzung. Für den Desktop wird nur die formelle Übersetzung verwendet (de_DE).",
     "Transfers" : "Übertragungen",
     "Select File" : "Datei auswählen",
     "Select Folder" : "Ordner auswählen",
@@ -15,7 +17,7 @@ OC.L10N.register(
     "Time remaining" : "Verbleibende Zeit",
     "Uploading" : "Lade hoch",
     "Name" : "Name",
-    "Upload speed" : "Upload-Geschwindigkeit",
+    "Uploadspeed" : "Uploadgeschwindigkeit",
     "Resume" : "Fortsetzen",
     "Retry" : "Wiederholen",
     "Completed" : "Fertiggestellt",

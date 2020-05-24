@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "剩余时间",
     "Uploading" : "正在上传",
     "Name" : "名称",
-    "Upload speed" : "上传速度",
     "Resume" : "继续",
     "Retry" : "重试",
     "Completed" : "已完成",

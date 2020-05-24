@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Remove" : "Läschen",
     "Pause" : "Paus",
     "Cancel" : "Ofbriechen",
     "Size" : "Gréisst",

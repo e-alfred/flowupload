@@ -1,4 +1,6 @@
 { "translations": {
+    "Open" : "Abrir",
+    "Remove" : "Borrar",
     "Transfers" : "Transferencias",
     "Pause" : "Pausar",
     "Cancel" : "Cancelar",

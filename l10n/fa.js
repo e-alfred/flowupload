@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "زمان باقی مانده",
     "Uploading" : "در حال آپلود",
     "Name" : "نام",
-    "Upload speed" : "سرعت بارگذاری",
     "Resume" : "از سرگیری",
     "Retry" : "تلاش دوباره",
     "Completed" : "نکمیل شده",

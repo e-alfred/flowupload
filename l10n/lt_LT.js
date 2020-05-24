@@ -1,6 +1,8 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Open" : "Atverti",
+    "Remove" : "Šalinti",
     "Transfers" : "Perdavimai",
     "Start/Resume" : "Pradėti/Pratęsti",
     "Pause" : "Pristabdyti",

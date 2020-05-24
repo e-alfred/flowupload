@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Flow Upload" : "플로 업로드",
     "Provides functions to upload large files with your HTML5-Browser." : "HTML5 기반 브라우저에서 대용량 파일을 업로드합니다.",
+    "Remove" : "삭제",
     "Transfers" : "전송",
     "Select File" : "파일 선택",
     "Select Folder" : "폴더 선택",

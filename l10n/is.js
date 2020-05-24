@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "Tími eftir",
     "Uploading" : "Sendi inn",
     "Name" : "Heiti",
-    "Upload speed" : "Innsendingarhraði",
     "Resume" : "Halda áfram",
     "Retry" : "Reyna aftur",
     "Completed" : "Lokið",

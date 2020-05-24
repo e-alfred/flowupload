@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "Tijd resterend",
     "Uploading" : "Uploaden",
     "Name" : "Naam",
-    "Upload speed" : "Uploadsnelheid",
     "Resume" : "Hervat",
     "Retry" : "Opnieuw proberen",
     "Completed" : "Voltooid",

@@ -1,4 +1,6 @@
 { "translations": {
+    "Open" : "Åpne",
+    "Remove" : "Fjern",
     "Transfers" : "Overføringer",
     "Pause" : "Pause",
     "Cancel" : "Avbryt",

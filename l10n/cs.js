@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Nahrání toku",
     "Provides functions to upload large files with your HTML5-Browser." : "Poskytuje funkce pro nahrávání velkých souborů pomocí prohlížeče s HTML5.",
+    "Open" : "Otevřeno",
+    "Remove" : "Odebrat",
     "Transfers" : "Přenosy",
     "Select File" : "Vybrat soubor",
     "Select Folder" : "Vybrat složku",
@@ -15,7 +17,6 @@ OC.L10N.register(
     "Time remaining" : "Zbývající čas",
     "Uploading" : "Nahrávání",
     "Name" : "Název",
-    "Upload speed" : "Rychlost odesílání",
     "Resume" : "Obnovit",
     "Retry" : "Zkusit znovu",
     "Completed" : "Dokončeno",

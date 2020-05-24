@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Ladda upp stora filer med din HTML5-webbläsare.",
+    "Open" : "Öppen",
+    "Remove" : "Radera",
     "Transfers" : "Överföringar",
     "Select File" : "Välj fil",
     "Select Folder" : "Välj mapp",
@@ -15,7 +17,7 @@ OC.L10N.register(
     "Time remaining" : "Återstående tid",
     "Uploading" : "Laddar upp",
     "Name" : "Namn",
-    "Upload speed" : "Uppladdningshastighet",
+    "Uploadspeed" : "Uppladdningshastighet",
     "Resume" : "Återuppta",
     "Retry" : "Försök igen",
     "Completed" : "Slutförd",

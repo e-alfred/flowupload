@@ -1,6 +1,8 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Open" : "打開",
+    "Remove" : "移除",
     "Transfers" : "傳送",
     "Pause" : "暫停",
     "Cancel" : "取消",

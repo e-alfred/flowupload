@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Remove" : "ඉවත් කරන්න ",
     "Pause" : "විරාමය",
     "Cancel" : "අවලංගු කරන්න",
     "Size" : "ප්‍රමාණය",

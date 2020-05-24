@@ -1,4 +1,6 @@
 { "translations": {
+    "Open" : "Atverti",
+    "Remove" : "Šalinti",
     "Transfers" : "Perdavimai",
     "Start/Resume" : "Pradėti/Pratęsti",
     "Pause" : "Pristabdyti",

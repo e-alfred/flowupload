@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Upload do Fluxo",
     "Provides functions to upload large files with your HTML5-Browser." : "Fornece funções para enviar arquivos grandes com o seu navegador HTML5.",
+    "Open" : "Abrir",
+    "Remove" : "Remover",
     "Transfers" : "Transferências",
     "Select File" : "Selecionar Arquivo",
     "Select Folder" : "Selecionar Pasta",
@@ -15,7 +17,7 @@ OC.L10N.register(
     "Time remaining" : "Tempo restante",
     "Uploading" : "Enviando",
     "Name" : "Nome",
-    "Upload speed" : "Velocidade de upload",
+    "Uploadspeed" : "Velocidade de upload",
     "Resume" : "Retomar",
     "Retry" : "Retentar",
     "Completed" : "Completo",

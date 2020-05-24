@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "Залишилося часу",
     "Uploading" : "Uploading",
     "Name" : "Ім'я",
-    "Upload speed" : "Швидкість завантаження",
     "Resume" : "Продовжити",
     "Retry" : "Ще раз",
     "Completed" : "Завершені",

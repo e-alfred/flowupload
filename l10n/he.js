@@ -15,7 +15,6 @@ OC.L10N.register(
     "Time remaining" : "זמן שנותר",
     "Uploading" : "מתבצעת העלאה",
     "Name" : "שם",
-    "Upload speed" : "מהירות העלאה",
     "Resume" : "להמשיך",
     "Retry" : "ניסיון חוזר",
     "Completed" : "הושלם",
