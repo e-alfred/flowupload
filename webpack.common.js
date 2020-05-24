@@ -18,12 +18,6 @@ const config = {
 				use: ["vue-style-loader", "css-loader"],
 			},
 			{
-				test: /\.(js|vue)$/,
-				use: "eslint-loader",
-				exclude: /node_modules/,
-				enforce: "pre",
-			},
-			{
 				test: /\.vue$/,
 				loader: "vue-loader",
 				exclude: /node_modules/,
