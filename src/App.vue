@@ -159,7 +159,6 @@
 							</tr>
 						</tbody>
 					</table>
-					<p id="homeDirectoryLink"><a href="../files?dir=%2Fflowupload">{{ t('flowupload', 'The files will be saved in your home directory.') }}</a></p>
 				</div>
 			</div>
 		</AppContent>
