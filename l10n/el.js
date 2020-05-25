@@ -2,7 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Μεταφόρτωση Ροής",
+    "Flowupload" : "Ροή μεταφορτώσεων",
     "Provides functions to upload large files with your HTML5-Browser." : "Παρέχει λειτουργίες για τη μεταφόρτωση μεγάλων αρχείων με το πρόγραμμα περιήγησης HTML5.",
+    "New destination" : "Νέος προορισμός",
+    "Open" : "Άνοιγμα",
+    "Star" : "Επισήμανση",
+    "Unstar" : "Αφαίρεση επισήμανσης",
+    "Remove" : "Αφαίρεση",
+    "Please select a location" : "Επιλέξτε τοποθεσία",
     "Transfers" : "Μεταφορές",
     "Select File" : "Επιλέξτε Αρχείο",
     "Select Folder" : "Επιλέξτε Φάκελο",
@@ -15,10 +22,12 @@ OC.L10N.register(
     "Time remaining" : "Υπολειπόμενος χρόνος",
     "Uploading" : "Μεταφόρτωση",
     "Name" : "Όνομα",
+    "Uploadspeed" : "Ταχύτητα μεταφόρτωσης",
     "Resume" : "Συνέχιση",
     "Retry" : "Δοκιμή ξανά",
     "Completed" : "Ολοκληρωμένες",
     "Error" : "Σφάλμα",
-    "The files will be saved in your home directory." : "Τα αρχεία θα αποθηκευτούν στον αρχικό κατάλογο."
+    "The files will be saved in your home directory." : "Τα αρχεία θα αποθηκευτούν στον αρχικό κατάλογο.",
+    "This location already exists" : "Υπάρχει ήδη η τοποθεσία"
 },
 "nplurals=2; plural=(n != 1);");

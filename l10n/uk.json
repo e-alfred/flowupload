@@ -1,6 +1,8 @@
 { "translations": {
     "Flow Upload" : "Процес завантаження",
     "Provides functions to upload large files with your HTML5-Browser." : "Надає можливість завантажувати великі файли за допомогою браузера, який підтримує HTML5.",
+    "Open" : "Відкрити",
+    "Remove" : "Вилучити",
     "Transfers" : "Передача",
     "Select File" : "Вибрати файл",
     "Select Folder" : "Вибрати теку",

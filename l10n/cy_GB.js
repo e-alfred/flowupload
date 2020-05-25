@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Remove" : "Gwaredu",
     "Pause" : "Seibio",
     "Cancel" : "Diddymu",
     "Size" : "Maint",

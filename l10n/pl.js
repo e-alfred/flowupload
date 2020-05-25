@@ -2,7 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Przesyłanie strumieniowe",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Udostępnia funkcje do przesyłania dużych plików za pomocą przeglądarki HTML5.",
+    "New destination" : "Nowe miejsce",
+    "Open" : "Otwórz",
+    "Star" : "Ulubione",
+    "Unstar" : "Nie ulubione",
+    "Remove" : "Usuń",
+    "Please select a location" : "Wybierz lokalizację",
     "Transfers" : "Transfery",
     "Select File" : "Wybierz plik",
     "Select Folder" : "Wybierz katalog",
@@ -15,10 +22,12 @@ OC.L10N.register(
     "Time remaining" : "Pozostało czasu",
     "Uploading" : "Wysyłanie",
     "Name" : "Nazwa",
+    "Uploadspeed" : "Prędkość wysyłania",
     "Resume" : "Wznów",
     "Retry" : "Powtórz",
     "Completed" : "Zakończono",
     "Error" : "Błąd",
-    "The files will be saved in your home directory." : "Pliki zostaną zapisane w katalogu domowym."
+    "The files will be saved in your home directory." : "Pliki zostaną zapisane w katalogu domowym.",
+    "This location already exists" : "Ta lokalizacja już istnieje"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

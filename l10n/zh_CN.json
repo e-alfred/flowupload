@@ -1,6 +1,8 @@
 { "translations": {
     "Flow Upload" : "流式上传",
     "Provides functions to upload large files with your HTML5-Browser." : "对支持 HTML5 的浏览器，提供流式上传大文件的功能。",
+    "Open" : "打开",
+    "Remove" : "移除",
     "Transfers" : "传输",
     "Select File" : "选择文件",
     "Select Folder" : "选择文件夹",

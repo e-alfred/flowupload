@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flux Càrrega",
     "Provides functions to upload large files with your HTML5-Browser." : "Proporciona funcions per carregar fitxers grans amb el vostre navegador HTML5.",
+    "Open" : "Obert",
+    "Remove" : "Suprimeix",
     "Transfers" : "Transferències",
     "Select File" : "Seleccioneu Fitxer",
     "Select Folder" : "Seleccioneu Carpeta",

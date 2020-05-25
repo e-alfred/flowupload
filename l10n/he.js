@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "העלאה בזרימה",
     "Provides functions to upload large files with your HTML5-Browser." : "ספק תכונות להעלאת קבצים גדולים עם דפדפן תומך HTML5.",
+    "Open" : "פתיחה",
+    "Remove" : "הסרה",
     "Transfers" : "העברות",
     "Select File" : "בחירת קובץ",
     "Select Folder" : "בחירת תיקייה",

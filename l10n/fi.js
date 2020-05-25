@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow-lähetys",
     "Provides functions to upload large files with your HTML5-Browser." : "Tarjoaa toiminnallisuudet suurikokoisten tiedostojen lähettämiseen HTML5-yhteensopivalla selaimella.",
+    "Open" : "Avoinna",
+    "Remove" : "Poista",
     "Transfers" : "Siirrot",
     "Select File" : "Valitse tiedosto",
     "Select Folder" : "Valitse kansio",

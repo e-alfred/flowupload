@@ -1,6 +1,8 @@
 { "translations": {
     "Flow Upload" : "Otpremanje protoka",
     "Provides functions to upload large files with your HTML5-Browser." : "Pruža funkcije za otpremanje velikih datoteka putem preglednika koji podržava HTML5.",
+    "Open" : "Otvori",
+    "Remove" : "Ukloni",
     "Transfers" : "Prijenosi",
     "Select File" : "Odaberi datoteku",
     "Select Folder" : "Odaberi mapu",

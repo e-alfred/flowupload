@@ -1,4 +1,6 @@
 { "translations": {
+    "Open" : "Отвори",
+    "Remove" : "Отстрани",
     "Transfers" : "Трансвери",
     "Pause" : "Пауза",
     "Cancel" : "Откажи",

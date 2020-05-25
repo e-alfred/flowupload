@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Nahrání toku",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Poskytuje funkce pro nahrávání velkých souborů pomocí prohlížeče s HTML5.",
+    "New destination" : "Nový cíl",
     "Open" : "Otevřeno",
+    "Star" : "Označit hvězdičkou",
+    "Unstar" : "Zrušit označení hvězdičkou",
     "Remove" : "Odebrat",
+    "Please select a location" : "Vyberte umístění",
     "Transfers" : "Přenosy",
     "Select File" : "Vybrat soubor",
     "Select Folder" : "Vybrat složku",
@@ -17,10 +22,12 @@ OC.L10N.register(
     "Time remaining" : "Zbývající čas",
     "Uploading" : "Nahrávání",
     "Name" : "Název",
+    "Uploadspeed" : "Rychlost nahrávání",
     "Resume" : "Obnovit",
     "Retry" : "Zkusit znovu",
     "Completed" : "Dokončeno",
     "Error" : "Chyba",
-    "The files will be saved in your home directory." : "Soubory budou uloženy do vašeho domovského adresáře."
+    "The files will be saved in your home directory." : "Soubory budou uloženy do vašeho domovského adresáře.",
+    "This location already exists" : "Toto umístění už existuje"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");

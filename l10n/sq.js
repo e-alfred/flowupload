@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Remove" : "Hiq",
     "Transfers" : "Transferimet",
     "Pause" : "Pauzë",
     "Cancel" : "Anullo",

@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Remove" : "წაშლა",
     "Transfers" : "ტრანსფერები",
     "Pause" : "პაუზა",
     "Cancel" : "უარყოფა",

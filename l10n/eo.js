@@ -1,6 +1,8 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Open" : "Malfermi",
+    "Remove" : "Forigi",
     "Pause" : "Paŭzigi",
     "Cancel" : "Nuligi",
     "Size" : "Grando",

@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Remove" : "ತೆಗೆದುಹಾಕಿ",
     "Cancel" : "﻿ರದ್ದು",
     "Size" : "﻿ ಗಾತ್ರ",
     "Uploading" : "Uploading",

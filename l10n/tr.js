@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "Akış Yükleme",
     "Provides functions to upload large files with your HTML5-Browser." : "Büyük dosyaları HTML5 web tarayıcı üzerinden yükleme işlevlerini sağlar.",
+    "Open" : "Aç",
+    "Remove" : "Sil",
     "Transfers" : "Aktarımlar",
     "Select File" : "Dosya Seçin",
     "Select Folder" : "Klasör Seçin",
@@ -15,6 +17,7 @@ OC.L10N.register(
     "Time remaining" : "Kalan süre",
     "Uploading" : "Yükleniyor",
     "Name" : "Ad",
+    "Uploadspeed" : "Yükleme hızı",
     "Resume" : "Sürdür",
     "Retry" : "Yeniden Dene",
     "Completed" : "Tamamlandı",

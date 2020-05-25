@@ -3,6 +3,8 @@ OC.L10N.register(
     {
     "Flow Upload" : "گردش بارگذاری",
     "Provides functions to upload large files with your HTML5-Browser." : "عملکردهایی را برای بارگذاری پرونده های بزرگ با مرورگر HTML5 شما فراهم می کند.",
+    "Open" : "باز کن...",
+    "Remove" : "حذف",
     "Transfers" : "نقل و انتقالات",
     "Select File" : "فایل را انتخاب کنید",
     "Select Folder" : "پوشه را انتخاب کنید",

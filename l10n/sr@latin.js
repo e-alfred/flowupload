@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Remove" : "Ukloni",
     "Cancel" : "Cancel",
     "Uploading" : "Uploading",
     "Name" : "naziv",
