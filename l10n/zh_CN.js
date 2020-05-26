@@ -20,7 +20,6 @@ OC.L10N.register(
     "Resume" : "继续",
     "Retry" : "重试",
     "Completed" : "已完成",
-    "Error" : "错误",
-    "The files will be saved in your home directory." : "这个文件将保存到你的主目录下。"
+    "Error" : "错误"
 },
 "nplurals=1; plural=0;");

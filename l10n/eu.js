@@ -3,8 +3,12 @@ OC.L10N.register(
     {
     "Flow Upload" : "Fluxuen kargatzea",
     "Provides functions to upload large files with your HTML5-Browser." : "Zure HTML5 nabigatzailearekin fitxategi handiak kargatzeko funtzioak eskaintzen ditu.",
+    "New destination" : "Helmuga berria",
     "Open" : "Ireki",
+    "Star" : "Izartu",
+    "Unstar" : "Kendu izarra",
     "Remove" : "Ezabatu",
+    "Please select a location" : "Mesedez hautatu kokaleku bat",
     "Transfers" : "Transferentziak",
     "Select File" : "Hautatu fitxategia",
     "Select Folder" : "Hautatu karpeta",
@@ -21,6 +25,6 @@ OC.L10N.register(
     "Retry" : "Saiatu berriz",
     "Completed" : "Osatua",
     "Error" : "Errorea",
-    "The files will be saved in your home directory." : "Fitxategiak zure direktorio nagusian gordeko dira."
+    "This location already exists" : "Kokaleku hau existitzen da dagoeneko"
 },
 "nplurals=2; plural=(n != 1);");

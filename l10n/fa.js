@@ -20,7 +20,6 @@ OC.L10N.register(
     "Resume" : "از سرگیری",
     "Retry" : "تلاش دوباره",
     "Completed" : "نکمیل شده",
-    "Error" : "خطا",
-    "The files will be saved in your home directory." : "پرونده ها در فهرست خانه شما ذخیره می شوند."
+    "Error" : "خطا"
 },
 "nplurals=2; plural=(n > 1);");

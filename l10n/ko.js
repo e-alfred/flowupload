@@ -16,7 +16,6 @@ OC.L10N.register(
     "Resume" : "다시 시작",
     "Retry" : "다시 시도",
     "Completed" : "완료됨",
-    "Error" : "오류",
-    "The files will be saved in your home directory." : "홈 디렉터리에 파일을 저장합니다."
+    "Error" : "오류"
 },
 "nplurals=1; plural=0;");

@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Upload do Fluxo",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Fornece funções para enviar arquivos grandes com o seu navegador HTML5.",
+    "New destination" : "Novo destino",
     "Open" : "Abrir",
+    "Star" : "Destacar",
+    "Unstar" : "Retirar destaque",
     "Remove" : "Remover",
+    "Please select a location" : "Selecione uma localização",
     "Transfers" : "Transferências",
     "Select File" : "Selecionar Arquivo",
     "Select Folder" : "Selecionar Pasta",
@@ -22,6 +27,6 @@ OC.L10N.register(
     "Retry" : "Retentar",
     "Completed" : "Completo",
     "Error" : "Erro",
-    "The files will be saved in your home directory." : "Os arquivos serão salvos no seu diretório pessoal."
+    "This location already exists" : "Esta localização já existe"
 },
 "nplurals=2; plural=(n > 1);");

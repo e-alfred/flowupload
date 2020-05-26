@@ -27,7 +27,6 @@ OC.L10N.register(
     "Retry" : "Δοκιμή ξανά",
     "Completed" : "Ολοκληρωμένες",
     "Error" : "Σφάλμα",
-    "The files will be saved in your home directory." : "Τα αρχεία θα αποθηκευτούν στον αρχικό κατάλογο.",
     "This location already exists" : "Υπάρχει ήδη η τοποθεσία"
 },
 "nplurals=2; plural=(n != 1);");

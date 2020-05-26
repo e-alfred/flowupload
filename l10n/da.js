@@ -20,7 +20,6 @@ OC.L10N.register(
     "Resume" : "Fortsæt",
     "Retry" : "Prøv igen",
     "Completed" : "Fuldført",
-    "Error" : "Fejl",
-    "The files will be saved in your home directory." : "Filerne vil blive gemt i din hjem mappe."
+    "Error" : "Fejl"
 },
 "nplurals=2; plural=(n != 1);");

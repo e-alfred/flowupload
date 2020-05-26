@@ -17,7 +17,6 @@ OC.L10N.register(
     "Resume" : "Reia",
     "Retry" : "Reîncearcă",
     "Completed" : "Terminat",
-    "Error" : "Eroare",
-    "The files will be saved in your home directory." : "Fișierele vor fi salvate in directorul tău acasă."
+    "Error" : "Eroare"
 },
 "nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));");

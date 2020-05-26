@@ -20,7 +20,6 @@ OC.L10N.register(
     "Resume" : "Nastavi",
     "Retry" : "Pokušaj ponovno",
     "Completed" : "Završeno",
-    "Error" : "Pogreška",
-    "The files will be saved in your home directory." : "Datoteke će biti spremljene u vašem početnom direktoriju."
+    "Error" : "Pogreška"
 },
 "nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;");

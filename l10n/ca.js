@@ -20,7 +20,6 @@ OC.L10N.register(
     "Resume" : "Reprèn",
     "Retry" : "Reintenta",
     "Completed" : "Completat",
-    "Error" : "Error",
-    "The files will be saved in your home directory." : "Els fitxers es desaran en el vostre directori personal."
+    "Error" : "Error"
 },
 "nplurals=2; plural=(n != 1);");

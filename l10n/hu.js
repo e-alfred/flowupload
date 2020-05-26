@@ -17,7 +17,6 @@ OC.L10N.register(
     "Resume" : "Folytat",
     "Retry" : "Újra",
     "Completed" : "Befejezve",
-    "Error" : "Hiba",
-    "The files will be saved in your home directory." : "A fájlok a home mappádba lesznek elmentve."
+    "Error" : "Hiba"
 },
 "nplurals=2; plural=(n != 1);");

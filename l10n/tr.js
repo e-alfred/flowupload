@@ -1,10 +1,15 @@
 OC.L10N.register(
     "flowupload",
     {
-    "Flow Upload" : "Akış Yükleme",
+    "Flow Upload" : "Flow Upload",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Büyük dosyaları HTML5 web tarayıcı üzerinden yükleme işlevlerini sağlar.",
+    "New destination" : "Yeni hedef",
     "Open" : "Aç",
+    "Star" : "Yıldız koy",
+    "Unstar" : "Yıldızı kaldır",
     "Remove" : "Sil",
+    "Please select a location" : "Lütfen bir konum seçin",
     "Transfers" : "Aktarımlar",
     "Select File" : "Dosya Seçin",
     "Select Folder" : "Klasör Seçin",
@@ -22,6 +27,6 @@ OC.L10N.register(
     "Retry" : "Yeniden Dene",
     "Completed" : "Tamamlandı",
     "Error" : "Hata",
-    "The files will be saved in your home directory." : "Dosyalar kişisel klasörünüze kaydedilecek."
+    "This location already exists" : "Bu konum zaten var"
 },
 "nplurals=2; plural=(n > 1);");

@@ -27,7 +27,6 @@ OC.L10N.register(
     "Retry" : "Wiederholen",
     "Completed" : "Fertiggestellt",
     "Error" : "Fehler",
-    "The files will be saved in your home directory." : "Die Dateien werden in deinem Home-Verzeichnis gespeichert.",
     "This location already exists" : "Ort existiert bereits"
 },
 "nplurals=2; plural=(n != 1);");

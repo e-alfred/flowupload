@@ -27,7 +27,6 @@ OC.L10N.register(
     "Retry" : "Skúsiť znova",
     "Completed" : "Dokončené",
     "Error" : "Chyba",
-    "The files will be saved in your home directory." : "Súbory budú uložené vo vašom domovskom priečinku.",
     "This location already exists" : "Toto umiestnenie už existuje"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

@@ -21,7 +21,6 @@ OC.L10N.register(
     "Resume" : "Återuppta",
     "Retry" : "Försök igen",
     "Completed" : "Slutförd",
-    "Error" : "Fel",
-    "The files will be saved in your home directory." : "Filerna kommer att sparas i din hemkatalog."
+    "Error" : "Fel"
 },
 "nplurals=2; plural=(n != 1);");
