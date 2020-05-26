@@ -22,5 +22,3 @@ Licenses
 Flowupload: [GNU Affero General Public License](http://www.gnu.org/licenses/agpl-3.0.html)
 
 Flowjs: [MIT License](https://opensource.org/licenses/MIT)
-
-Angularjs: [MIT License](https://opensource.org/licenses/MIT)

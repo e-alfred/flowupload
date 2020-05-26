@@ -1,5 +1,28 @@
 Changelog
 -------------
+[Version 1.0.0:](https://github.com/e-alfred/flowupload/releases/tag/1.0.0)
+- Added feature to select upload folder and starred locations
+- Added support for Nextcloud 19
+- Moved to Webpack for building releases
+- Migrated from AngularJS to Vue,js
+- Migrated from Ng-flow to flow.js
+- Added more translations from Transiflex
+
+[Version 0.1.8:](https://github.com/e-alfred/flowupload/releases/tag/0.1.8)
+- Add support for Nextcloud 18
+- Added more translations from Transiflex
+
+[Version 0.1.7:](https://github.com/e-alfred/flowupload/releases/tag/0.1.7)
+- Fix info.xml compliance
+
+[Version 0.1.6:](https://github.com/e-alfred/flowupload/releases/tag/0.1.6)
+- Reversed uploadspeed sorting (thanks @TessyPowder)
+- Limit width of uploadspeed column (thanks @TessyPowder)
+- Added remaining time and uploadspeed column (thanks @TessyPowder)
+- Fix spelling problems (thanks @rakekniven)
+- Fix changelog and readme
+- Add more translations from Transiflex
+
 [Version 0.1.5:](https://github.com/e-alfred/flowupload/releases/tag/0.1.5)
 - Changed UI design to be similar to the rest of Nextcloud (thanks @[TessyPowder](https://github.com/TessyPowder))
 - Removed Bootstrap dependency (thanks @[TessyPowder](https://github.com/TessyPowder))
@@ -57,4 +80,3 @@ Changelog
 
 [Version 0.0.5:](https://github.com/e-alfred/flowupload/releases/tag/0.0.5)
 - Add compatibility for Nextcloud 12
-
