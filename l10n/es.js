@@ -27,6 +27,6 @@ OC.L10N.register(
     "Retry" : "Volver a intentar",
     "Completed" : "Completado",
     "Error" : "Error",
-    "This location already exists" : "El destino ya esxiste"
+    "This location already exists" : "El destino ya existe "
 },
 "nplurals=2; plural=(n != 1);");

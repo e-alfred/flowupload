@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Flow upload",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Biedt functionaliteit om grote bestanden te uploaden met je HTML5-Browser",
+    "New destination" : "Nieuwe bestemming",
     "Open" : "Openen",
+    "Star" : "Ster geven",
+    "Unstar" : "Ster verwijderen",
     "Remove" : "Verwijder",
+    "Please select a location" : "Selecteer een locatie",
     "Transfers" : "Overdrachten",
     "Select File" : "Selecteer bestand",
     "Select Folder" : "Selecteer map",
@@ -17,9 +22,11 @@ OC.L10N.register(
     "Time remaining" : "Tijd resterend",
     "Uploading" : "Uploaden",
     "Name" : "Naam",
+    "Uploadspeed" : "Uploadspeed",
     "Resume" : "Hervat",
     "Retry" : "Opnieuw proberen",
     "Completed" : "Voltooid",
-    "Error" : "Fout"
+    "Error" : "Fout",
+    "This location already exists" : "Deze locatie bestaat al"
 },
 "nplurals=2; plural=(n != 1);");
