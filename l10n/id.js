@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Open" : "Buka",
     "Remove" : "Buang",
     "Pause" : "Jeda",
     "Cancel" : "Membatalkan",
