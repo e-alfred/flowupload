@@ -103,7 +103,7 @@
 								<th></th>
 								<th v-on:click="selectSortingMethod('uploadspeed')" class="hideOnMobile" style="width:10%">
 									<a class="noselect">
-									<span>{{ t('flowupload', 'Uploadspeed') }}</span>
+									<span>{{ t('flowupload', 'Upload speed') }}</span>
 									<span v-bind:class="{'icon-triangle-n':  (sort == 'uploadspeed' && sortReverse), 'icon-triangle-s': (sort == 'uploadspeed' && !sortReverse)}" class="sortIndicator"></span>
 									</a>
 								</th>
