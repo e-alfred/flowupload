@@ -22,7 +22,6 @@ OC.L10N.register(
     "Time remaining" : "Υπολειπόμενος χρόνος",
     "Uploading" : "Μεταφόρτωση",
     "Name" : "Όνομα",
-    "Uploadspeed" : "Ταχύτητα μεταφόρτωσης",
     "Resume" : "Συνέχιση",
     "Retry" : "Δοκιμή ξανά",
     "Completed" : "Ολοκληρωμένες",

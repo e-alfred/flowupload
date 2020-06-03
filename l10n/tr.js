@@ -22,7 +22,6 @@ OC.L10N.register(
     "Time remaining" : "Kalan süre",
     "Uploading" : "Yükleniyor",
     "Name" : "Ad",
-    "Uploadspeed" : "Yükleme hızı",
     "Resume" : "Sürdür",
     "Retry" : "Yeniden Dene",
     "Completed" : "Tamamlandı",

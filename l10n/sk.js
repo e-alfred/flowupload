@@ -22,7 +22,7 @@ OC.L10N.register(
     "Time remaining" : "Zostávajúci čas",
     "Uploading" : "Nahrávanie",
     "Name" : "Názov",
-    "Uploadspeed" : "Rýchlosť nahrávania",
+    "Upload speed" : "Rýchlosť nahrávania",
     "Resume" : "Obnoviť",
     "Retry" : "Skúsiť znova",
     "Completed" : "Dokončené",

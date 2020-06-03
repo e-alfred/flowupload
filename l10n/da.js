@@ -17,6 +17,7 @@ OC.L10N.register(
     "Time remaining" : "Tid tilbage",
     "Uploading" : "Uploader",
     "Name" : "Navn",
+    "Upload speed" : "Upload hastighed",
     "Resume" : "Fortsæt",
     "Retry" : "Prøv igen",
     "Completed" : "Fuldført",
