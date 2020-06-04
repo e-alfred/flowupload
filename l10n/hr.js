@@ -17,6 +17,7 @@ OC.L10N.register(
     "Time remaining" : "Preostalo vrijeme",
     "Uploading" : "Otpremanje",
     "Name" : "Naziv",
+    "Upload speed" : "Brzina otpremanja",
     "Resume" : "Nastavi",
     "Retry" : "Pokušaj ponovno",
     "Completed" : "Završeno",

@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "流式上传",
+    "Flowupload" : "流式上传",
     "Provides functions to upload large files with your HTML5-Browser." : "对支持 HTML5 的浏览器，提供流式上传大文件的功能。",
+    "New destination" : "新目标位置",
     "Open" : "打开",
+    "Star" : "标星",
+    "Unstar" : "取消标星",
     "Remove" : "移除",
+    "Please select a location" : "请选择一个位置",
     "Transfers" : "传输",
     "Select File" : "选择文件",
     "Select Folder" : "选择文件夹",
@@ -21,6 +26,7 @@ OC.L10N.register(
     "Resume" : "继续",
     "Retry" : "重试",
     "Completed" : "已完成",
-    "Error" : "错误"
+    "Error" : "错误",
+    "This location already exists" : "这个位置已经存在"
 },
 "nplurals=1; plural=0;");

@@ -22,6 +22,7 @@ OC.L10N.register(
     "Time remaining" : "Tempo restante",
     "Uploading" : "Enviando",
     "Name" : "Nome",
+    "Upload speed" : "Velocidade de envío",
     "Resume" : "Continuar",
     "Retry" : "Tentar de novo",
     "Completed" : "Completado",

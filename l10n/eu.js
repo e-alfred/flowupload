@@ -21,6 +21,7 @@ OC.L10N.register(
     "Time remaining" : "Geratzen den denbora",
     "Uploading" : "Kargatzen",
     "Name" : "Izena",
+    "Upload speed" : "Kargatze-abiadura",
     "Resume" : "Jarraitu",
     "Retry" : "Saiatu berriz",
     "Completed" : "Osatua",
