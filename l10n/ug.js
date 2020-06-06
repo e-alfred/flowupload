@@ -9,4 +9,4 @@ OC.L10N.register(
     "Name" : "ئاتى",
     "Error" : "خاتالىق"
 },
-"nplurals=1; plural=0;");
+"nplurals=2; plural=(n != 1);");
