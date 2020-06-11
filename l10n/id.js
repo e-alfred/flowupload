@@ -8,6 +8,7 @@ OC.L10N.register(
     "Size" : "Ukuran",
     "Uploading" : "Menunggah",
     "Name" : "Nama",
+    "Retry" : "Ulangi",
     "Completed" : "Selesai",
     "Error" : "Kesalahan"
 },
