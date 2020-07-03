@@ -2,6 +2,7 @@ OC.L10N.register(
     "flowupload",
     {
     "Open" : "Digeriñ",
+    "Cancel" : "Arrest",
     "Size" : "Ment",
     "Name" : "Anv",
     "Error" : "Fazi"
