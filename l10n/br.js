@@ -2,6 +2,7 @@ OC.L10N.register(
     "flowupload",
     {
     "Open" : "Digeriñ",
+    "Remove" : "Lemel",
     "Cancel" : "Arrest",
     "Size" : "Ment",
     "Progress" : "Araokadenn",
