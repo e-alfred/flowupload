@@ -7,6 +7,7 @@ OC.L10N.register(
     "Size" : "Ment",
     "Progress" : "Araokadenn",
     "Name" : "Anv",
+    "Retry" : "Klaskit en dro",
     "Completed" : "Achuet",
     "Error" : "Fazi"
 },
