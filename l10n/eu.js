@@ -2,6 +2,7 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Fluxuen kargatzea",
+    "Flowupload" : "Fluxu kargatzea",
     "Provides functions to upload large files with your HTML5-Browser." : "Zure HTML5 nabigatzailearekin fitxategi handiak kargatzeko funtzioak eskaintzen ditu.",
     "New destination" : "Helmuga berria",
     "Open" : "Ireki",
