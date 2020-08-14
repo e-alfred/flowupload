@@ -122,7 +122,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-if="!(file.isComplete() && hideFinished)" v-for="(file, index) in filteredFiles">
+							<tr v-for="(file, index) in filteredFiles">
 								<td class="hideOnMobile">{{index+1}}</td>
 								<td class="ellipsis" v-bind:title="'UID: ' + file.uniqueIdentifier">
 									<span>{{file.relativePath}}</span>
@@ -463,10 +463,16 @@ export default {
 		    var self = this;
 		    
 			if (this.activeLocation.flow) {
-				let sorted;
+				let sorted = this.activeLocation.flow.files;
+				
+				if(this.hideFinished) {
+					sorted = sorted.filter(function(file) {
+						return !(file.isComplete() && !file.error);
+				    });
+				}
 
 				if (this.sort == "name") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						console.log(a);
 						var nameA = a.relativePath.toLowerCase(),
 							nameB = b.relativePath.toLowerCase()
@@ -477,15 +483,15 @@ export default {
 						return 0 //default return value (no sorting)
 					});
 				} else if (this.sort == "size") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						return b.size - a.size
 					});
 				} else if (this.sort == "progress") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						return b.progress() - a.progress()
 					});
 				} else if (this.sort == "uploadspeed") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						return b.averageSpeed - a.averageSpeed
 					});
 				}
