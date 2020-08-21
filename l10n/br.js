@@ -6,6 +6,7 @@ OC.L10N.register(
     "Cancel" : "Arrest",
     "Size" : "Ment",
     "Progress" : "Araokadenn",
+    "Uploading" : "O pellkasañ",
     "Name" : "Anv",
     "Retry" : "Klaskit en dro",
     "Completed" : "Achuet",
