@@ -1,8 +1,13 @@
 { "translations": {
     "Flow Upload" : "Flux Càrrega",
+    "Flowupload" : "Càrrega de flux",
     "Provides functions to upload large files with your HTML5-Browser." : "Proporciona funcions per carregar fitxers grans amb el vostre navegador HTML5.",
+    "New destination" : "Destinació nova",
     "Open" : "Obert",
+    "Star" : "Estrella",
+    "Unstar" : "Treu el destacat",
     "Remove" : "Suprimeix",
+    "Please select a location" : "Seleccioneu una ubicació",
     "Transfers" : "Transferències",
     "Select File" : "Seleccioneu Fitxer",
     "Select Folder" : "Seleccioneu Carpeta",
@@ -19,6 +24,7 @@
     "Resume" : "Reprèn",
     "Retry" : "Reintenta",
     "Completed" : "Completat",
-    "Error" : "Error"
+    "Error" : "Error",
+    "This location already exists" : "Aquesta ubicació ja existeix"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
