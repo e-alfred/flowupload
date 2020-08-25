@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Open" : "Digeriñ",
     "Remove" : "Lemel",
+    "Transfers" : "Eskemm",
     "Cancel" : "Arrest",
     "Size" : "Ment",
     "Progress" : "Araokadenn",
