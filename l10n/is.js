@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Flæði-innsending",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Gefur kost á að senda inn stórar skrár með HTML5-vafranum þínum.",
+    "New destination" : "Nýr áfangastaður",
     "Open" : "Opna",
+    "Star" : "Stjörnumerkja",
+    "Unstar" : "Fjarlægja stjörnugjöf",
     "Remove" : "Fjarlægja",
+    "Please select a location" : "Veldu staðsetningu",
     "Transfers" : "Millifærslur",
     "Select File" : "Veldu skrá",
     "Select Folder" : "Veldu möppu",
@@ -21,6 +26,7 @@ OC.L10N.register(
     "Resume" : "Halda áfram",
     "Retry" : "Reyna aftur",
     "Completed" : "Lokið",
-    "Error" : "Villa"
+    "Error" : "Villa",
+    "This location already exists" : "Staðsetningin er þegar til."
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");
