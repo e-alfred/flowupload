@@ -3,8 +3,10 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow-lähetys",
     "Provides functions to upload large files with your HTML5-Browser." : "Tarjoaa toiminnallisuudet suurikokoisten tiedostojen lähettämiseen HTML5-yhteensopivalla selaimella.",
+    "New destination" : "Uusi kohde",
     "Open" : "Avoinna",
     "Remove" : "Poista",
+    "Please select a location" : "Valitse sijainti",
     "Transfers" : "Siirrot",
     "Select File" : "Valitse tiedosto",
     "Select Folder" : "Valitse kansio",
@@ -21,6 +23,7 @@ OC.L10N.register(
     "Resume" : "Palauta",
     "Retry" : "Yritä uudelleen",
     "Completed" : "Valmistui",
-    "Error" : "Virhe"
+    "Error" : "Virhe",
+    "This location already exists" : "Tämä sijainti on jo olemassa"
 },
 "nplurals=2; plural=(n != 1);");
