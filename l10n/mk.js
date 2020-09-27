@@ -7,6 +7,7 @@ OC.L10N.register(
     "Pause" : "Пауза",
     "Cancel" : "Откажи",
     "Size" : "Големина",
+    "Progress" : "Напредок",
     "Uploading" : "Uploading",
     "Name" : "Име",
     "Retry" : "Обидете се повторно",
