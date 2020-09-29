@@ -21,6 +21,7 @@ You can edit the Flow.js paramteres [in the your_nextclouds_app_folder/flowuploa
 
 After that you will have to run
 ````
+npm ci
 npm run build
 ````
 in the flowupload folder.
