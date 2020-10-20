@@ -9,6 +9,7 @@ OC.L10N.register(
     "Transfers" : "Prenosi",
     "Select File" : "Izbor datoteke",
     "Select Folder" : "Izbor mape",
+    "Start/Resume" : "Začni/Nadaljuj",
     "Pause" : "Premor",
     "Cancel" : "Prekliči",
     "Size" : "Velikost",
