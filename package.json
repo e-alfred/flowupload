@@ -54,7 +54,7 @@
 		"babel-loader": "^8.1.0",
 		"css-loader": "^5.0.0",
 		"eslint-config-nextcloud": "0.1.1",
-		"eslint-config-standard": "^15.0.0",
+		"eslint-config-standard": "^15.0.1",
 		"eslint-import-resolver-webpack": "^0.13.0",
 		"eslint-loader": "^4.0.2",
 		"eslint-plugin-import": "^2.22.1",
