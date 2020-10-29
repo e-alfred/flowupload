@@ -4,6 +4,8 @@ OC.L10N.register(
     "Open" : "Отвори",
     "Remove" : "Отстрани",
     "Transfers" : "Трансвери",
+    "Select File" : "Избери датотека",
+    "Select Folder" : "Избери папка",
     "Pause" : "Пауза",
     "Cancel" : "Откажи",
     "Size" : "Големина",
