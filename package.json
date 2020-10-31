@@ -2,7 +2,7 @@
 	"name": "flowupload",
 	"description": "A Nextcloud App to upload many large Files at once",
 	"version": "0.1.8",
-	"author": "Patrick Schwarz <e-alfred>",
+	"author": "Patrick Schwarz, <e-alfred>",
 	"contributors": [
 		"Jonathan Treffler <trefflerj@web.de>"
 	],
