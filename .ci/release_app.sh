@@ -29,7 +29,6 @@ mv flowupload-${RELEASE_VERSION} flowupload
 
 # Drop unneeded files
 rm -Rf \
-	flowupload/js/devel \
 	flowupload/gulpfile.js \
 	flowupload/package.json \
 	flowupload/.ci \
