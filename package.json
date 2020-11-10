@@ -51,7 +51,7 @@
 		"@nextcloud/browserslist-config": "^1.0.0",
 		"@vue/test-utils": "^1.1.1",
 		"babel-eslint": "^10.1.0",
-		"babel-loader": "^8.1.0",
+		"babel-loader": "^8.2.0",
 		"css-loader": "^5.0.1",
 		"eslint-config-nextcloud": "0.1.1",
 		"eslint-config-standard": "^16.0.1",
