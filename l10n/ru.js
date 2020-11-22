@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Flow Upload",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Предоставляет функции для загрузки больших файлов с помощью вашего HTML5-браузера.",
+    "New destination" : "Новая цель",
     "Open" : "Открыто",
+    "Star" : "Отметить",
+    "Unstar" : "Удалить отметку",
     "Remove" : "Удалить",
+    "Please select a location" : "Пожалуйста, выберите место",
     "Transfers" : "Передачи",
     "Select File" : "Выбрать файл",
     "Select Folder" : "Выбрать папку",
@@ -21,6 +26,7 @@ OC.L10N.register(
     "Resume" : "Возобновить",
     "Retry" : "Повторить",
     "Completed" : "Выполнено",
-    "Error" : "Ошибка"
+    "Error" : "Ошибка",
+    "This location already exists" : "Это место уже существует"
 },
 "nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);");
