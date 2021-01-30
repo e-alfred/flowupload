@@ -1,13 +1,17 @@
 OC.L10N.register(
     "flowupload",
     {
-    "Remove" : "刪除",
+    "Open" : "打開",
+    "Remove" : "移除",
+    "Transfers" : "傳送",
     "Pause" : "暫停",
     "Cancel" : "取消",
     "Size" : "大小",
-    "Uploading" : "Uploading",
+    "Progress" : "進度",
+    "Uploading" : "上傳中...",
     "Name" : "名稱",
-    "Completed" : "已完成",
+    "Retry" : "重試",
+    "Completed" : "完成",
     "Error" : "錯誤"
 },
 "nplurals=1; plural=0;");
