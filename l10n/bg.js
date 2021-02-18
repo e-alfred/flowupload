@@ -1,16 +1,32 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Flow Upload" : "Качване на потока",
+    "Flowupload" : "Качване на потока",
+    "Provides functions to upload large files with your HTML5-Browser." : "Осигурява функции за качване на големи файлове с вашия HTML5-браузър.",
+    "New destination" : "Нова дестинация",
     "Open" : "Отвори",
+    "Star" : " Звезда",
+    "Unstar" : "Премахва звезда",
     "Remove" : "Премахни",
+    "Please select a location" : "Моля, изберете местоположение",
+    "Transfers" : "Трансфери",
+    "Select File" : "Избор на Файл",
+    "Select Folder" : "Избор на Папка",
+    "Start/Resume" : "Старт / Възобновяване",
     "Pause" : "Пауза",
     "Cancel" : "Отказ",
+    "Hide finished uploads" : "Скриване на готовите качвания",
     "Size" : "Размер",
     "Progress" : "Прогрес",
+    "Time remaining" : "Оставащо време",
     "Uploading" : "Качване",
     "Name" : "Име",
+    "Upload speed" : "Скорост на качване",
+    "Resume" : " Възобновяване",
     "Retry" : "Опитай отново",
     "Completed" : "Завършено",
-    "Error" : "Грешка"
+    "Error" : "Грешка",
+    "This location already exists" : "Това местоположение вече съществува"
 },
 "nplurals=2; plural=(n != 1);");
