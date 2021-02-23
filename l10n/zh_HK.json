@@ -1,15 +1,30 @@
 { "translations": {
+    "Flow Upload" : "流程上傳",
+    "Flowupload" : "Flowupload",
+    "Provides functions to upload large files with your HTML5-Browser." : "提供使用 HTML 5 瀏覽器上傳大檔案的功能。",
+    "New destination" : "新目的地",
     "Open" : "打開",
+    "Star" : "星標",
+    "Unstar" : "刪除星標",
     "Remove" : "移除",
+    "Please select a location" : "請選擇位置",
     "Transfers" : "傳送",
+    "Select File" : "選擇檔案",
+    "Select Folder" : "選擇資料夾",
+    "Start/Resume" : "開始/繼續",
     "Pause" : "暫停",
     "Cancel" : "取消",
+    "Hide finished uploads" : "隱藏完成的上傳",
     "Size" : "大小",
     "Progress" : "進度",
+    "Time remaining" : "剩餘時間",
     "Uploading" : "上傳中...",
     "Name" : "名稱",
+    "Upload speed" : "上傳速度",
+    "Resume" : "繼續",
     "Retry" : "重試",
     "Completed" : "完成",
-    "Error" : "錯誤"
+    "Error" : "錯誤",
+    "This location already exists" : "此位置已經存在"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
