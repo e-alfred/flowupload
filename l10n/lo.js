@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Cancel" : "ຍົກເລີກ",
     "Size" : "ຂະຫນາດ",
     "Name" : "ຊື່",
     "Error" : "ຜິດພາດ"
