@@ -37,6 +37,8 @@ class File
 
         $this->request = $request;
         $this->identifier = $this->config->hashNameCallback($request);
+
+        OC_Util::setupFS();
     }
 
     /**
