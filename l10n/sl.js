@@ -2,7 +2,7 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Koračno pošiljanje",
-    "Flowupload" : "‧ Koračno pošiljanje",
+    "Flowupload" : "‧ Koračno pošiljanje ‧",
     "Provides functions to upload large files with your HTML5-Browser." : "Omogoča pošiljanje velikih datotek prek spletnega brskalnika HTML5.",
     "New destination" : "Nov cilj",
     "Open" : "Odpri",

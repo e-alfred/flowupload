@@ -1,0 +1,9 @@
+{ "translations": {
+    "Remove" : "Boga",
+    "Cancel" : "Annulla",
+    "Size" : "Mannària",
+    "Name" : "Nùmene",
+    "Retry" : "Torra a proare",
+    "Error" : "Errore"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
