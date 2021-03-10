@@ -27,10 +27,18 @@ wget https://github.com/e-alfred/flowupload/archive/${RELEASE_VERSION}.tar.gz
 tar xzf ${RELEASE_VERSION}.tar.gz
 mv flowupload-${RELEASE_VERSION} flowupload
 
+cd /tmp/flowupload-packaging/flowupload
+npm ci
+npm run build
+
+cd ..
+
 # Drop unneeded files
 rm -Rf \
 	flowupload/gulpfile.js \
 	flowupload/package.json \
+	flowupload/node_modules \
+	flowupload/package-lock.json \
 	flowupload/.ci \
 	flowupload/.tx \
 	flowupload/doc
