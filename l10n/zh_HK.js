@@ -20,7 +20,7 @@ OC.L10N.register(
     "Size" : "大小",
     "Progress" : "進度",
     "Time remaining" : "剩餘時間",
-    "Uploading" : "上傳中。。。",
+    "Uploading" : "上傳中...",
     "Name" : "名稱",
     "Upload speed" : "上傳速度",
     "Resume" : "繼續",
