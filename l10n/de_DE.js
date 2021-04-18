@@ -14,7 +14,7 @@ OC.L10N.register(
     "Select File" : "Datei auswählen",
     "Select Folder" : "Ordner auswählen",
     "Start/Resume" : "Starten/Fortsetzen",
-    "Pause" : "Anhalten",
+    "Pause" : "Pausieren",
     "Cancel" : "Abbrechen",
     "Hide finished uploads" : "Beendete Uploads verbergen",
     "Size" : "Größe",
