@@ -40,7 +40,6 @@
 					</template>
 				</AppNavigationItem>
 			</ul>
-			<AppNavigationSettings />
 		</AppNavigation>
 		<!-- CONTENT -->
 		<AppContent>
