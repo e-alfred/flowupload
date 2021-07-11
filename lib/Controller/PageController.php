@@ -17,7 +17,7 @@
       * @NoCSRFRequired
       */
      public function index() {
-        \OCP\Util::addScript('flowupload', 'flowupload');
+        \OCP\Util::addScript('flowupload', 'flowupload-main');
 		\OCP\Util::addStyle('flowupload', 'style');
 
         $response = new TemplateResponse('flowupload', 'main');
