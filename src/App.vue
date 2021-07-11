@@ -14,7 +14,7 @@
 					v-for="location in locations"
 					:id="'location-' + location.path"
 					v-if="!loading"
-					:key="location.id"
+					:key="location.path"
 					v-customLocationFileDropZone:[location]
 					active="true"
 					:class="{'active': activeLocation && location.path == activeLocation.path}"
