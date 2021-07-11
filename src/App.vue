@@ -51,7 +51,7 @@
 					<h2 id="title">{{ t('flowupload', 'Transfers') }}</h2>
 					<div class="buttonGroup">
 						<span v-uploadSelectButton class="button" uploadtype="file">
-						<span class="icon icon-file select-file-icon" style=""></span>
+						<span class="icon icon-file select-file-icon"></span>
 						<span>{{ t('flowupload', 'Select File') }}</span>
 						</span>
 						<input id="FileSelectInput" type="file" multiple="multiple" v-on:change="filesSelected">
@@ -248,7 +248,7 @@ export default {
 		setupSearch: function() {
 		    var self = this;
 		    new OCA.Search(function(value) {
-                self.search = value;
+				self.search = value;
 		    },function(){
 		        self.search = "";
 		    });
@@ -343,7 +343,7 @@ export default {
     				"flow": newFlow
     			});
 		    }else {
-		        OC.Notification.showTemporary(t('flowupload', 'This location already exists'));
+		        OC.Notification.showTemporary(t("flowupload", "This location already exists"));
 		    }
 		},
 		starLocation: function(path) {
@@ -469,24 +469,24 @@ export default {
 					sorted = this.activeLocation.flow.files.sort(function(a, b) {
 						console.log(a);
 						var nameA = a.relativePath.toLowerCase(),
-							nameB = b.relativePath.toLowerCase()
+							nameB = b.relativePath.toLowerCase();
 						if (nameA < nameB) //sort string ascending
-							return -1
+							return -1;
 						if (nameA > nameB)
-							return 1
-						return 0 //default return value (no sorting)
+							return 1;
+						return 0; //default return value (no sorting)
 					});
 				} else if (this.sort == "size") {
 					sorted = this.activeLocation.flow.files.sort(function(a, b) {
-						return b.size - a.size
+						return b.size - a.size;
 					});
 				} else if (this.sort == "progress") {
 					sorted = this.activeLocation.flow.files.sort(function(a, b) {
-						return b.progress() - a.progress()
+						return b.progress() - a.progress();
 					});
 				} else if (this.sort == "uploadspeed") {
 					sorted = this.activeLocation.flow.files.sort(function(a, b) {
-						return b.averageSpeed - a.averageSpeed
+						return b.averageSpeed - a.averageSpeed;
 					});
 				}
 
