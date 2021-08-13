@@ -1,11 +1,32 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Flow Upload" : "Carrigamentu flussu",
+    "Flowupload" : "Carrigamentu flussu",
+    "Provides functions to upload large files with your HTML5-Browser." : "Frunit funtzionalidades pro carrigare archìvios mannos cun su navigadore HTML5.",
+    "New destination" : "Destinu nou",
+    "Open" : "Aberi",
+    "Star" : "Istedda",
+    "Unstar" : "Boga istedda",
     "Remove" : "Boga",
+    "Please select a location" : "Sèbera una positzione",
+    "Transfers" : "Tràmudas",
+    "Select File" : "Sèbera archìviu",
+    "Select Folder" : "Sèbera cartella",
+    "Start/Resume" : "Cumintza/Torra a cumintzare",
+    "Pause" : "Pàusa",
     "Cancel" : "Annulla",
+    "Hide finished uploads" : "Cua carrigamentos agabbados",
     "Size" : "Mannària",
+    "Progress" : "Progressu",
+    "Time remaining" : "Tempus abarradu",
+    "Uploading" : "Carrigamentu",
     "Name" : "Nùmene",
+    "Upload speed" : "Lestresa de carrigamentu",
+    "Resume" : "Torra a cumintzare",
     "Retry" : "Torra a proare",
-    "Error" : "Errore"
+    "Completed" : "Cumpletadu",
+    "Error" : "Errore",
+    "This location already exists" : "Custa positzione esistit giai"
 },
 "nplurals=2; plural=(n != 1);");
