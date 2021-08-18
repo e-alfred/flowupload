@@ -5,6 +5,7 @@ OC.L10N.register(
     "Remove" : "Noņemt",
     "Pause" : "Pauzēt",
     "Cancel" : "Atcelt",
+    "Hide finished uploads" : "Slēpt pabeigtās augšupielādes",
     "Size" : "Izmērs",
     "Uploading" : "Augšupielāde",
     "Name" : "Vārds",
