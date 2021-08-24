@@ -4,6 +4,8 @@ OC.L10N.register(
     "Flow Upload" : "フローアップロード",
     "Provides functions to upload large files with your HTML5-Browser." : "HTML5のブラウザーで大きいファイルをアップロードする機能を提供します。",
     "Open" : "開く",
+    "Star" : "スターを付ける",
+    "Unstar" : "スターを外す",
     "Remove" : "削除",
     "Transfers" : "転送",
     "Select File" : "ファイル選択",
