@@ -36,3 +36,7 @@ ports:
   - port: 8081
     visibility: private
     onOpen: ignore
+
+vscode:
+  extensions:
+    - octref.vetur
