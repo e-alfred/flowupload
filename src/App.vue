@@ -9,10 +9,9 @@
 				button-id="new-location-button"
 				button-class="icon-add"
 				@click="pickNewLocation()" />
-			<ul id="locations" class="with-icon">
+			<ul v-if="!loading" id="locations" class="with-icon">
 				<AppNavigationItem
 					v-for="location in locations"
-					v-if="!loading"
 					:id="'location-' + location.path"
 					:key="location.path"
 					v-customLocationFileDropZone:[location]
@@ -134,7 +133,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr :key="file" v-for="(file, index) in filteredFiles" v-if="!(file.isComplete() && hideFinished)">
+							<tr v-for="(file, index) in filteredFiles" :key="'file-' + file.uniqueIdentifier">
 								<td class="hideOnMobile">
 									{{ index+1 }}
 								</td>
@@ -199,13 +198,6 @@ import AppNavigationItem from "@nextcloud/vue/dist/Components/AppNavigationItem"
 import AppNavigationNew from "@nextcloud/vue/dist/Components/AppNavigationNew";
 import AppNavigationCounter from "@nextcloud/vue/dist/Components/AppNavigationCounter";
 import ActionButton from "@nextcloud/vue/dist/Components/ActionButton";
-import ActionLink from "@nextcloud/vue/dist/Components/ActionLink";
-import AppNavigationIconBullet from "@nextcloud/vue/dist/Components/AppNavigationIconBullet";
-import ActionCheckbox from "@nextcloud/vue/dist/Components/ActionCheckbox";
-import ActionInput from "@nextcloud/vue/dist/Components/ActionInput";
-import ActionRouter from "@nextcloud/vue/dist/Components/ActionRouter";
-import ActionText from "@nextcloud/vue/dist/Components/ActionText";
-import ActionTextEditable from "@nextcloud/vue/dist/Components/ActionTextEditable";
 
 import Flow from "@flowjs/flow.js";
 import axios from "@nextcloud/axios";
@@ -221,18 +213,12 @@ export default {
 		AppNavigationNew,
 		AppNavigationCounter,
 		ActionButton,
-		ActionLink,
-		AppNavigationIconBullet,
-		ActionCheckbox,
-		ActionInput,
-		ActionRouter,
-		ActionText,
-		ActionTextEditable,
 	},
 	filters: {},
 	directives: {
 		customLocationFileDropZone: {
 			inserted(elm, binding, vnode) {
+				const self = vnode.context;
 				const flow = binding.arg.flow;
 
 				elm.addEventListener("drop", function(event) {
@@ -245,14 +231,14 @@ export default {
 						flow.addFiles(dataTransfer.files, event);
 					}
 				});
-				this.addListenerMulti(elm, "drag dragstart dragend dragover dragenter dragleave drop", function(e) {
+				self.addListenerMulti(elm, "drag dragstart dragend dragover dragenter dragleave drop", function(e) {
 					e.preventDefault();
 					e.stopPropagation();
 				});
-				this.addListenerMulti(elm, "dragover dragenter", function() {
+				self.addListenerMulti(elm, "dragover dragenter", function() {
 					elm.classList.add("fileDrag");
 				});
-				this.addListenerMulti(elm, "dragleave dragend drop", function() {
+				self.addListenerMulti(elm, "dragleave dragend drop", function() {
 					elm.classList.remove("fileDrag");
 				});
 			},
@@ -271,14 +257,14 @@ export default {
 						self.activeLocation.flow.addFiles(dataTransfer.files, event);
 					}
 				});
-				this.addListenerMulti(elm, "drag dragstart dragend dragover dragenter dragleave drop", function(e) {
+				self.addListenerMulti(elm, "drag dragstart dragend dragover dragenter dragleave drop", function(e) {
 					e.preventDefault();
 					e.stopPropagation();
 				});
-				this.addListenerMulti(elm, "dragover dragenter", function() {
+				self.addListenerMulti(elm, "dragover dragenter", function() {
 					elm.classList.add("fileDrag");
 				});
-				this.addListenerMulti(elm, "dragleave dragend drop", function() {
+				self.addListenerMulti(elm, "dragleave dragend drop", function() {
 					elm.classList.remove("fileDrag");
 				});
 			},
@@ -286,9 +272,10 @@ export default {
 		uploadSelectButton: {
 			inserted(elm, binding, vnode) {
 				const uploadType = elm.getAttribute("uploadType");
+
 				if (uploadType === "file") {
 					elm.addEventListener("click", function() {
-						document.getElementById("FileSelectInput");
+						document.getElementById("FileSelectInput").click();
 					});
 				} else if (uploadType === "folder") {
 					elm.addEventListener("click", function() {
@@ -320,13 +307,19 @@ export default {
 			}
 		},
 		filteredFiles() {
-		    const self = this;
-
 			if (this.activeLocation.flow) {
 				let sorted;
 
+				if (this.hideFinished) {
+					sorted = [...this.activeLocation.flow.files].filter(function(file) {
+				        return !file.isComplete();
+				    });
+				} else {
+					sorted = [...this.activeLocation.flow.files];
+				}
+
 				if (this.sort === "name") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						const nameA = a.relativePath.toLowerCase();
 						const nameB = b.relativePath.toLowerCase();
 						if (nameA < nameB) { // sort string ascending
@@ -338,15 +331,15 @@ export default {
 						return 0; // default return value (no sorting)
 					});
 				} else if (this.sort === "size") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						return b.size - a.size;
 					});
 				} else if (this.sort === "progress") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						return b.progress() - a.progress();
 					});
 				} else if (this.sort === "uploadspeed") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+					sorted = sorted.sort(function(a, b) {
 						return b.averageSpeed - a.averageSpeed;
 					});
 				}
@@ -357,7 +350,7 @@ export default {
 
 				if (this.search !== "") {
 				    sorted = sorted.filter(function(file) {
-				        return file.relativePath.toLowerCase().includes(self.search.toLowerCase());
+				        return file.relativePath.toLowerCase().includes(this.search.toLowerCase());
 				    });
 				}
 
@@ -400,7 +393,7 @@ export default {
 		},
 		setupSearch() {
 		    const self = this;
-		    this.Search = new OCA.Search(function(value) {
+		    this.OCASearch = new OCA.Search(function(value) {
 				self.search = value;
 		    }, function() {
 		        self.search = "";
@@ -427,7 +420,7 @@ export default {
 			return new Promise(function(resolve, reject) {
 				axios.get(url)
 					.then(function(response) {
-						resolve(response);
+						resolve(response.data);
 					});
 			});
 		},
@@ -501,9 +494,7 @@ export default {
 			// contentType: "application/json",
 
 			axios.post(this.baseUrl + "/directories", {
-				data: JSON.stringify({
-					path,
-				}),
+				path,
 			})
 				.then(function(response) {
 					location.starred = true;
