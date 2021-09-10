@@ -9,11 +9,10 @@
 				button-id="new-location-button"
 				button-class="icon-add"
 				@click="pickNewLocation()" />
-			<ul id="locations" class="with-icon">
+			<ul v-if="!loading" id="locations" class="with-icon">
 				<AppNavigationItem
 					v-for="location in locations"
 					:id="'location-' + location.path"
-					v-if="!loading"
 					:key="location.path"
 					v-customLocationFileDropZone:[location]
 					active="true"
@@ -134,7 +133,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="(file, index) in filteredFiles" v-if="!(file.isComplete() && hideFinished)">
+							<tr v-for="(file, index) in filteredFiles" :key="'file-' + file.uniqueIdentifier">
 								<td class="hideOnMobile">
 									{{ index+1 }}
 								</td>
@@ -197,19 +196,12 @@ import AppContent from "@nextcloud/vue/dist/Components/AppContent";
 import AppNavigation from "@nextcloud/vue/dist/Components/AppNavigation";
 import AppNavigationItem from "@nextcloud/vue/dist/Components/AppNavigationItem";
 import AppNavigationNew from "@nextcloud/vue/dist/Components/AppNavigationNew";
-import AppNavigationSettings from "@nextcloud/vue/dist/Components/AppNavigationSettings";
-import AppSidebar from "@nextcloud/vue/dist/Components/AppSidebar";
-import AppSidebarTab from "@nextcloud/vue/dist/Components/AppSidebarTab";
 import AppNavigationCounter from "@nextcloud/vue/dist/Components/AppNavigationCounter";
 import ActionButton from "@nextcloud/vue/dist/Components/ActionButton";
-import ActionLink from "@nextcloud/vue/dist/Components/ActionLink";
-import AppNavigationIconBullet from "@nextcloud/vue/dist/Components/AppNavigationIconBullet";
-import ActionCheckbox from "@nextcloud/vue/dist/Components/ActionCheckbox";
-import ActionInput from "@nextcloud/vue/dist/Components/ActionInput";
-import ActionRouter from "@nextcloud/vue/dist/Components/ActionRouter";
-import ActionText from "@nextcloud/vue/dist/Components/ActionText";
-import ActionTextEditable from "@nextcloud/vue/dist/Components/ActionTextEditable";
+
 import Flow from "@flowjs/flow.js";
+import axios from "@nextcloud/axios";
+import { generateUrl } from "@nextcloud/router";
 
 export default {
 	name: "App",
@@ -219,23 +211,14 @@ export default {
 		AppNavigation,
 		AppNavigationItem,
 		AppNavigationNew,
-		AppNavigationSettings,
-		AppSidebar,
-		AppSidebarTab,
 		AppNavigationCounter,
 		ActionButton,
-		ActionLink,
-		AppNavigationIconBullet,
-		ActionCheckbox,
-		ActionInput,
-		ActionRouter,
-		ActionText,
-		ActionTextEditable,
 	},
 	filters: {},
 	directives: {
 		customLocationFileDropZone: {
 			inserted(elm, binding, vnode) {
+				const self = vnode.context;
 				const flow = binding.arg.flow;
 
 				elm.addEventListener("drop", function(event) {
@@ -248,15 +231,15 @@ export default {
 						flow.addFiles(dataTransfer.files, event);
 					}
 				});
-				$(elm).on("drag dragstart dragend dragover dragenter dragleave drop", function(e) {
+				self.addListenerMulti(elm, "drag dragstart dragend dragover dragenter dragleave drop", function(e) {
 					e.preventDefault();
 					e.stopPropagation();
 				});
-				$(elm).on("dragover dragenter", function() {
-					$(elm).addClass("fileDrag");
+				self.addListenerMulti(elm, "dragover dragenter", function() {
+					elm.classList.add("fileDrag");
 				});
-				$(elm).on("dragleave dragend drop", function() {
-					$(elm).removeClass("fileDrag");
+				self.addListenerMulti(elm, "dragleave dragend drop", function() {
+					elm.classList.remove("fileDrag");
 				});
 			},
 		},
@@ -274,28 +257,29 @@ export default {
 						self.activeLocation.flow.addFiles(dataTransfer.files, event);
 					}
 				});
-				$(elm).on("drag dragstart dragend dragover dragenter dragleave drop", function(e) {
+				self.addListenerMulti(elm, "drag dragstart dragend dragover dragenter dragleave drop", function(e) {
 					e.preventDefault();
 					e.stopPropagation();
 				});
-				$(elm).on("dragover dragenter", function() {
-					$(elm).addClass("fileDrag");
+				self.addListenerMulti(elm, "dragover dragenter", function() {
+					elm.classList.add("fileDrag");
 				});
-				$(elm).on("dragleave dragend drop", function() {
-					$(elm).removeClass("fileDrag");
+				self.addListenerMulti(elm, "dragleave dragend drop", function() {
+					elm.classList.remove("fileDrag");
 				});
 			},
 		},
 		uploadSelectButton: {
 			inserted(elm, binding, vnode) {
-				const uploadType = $(elm).attr("uploadType");
-				if (uploadType == "file") {
-					$(elm).on("click", function() {
-						$("#FileSelectInput").click();
+				const uploadType = elm.getAttribute("uploadType");
+
+				if (uploadType === "file") {
+					elm.addEventListener("click", function() {
+						document.getElementById("FileSelectInput").click();
 					});
-				} else if (uploadType == "folder") {
-					$(elm).on("click", function() {
-						$("#FolderSelectInput").click();
+				} else if (uploadType === "folder") {
+					elm.addEventListener("click", function() {
+						document.getElementById("FolderSelectInput").click();
 					});
 				}
 			},
@@ -305,7 +289,7 @@ export default {
 		return {
 			loading: true,
 			locations: [],
-			baseUrl: OC.generateUrl("/apps/flowupload"),
+			baseUrl: generateUrl("/apps/flowupload"),
 			currentLocation: undefined,
 			hideFinished: false,
 			activeLocationPath: false,
@@ -323,31 +307,39 @@ export default {
 			}
 		},
 		filteredFiles() {
-		    const self = this;
-
 			if (this.activeLocation.flow) {
 				let sorted;
 
-				if (this.sort == "name") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
-						console.log(a);
+				if (this.hideFinished) {
+					sorted = [...this.activeLocation.flow.files].filter(function(file) {
+				        return !file.isComplete();
+				    });
+				} else {
+					sorted = [...this.activeLocation.flow.files];
+				}
+
+				if (this.sort === "name") {
+					sorted = sorted.sort(function(a, b) {
 						const nameA = a.relativePath.toLowerCase();
 						const nameB = b.relativePath.toLowerCase();
-						if (nameA < nameB) // sort string ascending
-						{ return -1; }
-						if (nameA > nameB) { return 1; }
+						if (nameA < nameB) { // sort string ascending
+							return -1;
+						}
+						if (nameA > nameB) {
+							return 1;
+						}
 						return 0; // default return value (no sorting)
 					});
-				} else if (this.sort == "size") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+				} else if (this.sort === "size") {
+					sorted = sorted.sort(function(a, b) {
 						return b.size - a.size;
 					});
-				} else if (this.sort == "progress") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+				} else if (this.sort === "progress") {
+					sorted = sorted.sort(function(a, b) {
 						return b.progress() - a.progress();
 					});
-				} else if (this.sort == "uploadspeed") {
-					sorted = this.activeLocation.flow.files.sort(function(a, b) {
+				} else if (this.sort === "uploadspeed") {
+					sorted = sorted.sort(function(a, b) {
 						return b.averageSpeed - a.averageSpeed;
 					});
 				}
@@ -356,9 +348,9 @@ export default {
 					sorted.reverse();
 				}
 
-				if (this.search != "") {
+				if (this.search !== "") {
 				    sorted = sorted.filter(function(file) {
-				        return file.relativePath.toLowerCase().includes(self.search.toLowerCase());
+				        return file.relativePath.toLowerCase().includes(this.search.toLowerCase());
 				    });
 				}
 
@@ -378,8 +370,6 @@ export default {
 	mounted() {
 		const self = this;
 		self.loadLocations().then(function() {
-			console.log(self.locations);
-
 			if (self.locations.length > 0) {
 				self.switchActiveLocationById(self.locations[0].id);
 			}
@@ -393,7 +383,7 @@ export default {
 	methods: {
 		filesSelected(event) {
 			this.activeLocation.flow.addFiles(event.target.files);
-			$("#FileSelectInput, #FolderSelectInput").val(null);
+			document.querySelectorAll("#FileSelectInput, #FolderSelectInput").value = null;
 		},
 		setupDynamicTitleInterval() {
 			const self = this;
@@ -403,14 +393,14 @@ export default {
 		},
 		setupSearch() {
 		    const self = this;
-		    new OCA.Search(function(value) {
+		    this.OCASearch = new OCA.Search(function(value) {
 				self.search = value;
 		    }, function() {
 		        self.search = "";
 		    });
 		},
 		updateTitle() {
-			if (this.activeLocation != undefined && this.activeLocation.flow.files.length !== 0) {
+			if (this.activeLocation !== undefined && this.activeLocation.flow.files.length !== 0) {
 				const progress = parseFloat(Math.round(this.activeLocation.flow.progress() * 100 * 100) / 100).toFixed(2); // round to two digits after comma
 				document.title = "FlowUpload " + progress + "%";
 			} else {
@@ -419,7 +409,6 @@ export default {
 		},
 		switchActiveLocationById(id) {
 			const location = this.getLocationById(id);
-			console.log(location);
 
 			this.activeLocationPath = location.path;
 		},
@@ -429,13 +418,10 @@ export default {
 		getStarredLocations() {
 			const url = this.baseUrl + "/directories";
 			return new Promise(function(resolve, reject) {
-				$.ajax({
-					url,
-					type: "GET",
-					contentType: "application/json",
-				}).done(function(response) {
-					resolve(response);
-				});
+				axios.get(url)
+					.then(function(response) {
+						resolve(response.data);
+					});
 			});
 		},
 		loadLocations() {
@@ -463,7 +449,7 @@ export default {
 		},
 		getLocationByPath(path) {
 			for (let i = 0; i < this.locations.length; i++) {
-				if (this.locations[i].path == path) {
+				if (this.locations[i].path === path) {
 					return this.locations[i];
 				}
 			}
@@ -471,7 +457,7 @@ export default {
 		},
 		getLocationById(id) {
 			for (let i = 0; i < this.locations.length; i++) {
-				if (this.locations[i].id == id) {
+				if (this.locations[i].id === id) {
 					return this.locations[i];
 				}
 			}
@@ -479,54 +465,50 @@ export default {
 		},
 		addLocation(id, path, starred) {
 		    if (!this.getLocationByPath(path)) {
-    			const newFlow = new Flow({
-    				query(flowFile, flowChunk) {
-    					return {
-    						target: path,
-    					};
-    				},
-    				target: this.baseUrl + "/upload",
-    				permanentErrors: [403, 404, 500, 501],
-    				maxChunkRetries: 2,
-    				chunkRetryInterval: 5000,
-    				simultaneousUploads: 4,
-    			});
+				const newFlow = new Flow({
+					query(flowFile, flowChunk) {
+						return {
+							target: path,
+						};
+					},
+					target: this.baseUrl + "/upload",
+					permanentErrors: [403, 404, 500, 501],
+					maxChunkRetries: 2,
+					chunkRetryInterval: 5000,
+					simultaneousUploads: 4,
+				});
 
-    			this.locations.push({
-    				id,
-    				path,
-    				starred,
-    				flow: newFlow,
-    			});
-		    } else {
-		        OC.Notification.showTemporary(t("flowupload", "This location already exists"));
-		    }
+				this.locations.push({
+					id,
+					path,
+					starred,
+					flow: newFlow,
+				});
+			} else {
+				OC.Notification.showTemporary(t("flowupload", "This location already exists"));
+			}
 		},
 		starLocation(path) {
 			const location = this.getLocationByPath(path);
 
-			$.ajax({
-				url: this.baseUrl + "/directories",
-				type: "POST",
-				contentType: "application/json",
-				data: JSON.stringify({
-					path,
-				}),
-			}).done(function(response) {
-				location.starred = true;
-				location.id = response.id;
-			});
+			// contentType: "application/json",
+
+			axios.post(this.baseUrl + "/directories", {
+				path,
+			})
+				.then(function(response) {
+					location.starred = true;
+					location.id = response.id;
+				});
 		},
 		unstarLocationById(id) {
 			const location = this.getLocationById(id);
 
-			$.ajax({
-				url: this.baseUrl + "/directories/" + id,
-				type: "DELETE",
-			}).done(function(response) {
-				location.starred = false;
-				location.id = false;
-			});
+			axios.delete(this.baseUrl + "/directories/" + id)
+				.then(function(response) {
+					location.starred = false;
+					location.id = false;
+				});
 		},
 		unstarLocationByPath(path) {
 			const location = this.getLocationByPath(path);
@@ -548,37 +530,43 @@ export default {
 				this.unstarLocationByPath(path);
 			}
 
-			if (this.activeLocation.path == path) {
+			if (this.activeLocation.path === path) {
 				this.activeLocationPath = false;
 			}
 
 			this.locations = this.locations.filter(function(value, index, arr) {
-				return value.path != path;
+				return value.path !== path;
 			});
 		},
 		trimDecimals(number, decimals = 2) {
 			return number.toFixed(decimals);
 		},
 		bytes(bytes, precision) {
-			if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return "-";
+			if (isNaN(parseFloat(bytes)) || bytes === 0 || !isFinite(bytes)) return "-";
 			if (typeof precision === "undefined") precision = 1;
 			const units = ["bytes", "kB", "MB", "GB"];
 			const number = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
 			return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) + " " + units[number];
 		},
 		byterate(bytes, precision) {
-			if (isNaN(parseFloat(bytes)) || bytes == 0 || !isFinite(bytes)) return "0 KB/s";
+			if (isNaN(parseFloat(bytes)) || bytes === 0 || !isFinite(bytes)) return "0 KB/s";
 			if (typeof precision === "undefined") precision = 1;
 			const units = ["B/s", "KB/s", "MB/s", "GB/s"];
 			const number = Math.min(Math.floor(Math.log(bytes) / Math.log(1000)), units.length - 1);
 			return (bytes / Math.pow(1000, Math.floor(number))).toFixed(precision) + " " + units[number];
 		},
 		seconds(seconds, precision) {
-			if (isNaN(parseFloat(seconds)) || seconds == 0 || !isFinite(seconds)) return "-";
+			if (isNaN(parseFloat(seconds)) || seconds === 0 || !isFinite(seconds)) return "-";
 			if (typeof precision === "undefined") precision = 1;
 			const units = ["s", "m", "h"];
 			const number = Math.min(Math.floor(Math.log(seconds) / Math.log(60)), units.length - 1);
 			return (seconds / Math.pow(60, Math.floor(number))).toFixed(precision) + " " + units[number];
+		},
+		addListenerMulti(element, eventNames, listener) {
+			const events = eventNames.split(" ");
+			for (let i = 0, iLen = events.length; i < iLen; i++) {
+				element.addEventListener(events[i], listener, false);
+			}
 		},
 		completedChunks(file) {
 			let completeChunks = 0;
@@ -595,15 +583,12 @@ export default {
 			window.open("/index.php/apps/files/?dir=" + path, "_blank");
 		},
 		selectSortingMethod(sortMethod) {
-			if (this.sort == sortMethod) {
+			if (this.sort === sortMethod) {
 				this.sortReverse = !this.sortReverse;
 			} else {
 				this.sort = sortMethod;
 				this.sortReverse = false;
 			}
-
-			console.log(this.sort);
-			console.log(this.sortReverse);
 		},
 	},
 };
