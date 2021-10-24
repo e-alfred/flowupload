@@ -32,7 +32,7 @@
 		"stylelint:fix": "stylelint src --fix"
 	},
 	"dependencies": {
-		"@babel/eslint-parser": "^7.14.7",
+		"@babel/eslint-parser": "^7.15.8",
 		"@bundle-analyzer/webpack-plugin": "^0.5.1",
 		"@flowjs/flow.js": "^2.14.1",
 		"@nextcloud/axios": "^1.6.0",
@@ -73,7 +73,7 @@
 		"eslint-plugin-node": "^11.1.0",
 		"eslint-plugin-promise": "^4.3.1",
 		"eslint-plugin-standard": "^4.1.0",
-		"eslint-plugin-vue": "^7.13.0",
+		"eslint-plugin-vue": "^7.20.0",
 		"node-sass": "^5.0.0",
 		"sass-loader": "^10.2.0",
 		"stylelint": "^13.13.1",
