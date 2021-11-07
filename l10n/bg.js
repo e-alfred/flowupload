@@ -10,7 +10,7 @@ OC.L10N.register(
     "Unstar" : "Премахва звезда",
     "Remove" : "Премахни",
     "Please select a location" : "Моля, изберете местоположение",
-    "Transfers" : "Трансфери",
+    "Transfers" : "Прехвърляния",
     "Select File" : "Избор на Файл",
     "Select Folder" : "Избор на Папка",
     "Start/Resume" : "Старт / Възобновяване",
