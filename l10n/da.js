@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "Flow Upload",
+    "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Gør det muligt at uploade store filer med din HTML5-Browser",
+    "New destination" : "Ny destination",
     "Open" : "Åbn",
+    "Star" : "Star",
+    "Unstar" : "Unstar",
     "Remove" : "Fjern",
+    "Please select a location" : "Vælg venligst en placering",
     "Transfers" : "Overførsler",
     "Select File" : "Vælg Fil",
     "Select Folder" : "Vælg Mappe",
@@ -21,6 +26,7 @@ OC.L10N.register(
     "Resume" : "Fortsæt",
     "Retry" : "Prøv igen",
     "Completed" : "Fuldført",
-    "Error" : "Fejl"
+    "Error" : "Fejl",
+    "This location already exists" : "Denne placering findes allerede"
 },
 "nplurals=2; plural=(n != 1);");
