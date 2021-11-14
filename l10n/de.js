@@ -9,7 +9,7 @@ OC.L10N.register(
     "Star" : "Favorisieren",
     "Unstar" : "Nicht favorisieren",
     "Remove" : "Entfernen",
-    "Please select a location" : "Bitte wählen Sie einen Ort aus",
+    "Please select a location" : "Bitte wähle einen Ort aus",
     "Transfers" : "Übertragungen",
     "Select File" : "Datei auswählen",
     "Select Folder" : "Ordner auswählen",
