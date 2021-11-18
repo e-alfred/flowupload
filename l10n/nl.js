@@ -15,7 +15,7 @@ OC.L10N.register(
     "Select Folder" : "Selecteer map",
     "Start/Resume" : "Start/Hervat",
     "Pause" : "Pauzeer",
-    "Cancel" : "Annuleer",
+    "Cancel" : "Annuleren",
     "Hide finished uploads" : "Voltooide uploads verbergen",
     "Size" : "Grootte",
     "Progress" : "Voortgang",
