@@ -41,7 +41,7 @@ If you decrease these parameters the upload speed will decrease.
 
 # Development
 ## Try it on Gitpod
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/[user]/[repository/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/e-alfred/flowupload/)
 
 It will automatically spin up and configure a full Nextcloud, MariaDB and PhpMyAdmin server.
 
