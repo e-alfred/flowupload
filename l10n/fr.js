@@ -29,4 +29,4 @@ OC.L10N.register(
     "Error" : "Erreur",
     "This location already exists" : "Ce lieu existe déjà"
 },
-"nplurals=3; plural=(n==0 || n==1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
+"nplurals=2; plural=(n > 1);");
