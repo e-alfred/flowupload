@@ -6,8 +6,10 @@ OC.L10N.register(
     "Pause" : "Tạm dừng",
     "Cancel" : "Hủy bỏ",
     "Size" : "Kích cỡ",
+    "Progress" : "Tiến trình",
     "Uploading" : "Uploading",
     "Name" : "Tên",
+    "Retry" : "Thử lại",
     "Completed" : "Hoàn thành",
     "Error" : "Lỗi"
 },

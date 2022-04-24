@@ -1,7 +1,12 @@
 { "translations": {
+    "Remove" : "ຍ້າຍອອກ",
+    "Transfers" : "ການຖ່າຍໂອນ",
     "Cancel" : "ຍົກເລີກ",
     "Size" : "ຂະຫນາດ",
+    "Progress" : "ດຳເນີນການ",
+    "Uploading" : "ກຳລັງດາວໂຫຼດ",
     "Name" : "ຊື່",
+    "Completed" : "ສຳເລັດ",
     "Error" : "ຜິດພາດ"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

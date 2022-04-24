@@ -1,0 +1,9 @@
+{ "translations": {
+    "Remove" : "Aýyrmak",
+    "Cancel" : "ýatyrmak",
+    "Progress" : "Ösüş",
+    "Name" : "Ady",
+    "Completed" : "Tamamlanan",
+    "Error" : "ýalňyşlyk"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

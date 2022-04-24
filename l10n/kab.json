@@ -1,0 +1,9 @@
+{ "translations": {
+    "Remove" : "Kkes",
+    "Cancel" : "Sefsex",
+    "Progress" : "Asfari",
+    "Name" : "Nom",
+    "Completed" : "Yemmed",
+    "Error" : "Erreur"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
