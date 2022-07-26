@@ -6,6 +6,7 @@
     "Uploading" : "Uploading",
     "Name" : "Namn",
     "Retry" : "Forsøk att",
+    "Completed" : "Fullført",
     "Error" : "Feil"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
