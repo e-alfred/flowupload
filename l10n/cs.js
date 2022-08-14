@@ -23,7 +23,7 @@ OC.L10N.register(
     "Uploading" : "Nahrávání",
     "Name" : "Název",
     "Upload speed" : "Rychlost odesílání",
-    "Resume" : "Obnovit",
+    "Resume" : "Navázat",
     "Retry" : "Zkusit znovu",
     "Completed" : "Dokončeno",
     "Error" : "Chyba",
