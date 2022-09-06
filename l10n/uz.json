@@ -1,6 +1,8 @@
 { "translations": {
+    "Open" : "Ochish",
     "Remove" : "O'chiring",
     "Cancel" : "Bekor qilish",
+    "Size" : "Hajmi",
     "Uploading" : "Yuklash",
     "Name" : "Ism...",
     "Error" : "Xato"
