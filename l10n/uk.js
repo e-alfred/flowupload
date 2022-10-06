@@ -12,7 +12,7 @@ OC.L10N.register(
     "Please select a location" : "Будь ласка, виберіть місцезнаходження",
     "Transfers" : "Передача",
     "Select File" : "Вибрати файл",
-    "Select Folder" : "Вибрати теку",
+    "Select Folder" : "Вибрати каталог",
     "Start/Resume" : "Почати/продовжити",
     "Pause" : "Пауза",
     "Cancel" : "Скасувати",
