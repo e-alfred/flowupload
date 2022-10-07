@@ -4,6 +4,7 @@ OC.L10N.register(
     "Open" : "Åpne",
     "Remove" : "Fjern",
     "Transfers" : "Overføringer",
+    "Select File" : "Velg fil",
     "Pause" : "Pause",
     "Cancel" : "Avbryt",
     "Size" : "Størrelse",
