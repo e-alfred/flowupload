@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Remove" : "Kkes",
     "Cancel" : "Sefsex",
+    "Size" : "Teɣzi",
     "Progress" : "Asfari",
     "Name" : "Nom",
     "Completed" : "Yemmed",
