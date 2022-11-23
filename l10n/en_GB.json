@@ -1,15 +1,30 @@
 { "translations": {
+    "Flow Upload" : "Flow Upload",
+    "Flowupload" : "Flowupload",
+    "Provides functions to upload large files with your HTML5-Browser." : "Provides functions to upload large files with your HTML5-Browser.",
+    "New destination" : "New destination",
     "Open" : "Open",
+    "Star" : "Star",
+    "Unstar" : "Unstar",
     "Remove" : "Remove",
+    "Please select a location" : "Please select a location",
     "Transfers" : "Transfers",
+    "Select File" : "Select File",
+    "Select Folder" : "Select Folder",
+    "Start/Resume" : "Start/Resume",
     "Pause" : "Pause",
     "Cancel" : "Cancel",
+    "Hide finished uploads" : "Hide finished uploads",
     "Size" : "Size",
     "Progress" : "Progress",
+    "Time remaining" : "Time remaining",
     "Uploading" : "Uploading",
     "Name" : "Name",
+    "Upload speed" : "Upload speed",
+    "Resume" : "Resume",
     "Retry" : "Retry",
     "Completed" : "Completed",
-    "Error" : "Error"
+    "Error" : "Error",
+    "This location already exists" : "This location already exists"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
