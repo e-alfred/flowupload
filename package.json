@@ -32,7 +32,7 @@
 		"stylelint:fix": "stylelint src --fix"
 	},
 	"dependencies": {
-		"@babel/eslint-parser": "^7.15.8",
+		"@babel/eslint-parser": "^7.19.1",
 		"@bundle-analyzer/webpack-plugin": "^0.5.1",
 		"@flowjs/flow.js": "^2.14.1",
 		"@nextcloud/axios": "^2.3.0",
