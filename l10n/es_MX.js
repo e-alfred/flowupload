@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Remove" : "Eliminar",
     "Transfers" : "Transferencias",
+    "Select File" : "Selecciona archivo",
     "Pause" : "Pausar",
     "Cancel" : "Cancelar",
     "Size" : "Tamaño",
