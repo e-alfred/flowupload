@@ -5,7 +5,9 @@ OC.L10N.register(
     "Cancel" : "Sefsex",
     "Size" : "Teɣzi",
     "Progress" : "Asfari",
+    "Uploading" : "Tuzzna n ifuyla",
     "Name" : "Nom",
+    "Retry" : "Ɛreḍ tikkelt-nniḍen",
     "Completed" : "Yemmed",
     "Error" : "Erreur"
 },
