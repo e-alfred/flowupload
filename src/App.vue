@@ -1,16 +1,16 @@
 <template>
-	<Content :class="{'icon-loading': loading}" app-name="flowupload">
+	<NcContent :class="{'icon-loading': loading}" app-name="flowupload">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<!-- APP NAVIAGTION -->
-		<AppNavigation>
-			<AppNavigationNew
+		<NcAppNavigation>
+			<NcAppNavigationNew
 				:text="t('flowupload', 'New destination')"
 				:disabled="false"
 				button-id="new-location-button"
 				button-class="icon-add"
 				@click="pickNewLocation()" />
 			<ul v-if="!loading" id="locations" class="with-icon">
-				<AppNavigationItem
+				<NcAppNavigationItem
 					v-for="location in locations"
 					:id="'location-' + location.path"
 					:key="location.path"
@@ -20,9 +20,9 @@
 					:title="location.path"
 					icon="icon-folder"
 					@click="switchActiveLocationByPath(location.path)">
-					<AppNavigationCounter slot="counter" :highlighted="true">
+					<NcAppNavigationCounter slot="counter" :highlighted="true">
 						{{ location.flow.files.length }}
-					</AppNavigationCounter>
+					</NcAppNavigationCounter>
 					<template slot="actions">
 						<ActionButton icon="icon-edit" @click="openLocationInFiles(location.path)">
 							{{ t('flowupload', 'Open') }}
@@ -37,11 +37,11 @@
 							{{ t('flowupload', 'Remove') }}
 						</ActionButton>
 					</template>
-				</AppNavigationItem>
+				</NcAppNavigationItem>
 			</ul>
-		</AppNavigation>
+		</NcAppNavigation>
 		<!-- CONTENT -->
-		<AppContent>
+		<NcAppContent>
 			<div v-if="!loading" v-activeLocationFileDropZone style="margin-left: 4%; margin-right: 4%; margin-top: 7px; width:auto">
 				<div v-if="activeLocation === undefined" id="noLocationSelected">
 					{{ t('flowupload', 'Please select a location') }}
@@ -186,33 +186,32 @@
 					</table>
 				</div>
 			</div>
-		</AppContent>
-	</Content>
+		</NcAppContent>
+	</NcContent>
 </template>
 
 <script>
-import Content from "@nextcloud/vue/dist/Components/Content";
-import AppContent from "@nextcloud/vue/dist/Components/AppContent";
-import AppNavigation from "@nextcloud/vue/dist/Components/AppNavigation";
-import AppNavigationItem from "@nextcloud/vue/dist/Components/AppNavigationItem";
-import AppNavigationNew from "@nextcloud/vue/dist/Components/AppNavigationNew";
-import AppNavigationCounter from "@nextcloud/vue/dist/Components/AppNavigationCounter";
-import ActionButton from "@nextcloud/vue/dist/Components/ActionButton";
+import NcContent from '@nextcloud/vue/dist/Components/NcContent'
+import NcAppContent from '@nextcloud/vue/dist/Components/NcAppContent'
+import NcAppNavigation from '@nextcloud/vue/dist/Components/NcAppNavigation'
+import NcAppNavigationItem from "@nextcloud/vue/dist/Components/NcAppNavigationItem";
+import NcAppNavigationNew from '@nextcloud/vue/dist/Components/NcAppNavigationNew'
+import NcAppNavigationCounter from "@nextcloud/vue/dist/Components/NcAppNavigationCounter";
+import NcActionButton from "@nextcloud/vue/dist/Components/NcActionButton";
 
-import Flow from "@flowjs/flow.js";
 import axios from "@nextcloud/axios";
 import { generateUrl } from "@nextcloud/router";
 
 export default {
 	name: "App",
 	components: {
-		Content,
-		AppContent,
-		AppNavigation,
-		AppNavigationItem,
-		AppNavigationNew,
-		AppNavigationCounter,
-		ActionButton,
+		NcContent,
+		NcAppContent,
+		NcAppNavigation,
+		NcAppNavigationItem,
+		NcAppNavigationNew,
+		NcAppNavigationCounter,
+		NcActionButton,
 	},
 	filters: {},
 	directives: {
