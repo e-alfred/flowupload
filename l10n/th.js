@@ -6,7 +6,7 @@ OC.L10N.register(
     "Pause" : "หยุดชั่วคราว",
     "Cancel" : "ยกเลิก",
     "Size" : "ขนาด",
-    "Uploading" : "Uploading",
+    "Uploading" : "กำลังอัปโหลด",
     "Name" : "ชื่อ",
     "Completed" : "เสร็จสมบูรณ์",
     "Error" : "ข้อผิดพลาด"
