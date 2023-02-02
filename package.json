@@ -42,7 +42,7 @@
 		"@nextcloud/router": "^2.0.0",
 		"@nextcloud/vue": "^7.4.0",
 		"@nextcloud/webpack-vue-config": "^5.4.0",
-		"@vue/compiler-sfc": "^3.2.45",
+		"@vue/compiler-sfc": "^3.2.47",
 		"eslint": "^7.32.0",
 		"eslint-webpack-plugin": "^2.7.0",
 		"nextcloud-l10n": "^0.1.1",
