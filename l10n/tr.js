@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow Upload",
     "Flowupload" : "Flowupload",
-    "Provides functions to upload large files with your HTML5-Browser." : "Büyük dosyaları HTML5 web tarayıcı üzerinden yükleme işlevlerini sağlar.",
+    "Provides functions to upload large files with your HTML5-Browser." : "Büyük dosyaları HTML5 tarayıcı üzerinden yükleme işlevlerini sağlar.",
     "New destination" : "Yeni hedef",
     "Open" : "Aç",
     "Star" : "Yıldız koy",
