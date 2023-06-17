@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Open" : "Ava",
     "Remove" : "Eemalda",
     "Pause" : "Paus",
     "Cancel" : "Loobu",
