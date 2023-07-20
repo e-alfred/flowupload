@@ -1,17 +1,32 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Flow Upload" : "Flow Upload",
+    "Flowupload" : "Flowupload",
+    "Provides functions to upload large files with your HTML5-Browser." : "Proporciona funciones para cargar archivos grandes con su navegador HTML5.",
+    "New destination" : "Nuevo destino",
     "Open" : "Abrir",
+    "Star" : "Marcar como favorito",
+    "Unstar" : "Quitar de favoritos",
     "Remove" : "Eliminar",
+    "Please select a location" : "Por favor, seleccione una ubicación",
     "Transfers" : "Transferencias",
+    "Select File" : "Seleccionar archivo",
+    "Select Folder" : "Seleccionar carpeta",
+    "Start/Resume" : "Iniciar/Continuar",
     "Pause" : "Pausar",
     "Cancel" : "Cancelar",
+    "Hide finished uploads" : "Ocultar cargas finalizadas",
     "Size" : "Tamaño",
     "Progress" : "Progreso",
+    "Time remaining" : "Tiempo restante",
     "Uploading" : "Cargando",
     "Name" : "Nombre",
+    "Upload speed" : "Velocidad de carga",
+    "Resume" : "Continuar",
     "Retry" : "Reintentar",
     "Completed" : "Completado",
-    "Error" : "Error"
+    "Error" : "Error",
+    "This location already exists" : "Esta ubicación ya existe"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
