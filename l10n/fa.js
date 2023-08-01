@@ -2,9 +2,14 @@ OC.L10N.register(
     "flowupload",
     {
     "Flow Upload" : "گردش بارگذاری",
+    "Flowupload" : "جریان آپلود",
     "Provides functions to upload large files with your HTML5-Browser." : "عملکردهایی را برای بارگذاری پرونده های بزرگ با مرورگر HTML5 شما فراهم می کند.",
+    "New destination" : "مقصد جدید",
     "Open" : "باز کن...",
+    "Star" : "ستاره",
+    "Unstar" : "ستاره را بردارید",
     "Remove" : "حذف",
+    "Please select a location" : "لطفا یک مکان را انتخاب کنید",
     "Transfers" : "نقل و انتقالات",
     "Select File" : "فایل را انتخاب کنید",
     "Select Folder" : "پوشه را انتخاب کنید",
@@ -21,6 +26,7 @@ OC.L10N.register(
     "Resume" : "از سرگیری",
     "Retry" : "تلاش دوباره",
     "Completed" : "نکمیل شده",
-    "Error" : "خطا"
+    "Error" : "خطا",
+    "This location already exists" : "این مکان از قبل وجود دارد"
 },
 "nplurals=2; plural=(n > 1);");
