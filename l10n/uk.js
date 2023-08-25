@@ -10,7 +10,7 @@ OC.L10N.register(
     "Unstar" : "Зняти зірку",
     "Remove" : "Вилучити",
     "Please select a location" : "Будь ласка, виберіть місце розташування",
-    "Transfers" : "Передача",
+    "Transfers" : "Передавання",
     "Select File" : "Вибрати файл",
     "Select Folder" : "Вибрати каталог",
     "Start/Resume" : "Почати/продовжити",
