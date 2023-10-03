@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Flow Upload" : "Процес завантаження",
     "Flowupload" : "Flowupload",
-    "Provides functions to upload large files with your HTML5-Browser." : "Надає можливість завантажувати великі файли за допомогою браузера, який підтримує HTML5.",
+    "Provides functions to upload large files with your HTML5-Browser." : "Надає можливість завантажувати великі файли у бравзері, який підтримує HTML5.",
     "New destination" : "Нове призначення",
     "Open" : "Відкрити",
     "Star" : "Поставити зірку",
