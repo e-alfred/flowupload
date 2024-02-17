@@ -1,18 +1,32 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Flow Upload" : "Flytopplasting",
+    "Flowupload" : "Flytopplasting",
+    "Provides functions to upload large files with your HTML5-Browser." : "Gir funksjoner for å laste opp store filer med HTML5-nettleseren.",
+    "New destination" : "Nytt mål",
     "Open" : "Åpne",
+    "Star" : "Stjernemerk",
+    "Unstar" : "Fjern stjernemerking",
     "Remove" : "Fjern",
+    "Please select a location" : "Vennligst velg en plassering",
     "Transfers" : "Overføringer",
     "Select File" : "Velg fil",
+    "Select Folder" : "Velg mappe",
+    "Start/Resume" : "Start/Gjenoppta",
     "Pause" : "Pause",
     "Cancel" : "Avbryt",
+    "Hide finished uploads" : "Skjul fullførte opplastinger",
     "Size" : "Størrelse",
     "Progress" : "Fremgang",
+    "Time remaining" : "Gjenstående tid",
     "Uploading" : "Laster opp",
     "Name" : "Navn",
+    "Upload speed" : "Opplastingshastighet",
+    "Resume" : "Gjenoppta",
     "Retry" : "Prøv igjen",
     "Completed" : "Ferdig",
-    "Error" : "Feil"
+    "Error" : "Feil",
+    "This location already exists" : "Denne plasseringen finnes allerede"
 },
 "nplurals=2; plural=(n != 1);");
