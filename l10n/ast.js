@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Open" : "Abrir",
     "Cancel" : "Encaboxar",
     "Size" : "Tamañu",
     "Name" : "Nome",
