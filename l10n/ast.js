@@ -7,6 +7,7 @@ OC.L10N.register(
     "Size" : "Tamañu",
     "Name" : "Nome",
     "Retry" : "Retentar",
+    "Completed" : "Completóse",
     "Error" : "Error"
 },
 "nplurals=2; plural=(n != 1);");
