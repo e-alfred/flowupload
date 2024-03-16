@@ -20,7 +20,7 @@ OC.L10N.register(
     "Size" : "Розмір",
     "Progress" : "Перебіг",
     "Time remaining" : "Залишилося часу",
-    "Uploading" : "Uploading",
+    "Uploading" : "Завантаження",
     "Name" : "Ім'я",
     "Upload speed" : "Швидкість завантаження",
     "Resume" : "Продовжити",
