@@ -6,6 +6,7 @@ OC.L10N.register(
     "Pause" : "Posar",
     "Cancel" : "Encaboxar",
     "Size" : "Tamañu",
+    "Progress" : "Progresu",
     "Uploading" : "Xubiendo",
     "Name" : "Nome",
     "Retry" : "Retentar",
