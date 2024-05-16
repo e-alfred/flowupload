@@ -1,5 +1,30 @@
 { "translations": {
+    "Flow Upload" : "Uaslódáil Sreabhadh",
+    "Flowupload" : "Sreabhadh uaslódáil",
+    "Provides functions to upload large files with your HTML5-Browser." : "Soláthraíonn feidhmeanna a uaslódáil comhaid mhóra le do HTML5-Brabhsálaí.",
+    "New destination" : "Ceann scríbe nua",
+    "Open" : "Oscail",
+    "Star" : "Réalt",
+    "Unstar" : "Unstar",
+    "Remove" : "Bain",
+    "Please select a location" : "Roghnaigh suíomh le do thoil",
+    "Transfers" : "Aistrithe",
+    "Select File" : "Roghnaigh Comhad",
+    "Select Folder" : "Roghnaigh Fillteán",
+    "Start/Resume" : "Tosaigh/Atosaigh",
+    "Pause" : "Sos",
+    "Cancel" : "Cealaigh",
+    "Hide finished uploads" : "Folaigh uaslódálacha críochnaithe",
+    "Size" : "Méid",
+    "Progress" : "Dul chun cinn",
+    "Time remaining" : "Am atá fágtha",
+    "Uploading" : "Ag uaslódáil",
     "Name" : "Ainm",
-    "Retry" : "Bain triail eile as"
+    "Upload speed" : "Luas uaslódála",
+    "Resume" : "Atosaigh",
+    "Retry" : "Bain triail eile as",
+    "Completed" : "Críochnaithe",
+    "Error" : "Earráid",
+    "This location already exists" : "Tá an suíomh seo ann cheana féin"
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
 }
