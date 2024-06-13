@@ -1,8 +1,8 @@
 OC.L10N.register(
     "flowupload",
     {
-    "Flow Upload" : "تدفق رفع الملفات Flow Upload",
-    "Flowupload" : "تدفق رفع الملفات Flowupload",
+    "Flow Upload" : "مسار دفق رفع الملفات Flow Upload",
+    "Flowupload" : "مسار دفق رفع الملفات Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "يوفّر وظائف لرفع الملفات الضخمة إلى متصفحك HTML-5.",
     "New destination" : "مقصد جديد",
     "Open" : "إفتح",
