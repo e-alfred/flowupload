@@ -24,7 +24,7 @@ OC.L10N.register(
     "Name" : "Nome",
     "Upload speed" : "Velocidade de envío",
     "Resume" : "Continuar",
-    "Retry" : "Tentar de novo",
+    "Retry" : "Volver tentar",
     "Completed" : "Completado",
     "Error" : "Erro",
     "This location already exists" : "Esta localización xa existe"
