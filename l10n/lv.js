@@ -9,7 +9,7 @@ OC.L10N.register(
     "Size" : "Izmērs",
     "Progress" : "Progress",
     "Uploading" : "Augšupielāde",
-    "Name" : "Vārds",
+    "Name" : "Nosaukums",
     "Retry" : "Mēģināt vēlreiz",
     "Completed" : "Pabeigts",
     "Error" : "Kļūda"
