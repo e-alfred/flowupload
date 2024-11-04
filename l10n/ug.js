@@ -1,12 +1,32 @@
 OC.L10N.register(
     "flowupload",
     {
+    "Flow Upload" : "Flow Upload",
+    "Flowupload" : "Flowupload",
+    "Provides functions to upload large files with your HTML5-Browser." : "HTML5- توركۆرگۈڭىز بىلەن چوڭ ھۆججەتلەرنى يوللاش ئىقتىدارى بىلەن تەمىنلەيدۇ.",
+    "New destination" : "يېڭى مەنزىل",
+    "Open" : "ئېچىڭ",
+    "Star" : "Star",
+    "Unstar" : "Unstar",
     "Remove" : "چىقىرىۋەت",
+    "Please select a location" : "ئورۇن تاللاڭ",
+    "Transfers" : "Transfers",
+    "Select File" : "ھۆججەتنى تاللاڭ",
+    "Select Folder" : "ھۆججەت قىسقۇچنى تاللاڭ",
+    "Start/Resume" : "باشلاش / ئەسلىگە كەلتۈرۈش",
     "Pause" : "ۋاقىتلىق توختا",
     "Cancel" : "ۋاز كەچ",
+    "Hide finished uploads" : "تاماملانغان يۈكلەرنى يوشۇرۇش",
     "Size" : "چوڭلۇقى",
+    "Progress" : "ئىلگىرىلەش",
+    "Time remaining" : "ۋاقىت قالدى",
     "Uploading" : "Uploading",
     "Name" : "ئاتى",
-    "Error" : "خاتالىق"
+    "Upload speed" : "يۈكلەش سۈرئىتى",
+    "Resume" : "ئەسلىگە كەلتۈرۈش",
+    "Retry" : "قايتا سىناڭ",
+    "Completed" : "تاماملاندى",
+    "Error" : "خاتالىق",
+    "This location already exists" : "بۇ ئورۇن مەۋجۇت"
 },
 "nplurals=2; plural=(n != 1);");
