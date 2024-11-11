@@ -5,7 +5,7 @@ OC.L10N.register(
     "Flowupload" : "أتمتة سير العمل الخاص برفع الملفات Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "يوفّر وظائف لرفع الملفات الضخمة إلى متصفحك HTML-5.",
     "New destination" : "وجهة جديدة",
-    "Open" : "إفتح",
+    "Open" : "فتح",
     "Star" : "ضع نجمة",
     "Unstar" : "إلغ النجمة",
     "Remove" : "حذف",
