@@ -1,7 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
-    "Cancel" : "Canzelar",
+    "Cancel" : "Cancelar",
     "Size" : "Grandario",
     "Name" : "Nombre",
     "Error" : "Error"
