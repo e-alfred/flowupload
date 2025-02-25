@@ -15,7 +15,7 @@ OC.L10N.register(
     "Select Folder" : "Vælg Mappe",
     "Start/Resume" : "Start/Fortsæt",
     "Pause" : "Pause",
-    "Cancel" : "Annullér",
+    "Cancel" : "Annuller",
     "Hide finished uploads" : "Skjul afsluttede uploads ",
     "Size" : "Størrelse",
     "Progress" : "Progress",
