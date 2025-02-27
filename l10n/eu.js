@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Fluxuen igoera",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Zure HTML5 nabigatzailearekin fitxategi handiak igotzeko funtzioak eskaintzen ditu.",
+    "This location already exists" : "Kokaleku hau existitzen da dagoeneko",
     "New destination" : "Helmuga berria",
     "Open" : "Ireki",
     "Star" : "Izartu",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Jarraitu",
     "Retry" : "Saiatu berriz",
     "Completed" : "Osatua",
-    "Error" : "Errorea",
-    "This location already exists" : "Kokaleku hau existitzen da dagoeneko"
+    "Error" : "Errorea"
 },
 "nplurals=2; plural=(n != 1);");

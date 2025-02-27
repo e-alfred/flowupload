@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "This location already exists" : "Ši vieta jau yra",
     "New destination" : "Nauja paskirtis",
     "Open" : "Atverti",
     "Remove" : "Šalinti",
@@ -17,7 +18,6 @@ OC.L10N.register(
     "Resume" : "Pratęsti",
     "Retry" : "Bandyti dar kartą",
     "Completed" : "Užbaigta",
-    "Error" : "Klaida",
-    "This location already exists" : "Ši vieta jau yra"
+    "Error" : "Klaida"
 },
 "nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);");

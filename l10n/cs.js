@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Nahrání toku",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Poskytuje funkce pro nahrávání velkých souborů pomocí prohlížeče s HTML5.",
+    "This location already exists" : "Toto umístění už existuje",
     "New destination" : "Nový cíl",
     "Open" : "Otevřeno",
     "Star" : "Označit hvězdičkou",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Navázat",
     "Retry" : "Zkusit znovu",
     "Completed" : "Dokončeno",
-    "Error" : "Chyba",
-    "This location already exists" : "Toto umístění už existuje"
+    "Error" : "Chyba"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");

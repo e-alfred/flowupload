@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Flow Upload",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "HTML5- توركۆرگۈڭىز بىلەن چوڭ ھۆججەتلەرنى يوللاش ئىقتىدارى بىلەن تەمىنلەيدۇ.",
+    "This location already exists" : "بۇ ئورۇن مەۋجۇت",
     "New destination" : "يېڭى مەنزىل",
     "Open" : "ئېچىڭ",
     "Star" : "Star",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "ئەسلىگە كەلتۈرۈش",
     "Retry" : "قايتا سىناڭ",
     "Completed" : "تاماملاندى",
-    "Error" : "خاتالىق",
-    "This location already exists" : "بۇ ئورۇن مەۋجۇت"
+    "Error" : "خاتالىق"
 },
 "nplurals=2; plural=(n != 1);");

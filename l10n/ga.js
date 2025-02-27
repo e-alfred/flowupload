@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Uaslódáil Sreabhadh",
     "Flowupload" : "Sreabhadh uaslódáil",
     "Provides functions to upload large files with your HTML5-Browser." : "Soláthraíonn feidhmeanna a uaslódáil comhaid mhóra le do HTML5-Brabhsálaí.",
+    "This location already exists" : "Tá an suíomh seo ann cheana féin",
     "New destination" : "Ceann scríbe nua",
     "Open" : "Oscail",
     "Star" : "Réalt",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Atosaigh",
     "Retry" : "Bain triail eile as",
     "Completed" : "Críochnaithe",
-    "Error" : "Earráid",
-    "This location already exists" : "Tá an suíomh seo ann cheana féin"
+    "Error" : "Earráid"
 },
 "nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);");

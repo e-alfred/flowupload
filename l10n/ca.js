@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Pujada amb Flow",
     "Flowupload" : "Pujada amb Flow",
     "Provides functions to upload large files with your HTML5-Browser." : "Proporciona funcions per a pujar fitxers grans amb el vostre navegador HTML5.",
+    "This location already exists" : "Aquesta ubicació ja existeix",
     "New destination" : "Destinació nova",
     "Open" : "Obre",
     "Star" : "Marca com a preferit",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Reprèn",
     "Retry" : "Reintenta",
     "Completed" : "S'ha completat",
-    "Error" : "Error",
-    "This location already exists" : "Aquesta ubicació ja existeix"
+    "Error" : "Error"
 },
 "nplurals=2; plural=(n != 1);");

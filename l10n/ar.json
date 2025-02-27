@@ -2,6 +2,7 @@
     "Flow Upload" : "أتمتة سير العمل الخاص برفع الملفات Flow Upload",
     "Flowupload" : "أتمتة سير العمل الخاص برفع الملفات Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "يوفّر وظائف لرفع الملفات الضخمة إلى متصفحك HTML-5.",
+    "This location already exists" : "هذا الموضع موجود مسبقاً",
     "New destination" : "وجهة جديدة",
     "Open" : "فتح",
     "Star" : "ضع نجمة",
@@ -24,7 +25,6 @@
     "Resume" : "إستأنِف",
     "Retry" : "أعد المحاولة",
     "Completed" : "إكتمَلَ",
-    "Error" : "خطأ",
-    "This location already exists" : "هذا الموضع موجود مسبقاً"
+    "Error" : "خطأ"
 },"pluralForm" :"nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;"
 }

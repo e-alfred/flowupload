@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "流程上傳",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "提供使用 HTML 5 瀏覽器上傳大檔案的功能。",
+    "This location already exists" : "此位置已經存在",
     "New destination" : "新目的地",
     "Open" : "打開",
     "Star" : "星標",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "繼續",
     "Retry" : "重試",
     "Completed" : "完成",
-    "Error" : "錯誤",
-    "This location already exists" : "此位置已經存在"
+    "Error" : "錯誤"
 },
 "nplurals=1; plural=0;");

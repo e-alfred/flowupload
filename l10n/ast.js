@@ -1,6 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
+    "This location already exists" : "La llocalización yá esiste",
     "New destination" : "Destín nuevu",
     "Open" : "Abrir",
     "Remove" : "Quitar",
@@ -16,7 +17,6 @@ OC.L10N.register(
     "Resume" : "Siguir",
     "Retry" : "Retentar",
     "Completed" : "Completóse",
-    "Error" : "Error",
-    "This location already exists" : "La llocalización yá esiste"
+    "Error" : "Error"
 },
 "nplurals=2; plural=(n != 1);");

@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Flow отпремање",
     "Flowupload" : "Flow отпремање",
     "Provides functions to upload large files with your HTML5-Browser." : "Даје могућност отпремања великих фајлова преко Вашег HTML5 веб прегледача.",
+    "This location already exists" : "Локација већ постоји",
     "New destination" : "Ново одредиште",
     "Open" : "Отвори",
     "Star" : "Означи звездом",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Настави",
     "Retry" : "Покушај поново",
     "Completed" : "Завршено",
-    "Error" : "Грешка",
-    "This location already exists" : "Локација већ постоји"
+    "Error" : "Грешка"
 },
 "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);");

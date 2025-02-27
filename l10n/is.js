@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Flæði-innsending",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Gefur kost á að senda inn stórar skrár með HTML5-vafranum þínum.",
+    "This location already exists" : "Staðsetningin er þegar til.",
     "New destination" : "Nýr áfangastaður",
     "Open" : "Opna",
     "Star" : "Stjörnumerkja",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Halda áfram",
     "Retry" : "Reyna aftur",
     "Completed" : "Lokið",
-    "Error" : "Villa",
-    "This location already exists" : "Staðsetningin er þegar til."
+    "Error" : "Villa"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

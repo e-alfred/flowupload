@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Μεταφόρτωση Ροής",
     "Flowupload" : "Ροή μεταφορτώσεων",
     "Provides functions to upload large files with your HTML5-Browser." : "Παρέχει λειτουργίες για τη μεταφόρτωση μεγάλων αρχείων με το πρόγραμμα περιήγησης HTML5.",
+    "This location already exists" : "Υπάρχει ήδη η τοποθεσία",
     "New destination" : "Νέος προορισμός",
     "Open" : "Άνοιγμα",
     "Star" : "Επισήμανση",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Συνέχιση",
     "Retry" : "Δοκιμή ξανά",
     "Completed" : "Ολοκληρωμένες",
-    "Error" : "Σφάλμα",
-    "This location already exists" : "Υπάρχει ήδη η τοποθεσία"
+    "Error" : "Σφάλμα"
 },
 "nplurals=2; plural=(n != 1);");

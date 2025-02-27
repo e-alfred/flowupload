@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Процес завантаження",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Надає можливість завантажувати великі файли у бравзері, який підтримує HTML5.",
+    "This location already exists" : "Це місце вже існує",
     "New destination" : "Нове призначення",
     "Open" : "Відкрити",
     "Star" : "Додати зірочку",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Продовжити",
     "Retry" : "Ще раз",
     "Completed" : "Завершені",
-    "Error" : "Помилка",
-    "This location already exists" : "Це місце вже існує"
+    "Error" : "Помилка"
 },
 "nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);");

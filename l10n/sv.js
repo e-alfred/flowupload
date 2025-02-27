@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Flow Upload" : "Flow Upload",
     "Provides functions to upload large files with your HTML5-Browser." : "Ladda upp stora filer med din HTML5-webbläsare.",
+    "This location already exists" : "Den här platsen finns redan",
     "New destination" : "Ny destination",
     "Open" : "Öppna",
     "Star" : "Stjärnmarkera",
@@ -25,7 +26,6 @@ OC.L10N.register(
     "Resume" : "Återuppta",
     "Retry" : "Försök igen",
     "Completed" : "Slutförd",
-    "Error" : "Fel",
-    "This location already exists" : "Den här platsen finns redan"
+    "Error" : "Fel"
 },
 "nplurals=2; plural=(n != 1);");

@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "گردش بارگذاری",
     "Flowupload" : "جریان آپلود",
     "Provides functions to upload large files with your HTML5-Browser." : "عملکردهایی را برای بارگذاری پرونده های بزرگ با مرورگر HTML5 شما فراهم می کند.",
+    "This location already exists" : "این مکان از قبل وجود دارد",
     "New destination" : "مقصد جدید",
     "Open" : "باز کن...",
     "Star" : "ستاره",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "از سرگیری",
     "Retry" : "تلاش دوباره",
     "Completed" : "نکمیل شده",
-    "Error" : "خطا",
-    "This location already exists" : "این مکان از قبل وجود دارد"
+    "Error" : "خطا"
 },
 "nplurals=2; plural=(n > 1);");

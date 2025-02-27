@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Flow Upload",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Büyük dosyaları HTML5 tarayıcı üzerinden yükleme işlevlerini sağlar.",
+    "This location already exists" : "Bu konum zaten var",
     "New destination" : "Yeni hedef",
     "Open" : "Aç",
     "Star" : "Yıldız koy",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Sürdür",
     "Retry" : "Yeniden dene",
     "Completed" : "Tamamlandı",
-    "Error" : "Hata",
-    "This location already exists" : "Bu konum zaten var"
+    "Error" : "Hata"
 },
 "nplurals=2; plural=(n > 1);");

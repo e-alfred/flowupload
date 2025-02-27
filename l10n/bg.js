@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Качване на потока",
     "Flowupload" : "Качване на потока",
     "Provides functions to upload large files with your HTML5-Browser." : "Осигурява функции за качване на големи файлове с вашия HTML5-браузър.",
+    "This location already exists" : "Това местоположение вече съществува",
     "New destination" : "Нова дестинация",
     "Open" : "Отвори",
     "Star" : " Звезда",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : " Възобновяване",
     "Retry" : "Опитай отново",
     "Completed" : "Завършено",
-    "Error" : "Грешка",
-    "This location already exists" : "Това местоположение вече съществува"
+    "Error" : "Грешка"
 },
 "nplurals=2; plural=(n != 1);");

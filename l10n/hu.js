@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Flow Upload",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Nagy fájlok feltöltését biztosítja a HTML5-alapú böngészőjével.",
+    "This location already exists" : "Ez a hely már létezik",
     "New destination" : "Új cél",
     "Open" : "Megnyitás",
     "Star" : "Csillagozás",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Folytatás",
     "Retry" : "Újra",
     "Completed" : "Kész",
-    "Error" : "Hiba",
-    "This location already exists" : "Ez a hely már létezik"
+    "Error" : "Hiba"
 },
 "nplurals=2; plural=(n != 1);");

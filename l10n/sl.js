@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Koračno pošiljanje",
     "Flowupload" : "‧ Koračno pošiljanje ‧",
     "Provides functions to upload large files with your HTML5-Browser." : "Omogoča pošiljanje velikih datotek prek spletnega brskalnika HTML5.",
+    "This location already exists" : "To mesto že obstaja",
     "New destination" : "Nov cilj",
     "Open" : "Odpri",
     "Star" : "Označi z zvezdico",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Nadaljuj",
     "Retry" : "Poskusi znova",
     "Completed" : "Končano",
-    "Error" : "Napaka",
-    "This location already exists" : "To mesto že obstaja"
+    "Error" : "Napaka"
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");

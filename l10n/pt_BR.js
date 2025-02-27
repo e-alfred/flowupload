@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Upload do Fluxo",
     "Flowupload" : "Flowupload",
     "Provides functions to upload large files with your HTML5-Browser." : "Fornece funções para enviar arquivos grandes com o seu navegador HTML5.",
+    "This location already exists" : "Esta localização já existe",
     "New destination" : "Novo destino",
     "Open" : "Abrir",
     "Star" : "Destacar",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Retomar",
     "Retry" : "Retentar",
     "Completed" : "Completo",
-    "Error" : "Erro",
-    "This location already exists" : "Esta localização já existe"
+    "Error" : "Erro"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

@@ -4,6 +4,7 @@ OC.L10N.register(
     "Flow Upload" : "Asali n usuddem",
     "Flowupload" : "Arured n usuddem",
     "Provides functions to upload large files with your HTML5-Browser." : "Yessentam tiwuriwin i usali n yifuyla imeqqranen s yiminig-ik HTML5.",
+    "This location already exists" : "Adig-a yella yakan",
     "New destination" : "Tanila tamaynut",
     "Open" : "Ldi",
     "Star" : "Bdu",
@@ -26,7 +27,6 @@ OC.L10N.register(
     "Resume" : "Agzul",
     "Retry" : "Ɛreḍ tikkelt-nniḍen",
     "Completed" : "Yemmed",
-    "Error" : "Erreur",
-    "This location already exists" : "Adig-a yella yakan"
+    "Error" : "Erreur"
 },
 "nplurals=2; plural=(n != 1);");
