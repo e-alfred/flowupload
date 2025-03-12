@@ -5,7 +5,7 @@ OC.L10N.register(
     "Remove" : "Noņemt",
     "Pause" : "Pauzēt",
     "Cancel" : "Atcelt",
-    "Hide finished uploads" : "Slēpt pabeigtās augšupielādes",
+    "Hide finished uploads" : "Paslēpt pabeigtās augšupielādes",
     "Size" : "Izmērs",
     "Progress" : "Progress",
     "Uploading" : "Augšupielāde",
