@@ -6,6 +6,7 @@ OC.L10N.register(
     "Pause" : "Paus",
     "Cancel" : "Loobu",
     "Size" : "Suurus",
+    "Progress" : "Edenemine",
     "Uploading" : "Üleslaadimine",
     "Name" : "Nimi",
     "Retry" : "Proovi uuesti",
