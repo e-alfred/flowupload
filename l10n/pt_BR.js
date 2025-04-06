@@ -17,7 +17,7 @@ OC.L10N.register(
     "Start/Resume" : "Iniciar/Continuar",
     "Pause" : "Pausar",
     "Cancel" : "Cancelar",
-    "Hide finished uploads" : "Ocultar envios finalizados",
+    "Hide finished uploads" : "Ocultar uploads finalizados",
     "Size" : "Tamanho",
     "Progress" : "Progresso",
     "Time remaining" : "Tempo restante",
