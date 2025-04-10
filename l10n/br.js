@@ -16,7 +16,7 @@ OC.L10N.register(
     "Select Folder" : "Choazit un Teuliad",
     "Start/Resume" : "Kregiñ/kendec'hel",
     "Pause" : "Ehanañ",
-    "Cancel" : "Arrest",
+    "Cancel" : "Nullañ",
     "Hide finished uploads" : "Koachañ ar pellgargadennoù echuet",
     "Size" : "Ment",
     "Progress" : "Araokadenn",
