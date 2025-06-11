@@ -1,5 +1,7 @@
 { "translations": {
+    "Open" : "Fungua",
     "Cancel" : "Cancel",
-    "Name" : "Jina"
+    "Name" : "Jina",
+    "Completed" : "Kamilika"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
