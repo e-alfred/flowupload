@@ -3,7 +3,9 @@ OC.L10N.register(
     {
     "Open" : "Fungua",
     "Cancel" : "Cancel",
+    "Size" : "Ukubwa",
     "Name" : "Jina",
+    "Retry" : "Jaribu tene",
     "Completed" : "Kamilika"
 },
 "nplurals=2; plural=(n != 1);");
