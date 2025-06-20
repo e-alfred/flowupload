@@ -6,6 +6,7 @@ OC.L10N.register(
     "Size" : "Ukubwa",
     "Name" : "Jina",
     "Retry" : "Jaribu tene",
-    "Completed" : "Kamilika"
+    "Completed" : "Kamilika",
+    "Error" : "Hitilafu"
 },
 "nplurals=2; plural=(n != 1);");

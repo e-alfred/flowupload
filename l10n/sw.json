@@ -4,6 +4,7 @@
     "Size" : "Ukubwa",
     "Name" : "Jina",
     "Retry" : "Jaribu tene",
-    "Completed" : "Kamilika"
+    "Completed" : "Kamilika",
+    "Error" : "Hitilafu"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
