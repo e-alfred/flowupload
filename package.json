@@ -37,7 +37,7 @@
 		"@flowjs/flow.js": "^2.14.1",
 		"@nextcloud/axios": "^2.3.0",
 		"@nextcloud/babel-config": "^1.0.0",
-		"@nextcloud/eslint-config": "^5.1.0",
+		"@nextcloud/eslint-config": "^8.2.1",
 		"@nextcloud/eslint-plugin": "^2.0.0",
 		"@nextcloud/router": "^2.0.0",
 		"@nextcloud/vue": "^7.4.0",
