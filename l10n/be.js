@@ -1,7 +1,7 @@
 OC.L10N.register(
     "flowupload",
     {
-    "Cancel" : "Cancel",
+    "Cancel" : "Скасаваць",
     "Uploading" : "Uploading",
     "Error" : "Памылка"
 },
