@@ -1,12 +1,12 @@
 OC.L10N.register(
     "flowupload",
     {
-    "Open" : "Open",
-    "Remove" : "Remove",
-    "Cancel" : "Cancel",
+    "Open" : "Ochish",
+    "Remove" : "O'chirish",
+    "Cancel" : "Bekor qilish",
     "Size" : "Size",
     "Uploading" : "Uploading",
     "Name" : "Name",
-    "Error" : "Error"
+    "Error" : "Xatolik"
 },
 "nplurals=1; plural=0;");
