@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Open" : "Ava",
     "Remove" : "Eemalda",
+    "Select File" : "Vali fail",
     "Pause" : "Paus",
     "Cancel" : "Loobu",
     "Size" : "Suurus",
