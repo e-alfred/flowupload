@@ -2,6 +2,7 @@ OC.L10N.register(
     "flowupload",
     {
     "Open" : "Адкрыць",
+    "Remove" : "Выдаліць",
     "Cancel" : "Скасаваць",
     "Size" : "Памер",
     "Uploading" : "Запампоўванне",
