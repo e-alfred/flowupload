@@ -7,6 +7,7 @@ OC.L10N.register(
     "Size" : "Size",
     "Uploading" : "Uploading",
     "Name" : "Name",
+    "Retry" : "Qayta urinish",
     "Error" : "Xatolik"
 },
 "nplurals=1; plural=0;");
